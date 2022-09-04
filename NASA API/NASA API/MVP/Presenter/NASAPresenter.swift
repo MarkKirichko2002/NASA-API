@@ -13,6 +13,7 @@ protocol PhotoPresentDelegate {
     func PresentMarsPhotos(images: [Photo])
     func PresentNASAImages(images: [ImageData])
     func PresentNASAImagesInfo(info: [Link])
+    func PresentEPICNASAImages(images: [EPIC])
 }
 
 typealias Presenter = PhotoPresentDelegate & UIViewController
@@ -23,8 +24,10 @@ class NASAPresenter {
     var marsimages = [Photo]()
     var nasaimagesinfo = [ImageData]()
     var nasaimages = [Link]()
+    var epicimages = [EPIC]()
     
     func GetMarsPhotos() {
+        
         let url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=apikey"
         
         URLSession.shared.dataTask(with: URL(string: url)!) { data, _, error in
@@ -84,6 +87,29 @@ class NASAPresenter {
                     }
                     
                 }
+            }
+        }
+    }
+    
+    func GetEPICImages() {
+        let url = "https://epic.gsfc.nasa.gov/api/enhanced"
+        
+        AF.request(url).responseData { response in
+            guard let data = response.data else {return}
+            
+            var epicResponse: [EPIC]?
+            
+            do {
+                epicResponse = try JSONDecoder().decode([EPIC].self, from: data)
+            } catch {
+                print(error)
+            }
+            
+            DispatchQueue.main.async {
+                guard let epicimages = epicResponse else {return}
+                self.epicimages = epicimages
+                print(self.epicimages)
+                self.delegate?.PresentEPICNASAImages(images: epicimages)
             }
         }
     }

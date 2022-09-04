@@ -9,7 +9,7 @@ import UIKit
 
 class NasaImageCategoriesViewController: UITableViewController {
     
-    var categories = [NasaImageCategory(id: 1, name: "NASA Mars Rover Images", icon: "rover"), NasaImageCategory(id: 2, name: "NASA Image Library", icon: "NASA")]
+    var categories = [NasaImageCategory(id: 1, name: "NASA Mars Rover Images", icon: "rover"), NasaImageCategory(id: 2, name: "NASA Image Library", icon: "NASA"), NasaImageCategory(id: 3, name: "EPIC", icon: "EPIC")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
