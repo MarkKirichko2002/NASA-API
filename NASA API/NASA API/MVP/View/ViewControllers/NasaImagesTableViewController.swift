@@ -16,6 +16,7 @@ class NasaImagesTableViewController: UITableViewController, PhotoPresentDelegate
     var nasaimagesinfo = [ImageData]()
     var epicimages = [EPIC]()
     var category: NasaImageCategory?
+    var earthimages = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +45,14 @@ class NasaImagesTableViewController: UITableViewController, PhotoPresentDelegate
         case 1:
             if let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImageDetailViewController") as? NASAImageDetailViewController {
                 vc.info = "Landing Date: \(marsimages[indexPath.row].rover.landingDate)"
+                vc.image = marsimages[indexPath.row].imgSrc
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
         case 2:
             if let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImageDetailViewController") as? NASAImageDetailViewController {
                 vc.info = nasaimagesinfo[indexPath.row].dataDescription
+                vc.image = nasaimages[indexPath.row].href
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
@@ -62,6 +65,7 @@ class NasaImagesTableViewController: UITableViewController, PhotoPresentDelegate
             let attitudequaternions = "\n attitude quaternions \n q0: \(epicimages[indexPath.row].attitudeQuaternions.q0), \n q1: \(epicimages[indexPath.row].attitudeQuaternions.q1), \n q2: \(epicimages[indexPath.row].attitudeQuaternions.q2)"
             if let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImageDetailViewController") as? NASAImageDetailViewController {
                 vc.info = "\(id) \(centroidcoordinates) \(dscovrj2000position) \(lunarj2000position) \(sunJ2000Position) \(attitudequaternions)"
+                vc.image = earthimages[indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
@@ -126,6 +130,7 @@ class NasaImagesTableViewController: UITableViewController, PhotoPresentDelegate
             let day = formatter.string(from: date!)
             let totaldate = year + "/" + month + "/" + day
             cell.NASAImage.sd_setImage(with: URL(string: "https://epic.gsfc.nasa.gov/archive/enhanced/\(totaldate)/png/\(image)"))
+            self.earthimages.append("https://epic.gsfc.nasa.gov/archive/enhanced/\(totaldate)/png/\(image)")
             cell.NASAImage.layer.cornerRadius = cell.NASAImage.frame.width / 2
             cell.NASAImage.layer.borderWidth = 5
             cell.TitleLabel.text = epicimages[indexPath.row].caption

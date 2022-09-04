@@ -72,7 +72,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9g0-hA-oZx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4667" y="-411"/>
+            <point key="canvasLocation" x="4391" y="-411"/>
         </scene>
         <!--Image Detail View Controller-->
         <scene sceneID="IyG-Ya-7Zg">
@@ -83,30 +83,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Detail" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bGw-6s-kjy">
-                                <rect key="frame" x="100" y="144" width="228" height="548"/>
+                                <rect key="frame" x="100" y="463" width="228" height="229"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASA" translatesAutoresizingMaskIntoConstraints="NO" id="w77-sZ-5Wm">
+                                <rect key="frame" x="114" y="163" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="G9P-T2-gIe"/>
+                                    <constraint firstAttribute="width" constant="200" id="Z34-bU-HcY"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v5q-Ri-m8d"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="v5q-Ri-m8d" firstAttribute="bottom" secondItem="bGw-6s-kjy" secondAttribute="bottom" constant="200" id="1j9-pa-UTV"/>
-                            <constraint firstItem="bGw-6s-kjy" firstAttribute="top" secondItem="v5q-Ri-m8d" secondAttribute="top" constant="100" id="cdV-e9-2Yu"/>
+                            <constraint firstItem="w77-sZ-5Wm" firstAttribute="centerY" secondItem="GHq-pd-4qt" secondAttribute="centerY" constant="-200" id="VpN-Wg-6Xc"/>
+                            <constraint firstItem="w77-sZ-5Wm" firstAttribute="centerX" secondItem="GHq-pd-4qt" secondAttribute="centerX" id="aZF-ri-W5j"/>
+                            <constraint firstItem="bGw-6s-kjy" firstAttribute="top" secondItem="w77-sZ-5Wm" secondAttribute="bottom" constant="100" id="eAH-h7-Na2"/>
                             <constraint firstItem="bGw-6s-kjy" firstAttribute="leading" secondItem="v5q-Ri-m8d" secondAttribute="leading" constant="100" id="iiD-Fg-Yqq"/>
                             <constraint firstItem="v5q-Ri-m8d" firstAttribute="trailing" secondItem="bGw-6s-kjy" secondAttribute="trailing" constant="100" id="kTx-wv-IYp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EWz-eL-tJe"/>
                     <connections>
+                        <outlet property="NASAImageDetail" destination="w77-sZ-5Wm" id="TyX-G1-FG6"/>
                         <outlet property="text" destination="bGw-6s-kjy" id="T40-QN-tN4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rwj-Yn-Cri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5691.5887850467288" y="-411.44708423326136"/>
+            <point key="canvasLocation" x="5556" y="-411"/>
         </scene>
         <!--NASA Image Categories-->
         <scene sceneID="H08-ER-TAa">
