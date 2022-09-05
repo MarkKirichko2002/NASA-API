@@ -23,9 +23,9 @@ class NasaViewModel {
             do {
                 asteroidResponse = try JSONDecoder().decode(Asteroid.self, from: data)
                 let result = asteroidResponse?.nearEarthObjects
-                let asteroidresult = result?["2015-09-07", default: [NearEarthObject]()]
+                guard let asteroidresult = result?["2015-09-07", default: [NearEarthObject]()] else {return}
                 print(asteroidresult)
-                self.asteroids.onNext(asteroidresult!)
+                self.asteroids.onNext(asteroidresult)
             } catch {
                 print(error)
             }

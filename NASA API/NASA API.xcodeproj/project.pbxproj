@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E1C14783C29C121D8739A6D /* Pods_NASA_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF470114C09CC682C1FC861 /* Pods_NASA_API.framework */; };
-		8239551D28BED9BD0064A1BB /* NasaImageCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239551C28BED9BD0064A1BB /* NasaImageCategoriesViewController.swift */; };
+		8239551D28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239551C28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift */; };
 		8239551F28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239551E28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift */; };
 		8239552128BEDCE10064A1BB /* NasaImageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239552028BEDCE10064A1BB /* NasaImageCategory.swift */; };
 		8239552328BF039B0064A1BB /* NASAImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239552228BF039B0064A1BB /* NASAImageDetailViewController.swift */; };
-		826E245028A480DC007AF962 /* NasaImagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E244F28A480DC007AF962 /* NasaImagesTableViewController.swift */; };
+		826E245028A480DC007AF962 /* NASAImagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E244F28A480DC007AF962 /* NASAImagesTableViewController.swift */; };
 		826E245228A48101007AF962 /* NasaImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E245128A48101007AF962 /* NasaImagesTableViewCell.swift */; };
 		82C6F24728A4090E00B8EA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6F24628A4090E00B8EA70 /* AppDelegate.swift */; };
 		82C6F24928A4090E00B8EA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6F24828A4090E00B8EA70 /* SceneDelegate.swift */; };
@@ -22,19 +21,23 @@
 		82C6F25328A4091100B8EA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C6F25128A4091100B8EA70 /* LaunchScreen.storyboard */; };
 		82C6F25F28A4093500B8EA70 /* NasaImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6F25E28A4093500B8EA70 /* NasaImage.swift */; };
 		82C6F26128A40A1800B8EA70 /* NASAPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6F26028A40A1800B8EA70 /* NASAPresenter.swift */; };
+		82D3C07828C5743500084046 /* NASAVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D3C07728C5743500084046 /* NASAVideoPlayerViewController.swift */; };
+		82D3C07A28C5759700084046 /* NASAVideosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D3C07928C5759700084046 /* NASAVideosTableViewController.swift */; };
 		82F2573028B838DD00824A80 /* NASA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F2572F28B838DD00824A80 /* NASA.swift */; };
 		82F2573228B838F800824A80 /* NasaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F2573128B838F800824A80 /* NasaViewModel.swift */; };
 		82F2573428B8392200824A80 /* AsteroidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F2573328B8392200824A80 /* AsteroidViewController.swift */; };
+		9E0D506DA5AEADFA7279B685 /* Pods_NASA_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D63FB22F6C3BE6E5D38FD25 /* Pods_NASA_API.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A29F39EDBC872346C15E053 /* Pods-NASA API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA API.debug.xcconfig"; path = "Target Support Files/Pods-NASA API/Pods-NASA API.debug.xcconfig"; sourceTree = "<group>"; };
-		74D9B55D02AE6D4063B8346E /* Pods-NASA API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA API.release.xcconfig"; path = "Target Support Files/Pods-NASA API/Pods-NASA API.release.xcconfig"; sourceTree = "<group>"; };
-		8239551C28BED9BD0064A1BB /* NasaImageCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageCategoriesViewController.swift; sourceTree = "<group>"; };
+		0D63FB22F6C3BE6E5D38FD25 /* Pods_NASA_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NASA_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		258B316EB393359717D0DA5E /* Pods-NASA API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA API.release.xcconfig"; path = "Target Support Files/Pods-NASA API/Pods-NASA API.release.xcconfig"; sourceTree = "<group>"; };
+		700DDE087EEE31B3D7D4C1A8 /* Pods-NASA API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA API.debug.xcconfig"; path = "Target Support Files/Pods-NASA API/Pods-NASA API.debug.xcconfig"; sourceTree = "<group>"; };
+		8239551C28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesViewController.swift; sourceTree = "<group>"; };
 		8239551E28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageCategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		8239552028BEDCE10064A1BB /* NasaImageCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageCategory.swift; sourceTree = "<group>"; };
 		8239552228BF039B0064A1BB /* NASAImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageDetailViewController.swift; sourceTree = "<group>"; };
-		826E244F28A480DC007AF962 /* NasaImagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesTableViewController.swift; sourceTree = "<group>"; };
+		826E244F28A480DC007AF962 /* NASAImagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImagesTableViewController.swift; sourceTree = "<group>"; };
 		826E245128A48101007AF962 /* NasaImagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesTableViewCell.swift; sourceTree = "<group>"; };
 		82C6F24328A4090E00B8EA70 /* NASA API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NASA API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C6F24628A4090E00B8EA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,10 +49,11 @@
 		82C6F25428A4091100B8EA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82C6F25E28A4093500B8EA70 /* NasaImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImage.swift; sourceTree = "<group>"; };
 		82C6F26028A40A1800B8EA70 /* NASAPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAPresenter.swift; sourceTree = "<group>"; };
+		82D3C07728C5743500084046 /* NASAVideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAVideoPlayerViewController.swift; sourceTree = "<group>"; };
+		82D3C07928C5759700084046 /* NASAVideosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAVideosTableViewController.swift; sourceTree = "<group>"; };
 		82F2572F28B838DD00824A80 /* NASA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASA.swift; sourceTree = "<group>"; };
 		82F2573128B838F800824A80 /* NasaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaViewModel.swift; sourceTree = "<group>"; };
 		82F2573328B8392200824A80 /* AsteroidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidViewController.swift; sourceTree = "<group>"; };
-		ACF470114C09CC682C1FC861 /* Pods_NASA_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NASA_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E1C14783C29C121D8739A6D /* Pods_NASA_API.framework in Frameworks */,
+				9E0D506DA5AEADFA7279B685 /* Pods_NASA_API.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,18 +71,10 @@
 		20E9D3F767A21A23C9F1EB99 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3A29F39EDBC872346C15E053 /* Pods-NASA API.debug.xcconfig */,
-				74D9B55D02AE6D4063B8346E /* Pods-NASA API.release.xcconfig */,
+				700DDE087EEE31B3D7D4C1A8 /* Pods-NASA API.debug.xcconfig */,
+				258B316EB393359717D0DA5E /* Pods-NASA API.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		7AC2CA829AC10B33E2E334CC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				ACF470114C09CC682C1FC861 /* Pods_NASA_API.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		82C6F23A28A4090E00B8EA70 = {
@@ -87,7 +83,7 @@
 				82C6F24528A4090E00B8EA70 /* NASA API */,
 				82C6F24428A4090E00B8EA70 /* Products */,
 				20E9D3F767A21A23C9F1EB99 /* Pods */,
-				7AC2CA829AC10B33E2E334CC /* Frameworks */,
+				B4016D07A994409149C04D00 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,9 +159,11 @@
 		82C6F26328A40BAA00B8EA70 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8239551C28BED9BD0064A1BB /* NasaImageCategoriesViewController.swift */,
-				826E244F28A480DC007AF962 /* NasaImagesTableViewController.swift */,
+				8239551C28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift */,
+				826E244F28A480DC007AF962 /* NASAImagesTableViewController.swift */,
 				8239552228BF039B0064A1BB /* NASAImageDetailViewController.swift */,
+				82D3C07928C5759700084046 /* NASAVideosTableViewController.swift */,
+				82D3C07728C5743500084046 /* NASAVideoPlayerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,6 +202,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B4016D07A994409149C04D00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D63FB22F6C3BE6E5D38FD25 /* Pods_NASA_API.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -211,11 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82C6F25728A4091100B8EA70 /* Build configuration list for PBXNativeTarget "NASA API" */;
 			buildPhases = (
-				F7134C377F0DCD791D445714 /* [CP] Check Pods Manifest.lock */,
+				D59018B2FAC88C0C8D350AAE /* [CP] Check Pods Manifest.lock */,
 				82C6F23F28A4090E00B8EA70 /* Sources */,
 				82C6F24028A4090E00B8EA70 /* Frameworks */,
 				82C6F24128A4090E00B8EA70 /* Resources */,
-				F5B85AE291D65D511E2272A7 /* [CP] Embed Pods Frameworks */,
+				0E8CBA4B77EC66533BC10384 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -273,7 +279,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F5B85AE291D65D511E2272A7 /* [CP] Embed Pods Frameworks */ = {
+		0E8CBA4B77EC66533BC10384 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -290,7 +296,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NASA API/Pods-NASA API-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F7134C377F0DCD791D445714 /* [CP] Check Pods Manifest.lock */ = {
+		D59018B2FAC88C0C8D350AAE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -319,12 +325,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D3C07828C5743500084046 /* NASAVideoPlayerViewController.swift in Sources */,
 				8239551F28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift in Sources */,
+				82D3C07A28C5759700084046 /* NASAVideosTableViewController.swift in Sources */,
 				82C6F25F28A4093500B8EA70 /* NasaImage.swift in Sources */,
 				8239552328BF039B0064A1BB /* NASAImageDetailViewController.swift in Sources */,
-				8239551D28BED9BD0064A1BB /* NasaImageCategoriesViewController.swift in Sources */,
+				8239551D28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift in Sources */,
 				82F2573228B838F800824A80 /* NasaViewModel.swift in Sources */,
-				826E245028A480DC007AF962 /* NasaImagesTableViewController.swift in Sources */,
+				826E245028A480DC007AF962 /* NASAImagesTableViewController.swift in Sources */,
 				8239552128BEDCE10064A1BB /* NasaImageCategory.swift in Sources */,
 				82C6F24B28A4090E00B8EA70 /* ViewController.swift in Sources */,
 				82C6F24728A4090E00B8EA70 /* AppDelegate.swift in Sources */,
@@ -474,7 +482,7 @@
 		};
 		82C6F25828A4091100B8EA70 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A29F39EDBC872346C15E053 /* Pods-NASA API.debug.xcconfig */;
+			baseConfigurationReference = 700DDE087EEE31B3D7D4C1A8 /* Pods-NASA API.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -503,7 +511,7 @@
 		};
 		82C6F25928A4091100B8EA70 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74D9B55D02AE6D4063B8346E /* Pods-NASA API.release.xcconfig */;
+			baseConfigurationReference = 258B316EB393359717D0DA5E /* Pods-NASA API.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

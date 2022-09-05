@@ -1,5 +1,5 @@
 //
-//  NasaImagesTableViewController.swift
+//  NASAImagesTableViewController.swift
 //  NASA API
 //
 //  Created by Марк Киричко on 11.08.2022.
@@ -8,12 +8,12 @@
 import UIKit
 import SDWebImage
 
-class NasaImagesTableViewController: UITableViewController, PhotoPresentDelegate {
+class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate {
     
     var presenter = NASAPresenter()
     var marsimages = [Photo]()
     var nasaimages = [Link]()
-    var nasaimagesinfo = [ImageData]()
+    var nasaimagesinfo = [LibraryData]()
     var epicimages = [EPIC]()
     var category: NasaImageCategory?
     var earthimages = [String]()
@@ -150,7 +150,7 @@ class NasaImagesTableViewController: UITableViewController, PhotoPresentDelegate
         }
     }
     
-    func PresentNASAImages(images: [ImageData]) {
+    func PresentNASAImages(images: [LibraryData]) {
         self.nasaimagesinfo = images
         
         DispatchQueue.main.async {

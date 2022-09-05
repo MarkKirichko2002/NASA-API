@@ -59,7 +59,7 @@ struct Rover: Codable {
 }
 
 // MARK: - NASAImages
-struct NASAImages: Codable {
+struct NASAImageAndVideoLibrary: Codable {
     let collection: Collection
 }
 
@@ -74,12 +74,12 @@ struct Collection: Codable {
 // MARK: - Item
 struct Item: Codable {
     let href: String
-    let data: [ImageData]
+    let data: [LibraryData]
     let links: [Link]
 }
 
 // MARK: - ImageData
-struct ImageData: Codable {
+struct LibraryData: Codable {
     let center: String
     let title, nasaID: String
     let dateCreated: String
@@ -105,7 +105,7 @@ struct ImageData: Codable {
 struct Link: Codable {
     let href: String
     let rel: String
-    let render: String
+    let render: String?
 }
 
 // MARK: - Metadata
