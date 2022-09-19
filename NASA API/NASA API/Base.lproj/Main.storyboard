@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fat-yu-hwa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fat-yu-hwa">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,13 +19,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NasaImagesTableViewCell" id="Wzk-Rs-gw1" customClass="NasaImagesTableViewCell" customModule="NASA_API" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="148.33332824707031"/>
+                                <rect key="frame" x="0.0" y="50" width="428" height="148.33332824707031"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wzk-Rs-gw1" id="Fpg-Vf-0Rr">
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="148.33332824707031"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NrB-aj-uOg">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NrB-aj-uOg" customClass="RoundedImageView" customModule="NASA_API" customModuleProvider="target">
                                             <rect key="frame" x="36" y="18.999999999999993" width="110" height="110.33333333333331"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="110" id="0Lz-EG-bRa"/>
@@ -72,7 +73,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9g0-hA-oZx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4364" y="-411"/>
+            <point key="canvasLocation" x="4363" y="-411"/>
         </scene>
         <!--Image Detail View Controller-->
         <scene sceneID="IyG-Ya-7Zg">
@@ -89,7 +90,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASA" translatesAutoresizingMaskIntoConstraints="NO" id="w77-sZ-5Wm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASA" translatesAutoresizingMaskIntoConstraints="NO" id="w77-sZ-5Wm" customClass="RoundedImageView" customModule="NASA_API" customModuleProvider="target">
                                 <rect key="frame" x="114" y="163" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="G9P-T2-gIe"/>
@@ -116,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rwj-Yn-Cri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5358" y="-411"/>
+            <point key="canvasLocation" x="5378" y="-411"/>
         </scene>
         <!--NASA Image Categories-->
         <scene sceneID="H08-ER-TAa">
@@ -128,13 +129,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NasaImageCategoriesTableViewCell" id="l6U-JE-Mvg" customClass="NasaImageCategoriesTableViewCell" customModule="NASA_API" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="148.33332824707031"/>
+                                <rect key="frame" x="0.0" y="50" width="428" height="148.33332824707031"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l6U-JE-Mvg" id="hqw-y8-c0Z">
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="148.33332824707031"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASA" translatesAutoresizingMaskIntoConstraints="NO" id="2zw-Bu-CTd">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASA" translatesAutoresizingMaskIntoConstraints="NO" id="2zw-Bu-CTd" customClass="RoundedImageView" customModule="NASA_API" customModuleProvider="target">
                                             <rect key="frame" x="36" y="18.999999999999993" width="110" height="110.33333333333331"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="110" id="CM3-jR-cfn"/>
@@ -172,7 +173,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tUE-0w-gIG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3315.9420289855075" y="-410.49107142857139"/>
+            <point key="canvasLocation" x="3314" y="-411"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MYx-T2-ovd">
@@ -208,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yj1-2q-2LC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3315" y="391"/>
+            <point key="canvasLocation" x="3313" y="391"/>
         </scene>
         <!--Asteroids-->
         <scene sceneID="DLK-qS-CDF">
@@ -217,7 +218,7 @@
                     <tabBarItem key="tabBarItem" title="Asteroids" image="asteroids" selectedImage="asteroids selected" id="aq5-9H-uad"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G5L-S2-yYq">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -236,7 +237,7 @@
                     <tabBarItem key="tabBarItem" title="NASA Images" image="images" selectedImage="images selected" id="q0D-Bn-dHb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="x2I-X5-OSl">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -258,13 +259,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NasaImagesTableViewCell" id="Fgb-el-HjQ" customClass="NasaImagesTableViewCell" customModule="NASA_API" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="148.33332824707031"/>
+                                <rect key="frame" x="0.0" y="50" width="428" height="148.33332824707031"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fgb-el-HjQ" id="MMt-3Y-IMk">
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="148.33332824707031"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dip-k9-fDU">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dip-k9-fDU" customClass="RoundedImageView" customModule="NASA_API" customModuleProvider="target">
                                             <rect key="frame" x="36" y="18.999999999999993" width="110" height="110.33333333333331"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="110" id="TAz-zV-aIw"/>
@@ -358,7 +359,7 @@
                     <tabBarItem key="tabBarItem" title="NASA Video Library" image="video player" selectedImage="video player selected" id="zP1-ud-ueG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hDu-lY-IFV">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -380,7 +381,7 @@
         <image name="video player" width="24" height="24"/>
         <image name="video player selected" width="24" height="24"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

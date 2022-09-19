@@ -129,8 +129,8 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
             formatter.dateFormat = "dd"
             let day = formatter.string(from: date!)
             let totaldate = year + "/" + month + "/" + day
-            cell.NASAImage.sd_setImage(with: URL(string: "https://epic.gsfc.nasa.gov/archive/enhanced/\(totaldate)/png/\(image)"))
-            self.earthimages.append("https://epic.gsfc.nasa.gov/archive/enhanced/\(totaldate)/png/\(image)")
+            cell.NASAImage.sd_setImage(with: URL(string: "https://epic.gsfc.nasa.gov/archive/natural/\(totaldate)/png/\(image)"))
+            self.earthimages.append("https://epic.gsfc.nasa.gov/archive/natural/\(totaldate)/png/\(image)")
             cell.NASAImage.layer.cornerRadius = cell.NASAImage.frame.width / 2
             cell.NASAImage.layer.borderWidth = 5
             cell.TitleLabel.text = epicimages[indexPath.row].caption
@@ -150,16 +150,16 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
         }
     }
     
-    func PresentNASAImages(images: [LibraryData]) {
-        self.nasaimagesinfo = images
+    func PresentNASAImages(images: [Link]) {
+        self.nasaimages = images
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    func PresentNASAImagesInfo(info: [Link]) {
-        self.nasaimages = info
+    func PresentNASAImagesInfo(info: [LibraryData]) {
+        self.nasaimagesinfo = info
         
         DispatchQueue.main.async {
             self.tableView.reloadData()

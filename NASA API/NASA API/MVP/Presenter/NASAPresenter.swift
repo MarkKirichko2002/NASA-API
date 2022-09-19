@@ -11,14 +11,14 @@ import Alamofire
 
 protocol PhotoPresentDelegate {
     func PresentMarsPhotos(images: [Photo])
-    func PresentNASAImages(images: [LibraryData])
-    func PresentNASAImagesInfo(info: [Link])
+    func PresentNASAImages(images: [Link])
+    func PresentNASAImagesInfo(info: [LibraryData])
     func PresentEPICNASAImages(images: [EPIC])
 }
 
 protocol VideoPresentDelegate {
-    func PresentNASAVideos(videos: [LibraryData])
-    func PresentNASAVideosInfo(info: [Link])
+    func PresentNASAVideos(videos: [Link])
+    func PresentNASAVideosInfo(info: [LibraryData])
     func GetNASAVideosJSONS(jsons: [String])
 }
 
@@ -38,6 +38,7 @@ class NASAPresenter {
     var nasaimagesinfo = [LibraryData]()
     var nasaimages = [Link]()
     var epicimages = [EPIC]()
+    var earthimages = [String]()
     // videos
     var videodelegate: VideoPresenter?
     var videoplayerdelegate: VideoPlayerPresenter?
@@ -96,13 +97,13 @@ class NASAPresenter {
                         let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
                         let finalDate = calendar.date(from:components)
                         self.nasaimagesinfo.append(LibraryData(center: i.center, title: i.title, nasaID: i.nasaID, dateCreated: "\(finalDate ?? Date())", mediaType: i.mediaType, dataDescription: i.dataDescription, keywords: i.keywords, album: i.album, location: i.location, description508: i.description508, secondaryCreator: i.secondaryCreator))
-                        self.delegate?.PresentNASAImages(images: self.nasaimagesinfo)
+                        self.delegate?.PresentNASAImagesInfo(info: self.nasaimagesinfo)
                     }
                     
                     for i in nasaimages {
                         for i in i.links {
                             self.nasaimages.append(Link(href: i.href, rel: i.rel, render: i.render))
-                            self.delegate?.PresentNASAImagesInfo(info: self.nasaimages)
+                            self.delegate?.PresentNASAImages(images: self.nasaimages)
                         }
                     }
                     
@@ -112,7 +113,7 @@ class NASAPresenter {
     }
     
     func GetEPICImages() {
-        let url = "https://epic.gsfc.nasa.gov/api/enhanced"
+        let url = "https://epic.gsfc.nasa.gov/api/natural"
         
         AF.request(url).responseData { response in
             guard let data = response.data else {return}
@@ -166,13 +167,13 @@ class NASAPresenter {
                         let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
                         let finalDate = calendar.date(from:components)
                         self.nasavideosinfo.append(LibraryData(center: i.center, title: i.title, nasaID: i.nasaID, dateCreated: "\(finalDate ?? Date())", mediaType: i.mediaType, dataDescription: i.dataDescription, keywords: i.keywords, album: i.album, location: i.location, description508: i.description508, secondaryCreator: i.secondaryCreator))
-                        self.videodelegate?.PresentNASAVideos(videos: self.nasavideosinfo)
+                        self.videodelegate?.PresentNASAVideosInfo(info: self.nasavideosinfo)
                     }
                     
                     for i in nasavideos {
                         for i in i.links {
                             self.nasavideos.append(Link(href: i.href, rel: i.rel, render: i.render))
-                            self.videodelegate?.PresentNASAVideosInfo(info: self.nasavideos)
+                            self.videodelegate?.PresentNASAVideos(videos: self.nasavideos)
                         }
                     }
                     

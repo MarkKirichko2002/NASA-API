@@ -55,16 +55,16 @@ class NASAVideosTableViewController: UITableViewController, VideoPresentDelegate
     }
     
     
-    func PresentNASAVideos(videos: [LibraryData]) {
-        self.nasavideosinfo = videos
+    func PresentNASAVideos(videos: [Link]) {
+        self.nasavideos = videos
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    func PresentNASAVideosInfo(info: [Link]) {
-        self.nasavideos = info
+    func PresentNASAVideosInfo(info: [LibraryData]) {
+        self.nasavideosinfo = info
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
