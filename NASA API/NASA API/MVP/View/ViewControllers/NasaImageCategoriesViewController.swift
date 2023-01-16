@@ -1,5 +1,5 @@
 //
-//  NasaImageCategoriesViewController.swift
+//  NASAImageCategoriesViewController.swift
 //  NASA API
 //
 //  Created by Марк Киричко on 31.08.2022.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-class NasaImageCategoriesViewController: UITableViewController {
+class NASAImageCategoriesViewController: UITableViewController {
     
-    var categories = [NasaImageCategory(id: 1, name: "NASA Mars Rover Images", icon: "rover"), NasaImageCategory(id: 2, name: "NASA Image Library", icon: "NASA")]
+    var categories = [NasaImageCategory(id: 1, name: "NASA Mars Rover Images", icon: "rover"), NasaImageCategory(id: 2, name: "NASA Image Library", icon: "NASA"), NasaImageCategory(id: 3, name: "EPIC", icon: "EPIC")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "NasaImagesTableViewController") as? NasaImagesTableViewController {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "NasaImagesTableViewController") as? NASAImagesTableViewController {
             vc.category = categories[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }

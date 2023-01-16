@@ -9,9 +9,9 @@ import Foundation
 
 // MARK: - Asteroid
 struct Asteroid: Codable {
-    let links: AsteroidLinks
-    let elementCount: Int
-    let nearEarthObjects: [String: [NearEarthObject]]
+    let links: AsteroidLinks?
+    let elementCount: Int?
+    let nearEarthObjects: [String: [NearEarthObject]]?
 
     enum CodingKeys: String, CodingKey {
         case links
@@ -22,7 +22,7 @@ struct Asteroid: Codable {
 
 // MARK: - AsteroidLinks
 struct AsteroidLinks: Codable {
-    let next, prev, linksSelf: String
+    let next, prev, linksSelf: String?
 
     enum CodingKeys: String, CodingKey {
         case next, prev

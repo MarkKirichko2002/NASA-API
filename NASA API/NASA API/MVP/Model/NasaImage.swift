@@ -59,7 +59,7 @@ struct Rover: Codable {
 }
 
 // MARK: - NASAImages
-struct NASAImages: Codable {
+struct NASAImageAndVideoLibrary: Codable {
     let collection: Collection
 }
 
@@ -74,12 +74,12 @@ struct Collection: Codable {
 // MARK: - Item
 struct Item: Codable {
     let href: String
-    let data: [ImageData]
+    let data: [LibraryData]
     let links: [Link]
 }
 
 // MARK: - ImageData
-struct ImageData: Codable {
+struct LibraryData: Codable {
     let center: String
     let title, nasaID: String
     let dateCreated: String
@@ -105,7 +105,7 @@ struct ImageData: Codable {
 struct Link: Codable {
     let href: String
     let rel: String
-    let render: String
+    let render: String?
 }
 
 // MARK: - Metadata
@@ -115,5 +115,55 @@ struct Metadata: Codable {
     enum CodingKeys: String, CodingKey {
         case totalHits = "total_hits"
     }
+}
+
+// MARK: - EPIC
+struct EPIC: Codable {
+    var identifier, caption, image, version: String
+    let centroidCoordinates: CentroidCoordinates
+    let dscovrJ2000Position, lunarJ2000Position, sunJ2000Position: J2000Position
+    let attitudeQuaternions: AttitudeQuaternions
+    let date: String
+    let coords: Coords
+
+    enum CodingKeys: String, CodingKey {
+        case identifier, caption, image, version
+        case centroidCoordinates = "centroid_coordinates"
+        case dscovrJ2000Position = "dscovr_j2000_position"
+        case lunarJ2000Position = "lunar_j2000_position"
+        case sunJ2000Position = "sun_j2000_position"
+        case attitudeQuaternions = "attitude_quaternions"
+        case date, coords
+    }
+}
+
+// MARK: - AttitudeQuaternions
+struct AttitudeQuaternions: Codable {
+    let q0, q1, q2, q3: Double
+}
+
+// MARK: - CentroidCoordinates
+struct CentroidCoordinates: Codable {
+    let lat, lon: Double
+}
+
+// MARK: - Coords
+struct Coords: Codable {
+    let centroidCoordinates: CentroidCoordinates
+    let dscovrJ2000Position, lunarJ2000Position, sunJ2000Position: J2000Position
+    let attitudeQuaternions: AttitudeQuaternions
+
+    enum CodingKeys: String, CodingKey {
+        case centroidCoordinates = "centroid_coordinates"
+        case dscovrJ2000Position = "dscovr_j2000_position"
+        case lunarJ2000Position = "lunar_j2000_position"
+        case sunJ2000Position = "sun_j2000_position"
+        case attitudeQuaternions = "attitude_quaternions"
+    }
+}
+
+// MARK: - J2000Position
+struct J2000Position: Codable {
+    let x, y, z: Double
 }
 
