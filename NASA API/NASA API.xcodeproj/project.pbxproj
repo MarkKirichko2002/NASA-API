@@ -15,7 +15,6 @@
 		826E245228A48101007AF962 /* NasaImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E245128A48101007AF962 /* NasaImagesTableViewCell.swift */; };
 		82C6F24728A4090E00B8EA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6F24628A4090E00B8EA70 /* AppDelegate.swift */; };
 		82C6F24928A4090E00B8EA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6F24828A4090E00B8EA70 /* SceneDelegate.swift */; };
-		82C6F24B28A4090E00B8EA70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6F24A28A4090E00B8EA70 /* ViewController.swift */; };
 		82C6F24E28A4090E00B8EA70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C6F24C28A4090E00B8EA70 /* Main.storyboard */; };
 		82C6F25028A4091100B8EA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82C6F24F28A4091100B8EA70 /* Assets.xcassets */; };
 		82C6F25328A4091100B8EA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C6F25128A4091100B8EA70 /* LaunchScreen.storyboard */; };
@@ -24,7 +23,8 @@
 		82D3C07828C5743500084046 /* NASAVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D3C07728C5743500084046 /* NASAVideoPlayerViewController.swift */; };
 		82D3C07A28C5759700084046 /* NASAVideosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D3C07928C5759700084046 /* NASAVideosTableViewController.swift */; };
 		82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5933628D8FF3900C05065 /* RoundedImageView.swift */; };
-		82E5933A28D8FF7500C05065 /* spring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82E5933928D8FF7500C05065 /* spring.mp3 */; };
+		82E9B9412976059B000845B3 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B9402976059B000845B3 /* AnimationClass.swift */; };
+		82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B950297607F0000845B3 /* NASATabBarController.swift */; };
 		82F2573028B838DD00824A80 /* NASA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F2572F28B838DD00824A80 /* NASA.swift */; };
 		82F2573228B838F800824A80 /* NasaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F2573128B838F800824A80 /* NasaViewModel.swift */; };
 		82F2573428B8392200824A80 /* AsteroidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F2573328B8392200824A80 /* AsteroidViewController.swift */; };
@@ -43,7 +43,6 @@
 		82C6F24328A4090E00B8EA70 /* NASA API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NASA API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C6F24628A4090E00B8EA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82C6F24828A4090E00B8EA70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		82C6F24A28A4090E00B8EA70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		82C6F24D28A4090E00B8EA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82C6F24F28A4091100B8EA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82C6F25228A4091100B8EA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,7 +52,9 @@
 		82D3C07728C5743500084046 /* NASAVideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAVideoPlayerViewController.swift; sourceTree = "<group>"; };
 		82D3C07928C5759700084046 /* NASAVideosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAVideosTableViewController.swift; sourceTree = "<group>"; };
 		82E5933628D8FF3900C05065 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
-		82E5933928D8FF7500C05065 /* spring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = spring.mp3; path = ../../../../QUIZ/QUIZ/sounds/spring.mp3; sourceTree = "<group>"; };
+		82E9B9402976059B000845B3 /* AnimationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
+		82E9B94D29760751000845B3 /* spring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spring.mp3; sourceTree = "<group>"; };
+		82E9B950297607F0000845B3 /* NASATabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASATabBarController.swift; sourceTree = "<group>"; };
 		82F2572F28B838DD00824A80 /* NASA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASA.swift; sourceTree = "<group>"; };
 		82F2573128B838F800824A80 /* NasaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaViewModel.swift; sourceTree = "<group>"; };
 		82F2573328B8392200824A80 /* AsteroidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidViewController.swift; sourceTree = "<group>"; };
@@ -102,17 +103,10 @@
 		82C6F24528A4090E00B8EA70 /* NASA API */ = {
 			isa = PBXGroup;
 			children = (
-				82E5933828D8FF4E00C05065 /* Sounds */,
-				82E5933528D8FF0700C05065 /* Animation */,
-				82F2572B28B837E000824A80 /* MVVM + RxSwift */,
-				82C6F25A28A4091800B8EA70 /* MVP */,
-				82C6F24628A4090E00B8EA70 /* AppDelegate.swift */,
-				82C6F24828A4090E00B8EA70 /* SceneDelegate.swift */,
-				82C6F24A28A4090E00B8EA70 /* ViewController.swift */,
-				82C6F24C28A4090E00B8EA70 /* Main.storyboard */,
-				82C6F24F28A4091100B8EA70 /* Assets.xcassets */,
-				82C6F25128A4091100B8EA70 /* LaunchScreen.storyboard */,
-				82C6F25428A4091100B8EA70 /* Info.plist */,
+				82E9B93F29760588000845B3 /* Custom Views */,
+				82E9B94A29760710000845B3 /* Services */,
+				82E9B94329760604000845B3 /* Modules */,
+				82E9B94929760703000845B3 /* Resources */,
 			);
 			path = "NASA API";
 			sourceTree = "<group>";
@@ -177,17 +171,89 @@
 		82E5933528D8FF0700C05065 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				82E5933628D8FF3900C05065 /* RoundedImageView.swift */,
+				82E9B9402976059B000845B3 /* AnimationClass.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
 		};
-		82E5933828D8FF4E00C05065 /* Sounds */ = {
+		82E9B93F29760588000845B3 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				82E5933928D8FF7500C05065 /* spring.mp3 */,
+				82E5933628D8FF3900C05065 /* RoundedImageView.swift */,
 			);
-			path = Sounds;
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		82E9B94329760604000845B3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				82E9B94529760610000845B3 /* MVP Modules */,
+				82E9B94429760609000845B3 /* MVVM Modules */,
+				82E9B94629760641000845B3 /* Other Modules */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		82E9B94429760609000845B3 /* MVVM Modules */ = {
+			isa = PBXGroup;
+			children = (
+				82F2572B28B837E000824A80 /* MVVM + RxSwift */,
+			);
+			path = "MVVM Modules";
+			sourceTree = "<group>";
+		};
+		82E9B94529760610000845B3 /* MVP Modules */ = {
+			isa = PBXGroup;
+			children = (
+				82C6F25A28A4091800B8EA70 /* MVP */,
+			);
+			path = "MVP Modules";
+			sourceTree = "<group>";
+		};
+		82E9B94629760641000845B3 /* Other Modules */ = {
+			isa = PBXGroup;
+			children = (
+				82E9B950297607F0000845B3 /* NASATabBarController.swift */,
+			);
+			path = "Other Modules";
+			sourceTree = "<group>";
+		};
+		82E9B94929760703000845B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82E9B94B29760739000845B3 /* app */,
+				82E9B94C29760748000845B3 /* sounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		82E9B94A29760710000845B3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				82E5933528D8FF0700C05065 /* Animation */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		82E9B94B29760739000845B3 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				82C6F24628A4090E00B8EA70 /* AppDelegate.swift */,
+				82C6F24828A4090E00B8EA70 /* SceneDelegate.swift */,
+				82C6F24C28A4090E00B8EA70 /* Main.storyboard */,
+				82C6F24F28A4091100B8EA70 /* Assets.xcassets */,
+				82C6F25128A4091100B8EA70 /* LaunchScreen.storyboard */,
+				82C6F25428A4091100B8EA70 /* Info.plist */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		82E9B94C29760748000845B3 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				82E9B94D29760751000845B3 /* spring.mp3 */,
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 		82F2572B28B837E000824A80 /* MVVM + RxSwift */ = {
@@ -295,7 +361,6 @@
 				82C6F25328A4091100B8EA70 /* LaunchScreen.storyboard in Resources */,
 				82C6F25028A4091100B8EA70 /* Assets.xcassets in Resources */,
 				82C6F24E28A4090E00B8EA70 /* Main.storyboard in Resources */,
-				82E5933A28D8FF7500C05065 /* spring.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,17 +418,18 @@
 				82D3C07A28C5759700084046 /* NASAVideosTableViewController.swift in Sources */,
 				82C6F25F28A4093500B8EA70 /* NasaImage.swift in Sources */,
 				8239552328BF039B0064A1BB /* NASAImageDetailViewController.swift in Sources */,
+				82E9B9412976059B000845B3 /* AnimationClass.swift in Sources */,
 				8239551D28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift in Sources */,
 				82F2573228B838F800824A80 /* NasaViewModel.swift in Sources */,
 				826E245028A480DC007AF962 /* NASAImagesTableViewController.swift in Sources */,
 				8239552128BEDCE10064A1BB /* NasaImageCategory.swift in Sources */,
 				82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */,
-				82C6F24B28A4090E00B8EA70 /* ViewController.swift in Sources */,
 				82C6F24728A4090E00B8EA70 /* AppDelegate.swift in Sources */,
 				82C6F24928A4090E00B8EA70 /* SceneDelegate.swift in Sources */,
 				82C6F26128A40A1800B8EA70 /* NASAPresenter.swift in Sources */,
 				826E245228A48101007AF962 /* NasaImagesTableViewCell.swift in Sources */,
 				82F2573028B838DD00824A80 /* NASA.swift in Sources */,
+				82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */,
 				82F2573428B8392200824A80 /* AsteroidViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,7 +580,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 265GKHT32M;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "NASA API/Info.plist";
+				INFOPLIST_FILE = "NASA API/Resources/app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -543,7 +609,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 265GKHT32M;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "NASA API/Info.plist";
+				INFOPLIST_FILE = "NASA API/Resources/app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
