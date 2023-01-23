@@ -28,6 +28,8 @@
 		82E56A03297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A02297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift */; };
 		82E56A05297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A04297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift */; };
 		82E56A0B297E2DA400879E21 /* NasaImagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E56A0A297E2DA400879E21 /* NasaImagesTableViewCell.xib */; };
+		82E56A0E297E31F800879E21 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A0D297E31F800879E21 /* UIView + Extensions.swift */; };
+		82E56A18297E358B00879E21 /* SplashScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A17297E358B00879E21 /* SplashScreenController.swift */; };
 		82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5933628D8FF3900C05065 /* RoundedImageView.swift */; };
 		82E9B9412976059B000845B3 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B9402976059B000845B3 /* AnimationClass.swift */; };
 		82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B950297607F0000845B3 /* NASATabBarController.swift */; };
@@ -63,6 +65,8 @@
 		82E56A02297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		82E56A04297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesCollectionViewViewModel.swift; sourceTree = "<group>"; };
 		82E56A0A297E2DA400879E21 /* NasaImagesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NasaImagesTableViewCell.xib; sourceTree = "<group>"; };
+		82E56A0D297E31F800879E21 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		82E56A17297E358B00879E21 /* SplashScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenController.swift; sourceTree = "<group>"; };
 		82E5933628D8FF3900C05065 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		82E9B9402976059B000845B3 /* AnimationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
 		82E9B94D29760751000845B3 /* spring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spring.mp3; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		82C6F24528A4090E00B8EA70 /* NASA API */ = {
 			isa = PBXGroup;
 			children = (
+				82E56A0C297E31E800879E21 /* Extensions */,
 				82E9B93F29760588000845B3 /* Custom Views */,
 				82E9B94A29760710000845B3 /* Services */,
 				82E9B94329760604000845B3 /* Modules */,
@@ -217,6 +222,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		82E56A0C297E31E800879E21 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A0D297E31F800879E21 /* UIView + Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		82E5933528D8FF0700C05065 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				82E9B950297607F0000845B3 /* NASATabBarController.swift */,
+				82E56A17297E358B00879E21 /* SplashScreenController.swift */,
 			);
 			path = "Other Modules";
 			sourceTree = "<group>";
@@ -480,8 +494,10 @@
 				82C6F24728A4090E00B8EA70 /* AppDelegate.swift in Sources */,
 				82E56A01297E114F00879E21 /* NASAImageCategoriesListViewController.swift in Sources */,
 				82C6F24928A4090E00B8EA70 /* SceneDelegate.swift in Sources */,
+				82E56A0E297E31F800879E21 /* UIView + Extensions.swift in Sources */,
 				82C6F26128A40A1800B8EA70 /* NASAPresenter.swift in Sources */,
 				826E245228A48101007AF962 /* NasaImagesTableViewCell.swift in Sources */,
+				82E56A18297E358B00879E21 /* SplashScreenController.swift in Sources */,
 				82F2573028B838DD00824A80 /* NASA.swift in Sources */,
 				82E56A03297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift in Sources */,
 				82E56A05297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift in Sources */,
