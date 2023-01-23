@@ -30,8 +30,7 @@ class NASAImageCategoriesCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .secondarySystemBackground
-        contentView.addSubview(imageView)
-        contentView.addSubview(nameLabel)
+        contentView.addSubviews(imageView,nameLabel)
         addConstaints()
         setUpLayer()
     }

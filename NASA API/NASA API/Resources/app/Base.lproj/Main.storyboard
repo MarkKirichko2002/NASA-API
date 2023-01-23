@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fat-yu-hwa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v4O-cu-YhR">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -141,7 +141,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="MYx-T2-ovd">
             <objects>
-                <tabBarController id="fat-yu-hwa" customClass="NASATabBarController" customModule="NASA_API" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NASATabBarController" id="fat-yu-hwa" customClass="NASATabBarController" customModule="NASA_API" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MVb-nU-kPZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -349,6 +349,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9a-Xo-Mef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2406" y="1232"/>
+        </scene>
+        <!--Splash Screen Controller-->
+        <scene sceneID="56P-tW-tci">
+            <objects>
+                <viewController storyboardIdentifier="SplashScreenController" id="v4O-cu-YhR" customClass="SplashScreenController" customModule="NASA_API" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O8Y-Hu-tTa">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASA" translatesAutoresizingMaskIntoConstraints="NO" id="plL-XP-Yxq">
+                                <rect key="frame" x="114" y="263" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="0Qw-D7-tEm"/>
+                                    <constraint firstAttribute="height" constant="200" id="4Nq-hZ-lS0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqa-iu-alo">
+                                <rect key="frame" x="30" y="513" width="368" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Cyv-cl-WH1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="plL-XP-Yxq" firstAttribute="centerY" secondItem="O8Y-Hu-tTa" secondAttribute="centerY" constant="-100" id="9EF-wm-tin"/>
+                            <constraint firstItem="kqa-iu-alo" firstAttribute="leading" secondItem="Cyv-cl-WH1" secondAttribute="leading" constant="30" id="ZWv-3b-03d"/>
+                            <constraint firstItem="plL-XP-Yxq" firstAttribute="centerX" secondItem="O8Y-Hu-tTa" secondAttribute="centerX" id="a0I-Ol-i3g"/>
+                            <constraint firstItem="Cyv-cl-WH1" firstAttribute="trailing" secondItem="kqa-iu-alo" secondAttribute="trailing" constant="30" id="xw5-Ok-3PT"/>
+                            <constraint firstItem="kqa-iu-alo" firstAttribute="top" secondItem="plL-XP-Yxq" secondAttribute="bottom" constant="50" id="yFg-DH-HuM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Icon" destination="plL-XP-Yxq" id="fIO-kn-itu"/>
+                        <outlet property="TitleLabel" destination="kqa-iu-alo" id="qlh-HG-5K9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r0Y-Qe-oPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="184" y="271"/>
         </scene>
     </scenes>
     <resources>

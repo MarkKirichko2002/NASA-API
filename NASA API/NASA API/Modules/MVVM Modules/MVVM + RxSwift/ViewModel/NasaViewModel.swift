@@ -15,7 +15,7 @@ class NasaViewModel {
     var asteroids = PublishSubject<[NearEarthObject]>()
     
     func GetAsteroids() {
-        AF.request("https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=apikey").responseData { response in
+        AF.request("https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX").responseData { response in
             guard let data = response.data else {return}
             
             var asteroidResponse: Asteroid?

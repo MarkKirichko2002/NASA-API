@@ -49,7 +49,7 @@ class NASAPresenter {
     
     func GetMarsPhotos() {
         
-        let url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=apikey"
+        let url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
         
         URLSession.shared.dataTask(with: URL(string: url)!) { data, _, error in
             guard let data = data else {return}
