@@ -22,6 +22,12 @@
 		82C6F26128A40A1800B8EA70 /* NASAPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6F26028A40A1800B8EA70 /* NASAPresenter.swift */; };
 		82D3C07828C5743500084046 /* NASAVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D3C07728C5743500084046 /* NASAVideoPlayerViewController.swift */; };
 		82D3C07A28C5759700084046 /* NASAVideosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D3C07928C5759700084046 /* NASAVideosTableViewController.swift */; };
+		82E569FD297E110000879E21 /* NASAImageCategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E569FC297E110000879E21 /* NASAImageCategoriesListView.swift */; };
+		82E569FF297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E569FE297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift */; };
+		82E56A01297E114F00879E21 /* NASAImageCategoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A00297E114F00879E21 /* NASAImageCategoriesListViewController.swift */; };
+		82E56A03297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A02297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift */; };
+		82E56A05297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A04297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift */; };
+		82E56A0B297E2DA400879E21 /* NasaImagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E56A0A297E2DA400879E21 /* NasaImagesTableViewCell.xib */; };
 		82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5933628D8FF3900C05065 /* RoundedImageView.swift */; };
 		82E9B9412976059B000845B3 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B9402976059B000845B3 /* AnimationClass.swift */; };
 		82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B950297607F0000845B3 /* NASATabBarController.swift */; };
@@ -51,6 +57,12 @@
 		82C6F26028A40A1800B8EA70 /* NASAPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAPresenter.swift; sourceTree = "<group>"; };
 		82D3C07728C5743500084046 /* NASAVideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAVideoPlayerViewController.swift; sourceTree = "<group>"; };
 		82D3C07928C5759700084046 /* NASAVideosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAVideosTableViewController.swift; sourceTree = "<group>"; };
+		82E569FC297E110000879E21 /* NASAImageCategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesListView.swift; sourceTree = "<group>"; };
+		82E569FE297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesListViewViewModel.swift; sourceTree = "<group>"; };
+		82E56A00297E114F00879E21 /* NASAImageCategoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesListViewController.swift; sourceTree = "<group>"; };
+		82E56A02297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		82E56A04297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesCollectionViewViewModel.swift; sourceTree = "<group>"; };
+		82E56A0A297E2DA400879E21 /* NasaImagesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NasaImagesTableViewCell.xib; sourceTree = "<group>"; };
 		82E5933628D8FF3900C05065 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		82E9B9402976059B000845B3 /* AnimationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
 		82E9B94D29760751000845B3 /* spring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spring.mp3; sourceTree = "<group>"; };
@@ -141,7 +153,6 @@
 		82C6F25D28A4092100B8EA70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8239552028BEDCE10064A1BB /* NasaImageCategory.swift */,
 				82C6F25E28A4093500B8EA70 /* NasaImage.swift */,
 			);
 			path = Model;
@@ -152,6 +163,7 @@
 			children = (
 				8239551E28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift */,
 				826E245128A48101007AF962 /* NasaImagesTableViewCell.swift */,
+				82E56A0A297E2DA400879E21 /* NasaImagesTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -166,6 +178,43 @@
 				82D3C07728C5743500084046 /* NASAVideoPlayerViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		82E56A06297E2A3200879E21 /* NASA Image Categories MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A09297E2A4600879E21 /* Model */,
+				82E56A08297E2A4400879E21 /* View */,
+				82E56A07297E2A4200879E21 /* ViewModel */,
+			);
+			path = "NASA Image Categories MVVM";
+			sourceTree = "<group>";
+		};
+		82E56A07297E2A4200879E21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				82E569FE297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift */,
+				82E56A04297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		82E56A08297E2A4400879E21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A00297E114F00879E21 /* NASAImageCategoriesListViewController.swift */,
+				82E569FC297E110000879E21 /* NASAImageCategoriesListView.swift */,
+				82E56A02297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		82E56A09297E2A4600879E21 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8239552028BEDCE10064A1BB /* NasaImageCategory.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		82E5933528D8FF0700C05065 /* Animation */ = {
@@ -197,6 +246,7 @@
 		82E9B94429760609000845B3 /* MVVM Modules */ = {
 			isa = PBXGroup;
 			children = (
+				82E56A06297E2A3200879E21 /* NASA Image Categories MVVM */,
 				82F2572B28B837E000824A80 /* MVVM + RxSwift */,
 			);
 			path = "MVVM Modules";
@@ -358,6 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E56A0B297E2DA400879E21 /* NasaImagesTableViewCell.xib in Resources */,
 				82C6F25328A4091100B8EA70 /* LaunchScreen.storyboard in Resources */,
 				82C6F25028A4091100B8EA70 /* Assets.xcassets in Resources */,
 				82C6F24E28A4090E00B8EA70 /* Main.storyboard in Resources */,
@@ -415,6 +466,7 @@
 			files = (
 				82D3C07828C5743500084046 /* NASAVideoPlayerViewController.swift in Sources */,
 				8239551F28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift in Sources */,
+				82E569FD297E110000879E21 /* NASAImageCategoriesListView.swift in Sources */,
 				82D3C07A28C5759700084046 /* NASAVideosTableViewController.swift in Sources */,
 				82C6F25F28A4093500B8EA70 /* NasaImage.swift in Sources */,
 				8239552328BF039B0064A1BB /* NASAImageDetailViewController.swift in Sources */,
@@ -424,11 +476,15 @@
 				826E245028A480DC007AF962 /* NASAImagesTableViewController.swift in Sources */,
 				8239552128BEDCE10064A1BB /* NasaImageCategory.swift in Sources */,
 				82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */,
+				82E569FF297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift in Sources */,
 				82C6F24728A4090E00B8EA70 /* AppDelegate.swift in Sources */,
+				82E56A01297E114F00879E21 /* NASAImageCategoriesListViewController.swift in Sources */,
 				82C6F24928A4090E00B8EA70 /* SceneDelegate.swift in Sources */,
 				82C6F26128A40A1800B8EA70 /* NASAPresenter.swift in Sources */,
 				826E245228A48101007AF962 /* NasaImagesTableViewCell.swift in Sources */,
 				82F2573028B838DD00824A80 /* NASA.swift in Sources */,
+				82E56A03297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift in Sources */,
+				82E56A05297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift in Sources */,
 				82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */,
 				82F2573428B8392200824A80 /* AsteroidViewController.swift in Sources */,
 			);

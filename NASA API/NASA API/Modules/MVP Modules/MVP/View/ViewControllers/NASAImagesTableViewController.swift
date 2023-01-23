@@ -21,6 +21,7 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.SetViewDelegate(delegate: self)
+        self.tableView.register(UINib(nibName: NasaImagesTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: NasaImagesTableViewCell.identifier)
         switch category?.id {
             
         case 1:
@@ -97,7 +98,7 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NasaImagesTableViewCell.identifier, for: indexPath) as! NasaImagesTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NasaImagesTableViewCell.identifier, for: indexPath) as? NasaImagesTableViewCell else {return UITableViewCell()}
         
         switch category?.id {
             
