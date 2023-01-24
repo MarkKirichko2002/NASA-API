@@ -8,7 +8,8 @@
 import Foundation
 
 struct NasaImageCategory {
-    var id: Int
-    var name: String
-    var icon: String
+    let id: Int
+    let name: String
+    let icon: String
+    let sound: String
 }

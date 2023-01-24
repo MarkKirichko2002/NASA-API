@@ -10,7 +10,8 @@ import AVFoundation
 
 class RoundedImageView: UIImageView {
     
-    var audioPlayer = AVAudioPlayer()
+    var sound = ""
+    private let audioPlayer = AVAudioPlayer()
     
     override func layoutSubviews() {
         self.layer.cornerRadius = self.bounds.width / 2
@@ -22,12 +23,8 @@ class RoundedImageView: UIImageView {
     }
     
     @IBAction func tapFunction(sender: UITapGestureRecognizer) {
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "spring", ofType: "mp3") ?? ""))
-            audioPlayer.play()
-        } catch {
-            print(error)
-        }
+        
+        SoundClass.shared.PlaySound(resource: sound)
        
         UIView.animate(withDuration: 0.75,
                                     delay: 0,

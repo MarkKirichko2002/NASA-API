@@ -27,10 +27,22 @@ class NASAImageCategoriesListViewController: UIViewController, NASAImageCategori
         ])
     }
     
-    func ShowNASAimages(_ nasaImageCategoriesListView: NASAImageCategoriesListView, didSelectCategory category: NasaImageCategory) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImagesTableViewController") as? NASAImagesTableViewController
-        vc?.category = category
-        navigationController?.pushViewController(vc!, animated: true)
+    func ShowNASAimages(didSelectCategory category: NasaImageCategory) {
+        
+        switch category.id {
+            
+        case 1,2:
+            let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImagesTableViewController") as? NASAImagesTableViewController
+            vc?.category = category
+            navigationController?.pushViewController(vc!, animated: true)
+            
+        case 3:
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "EPICNASAImagesViewController") as? EPICNASAImagesViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        default:
+            break
+        }
     }
-    
 }

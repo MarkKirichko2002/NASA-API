@@ -16,7 +16,7 @@ class NASAImageCategoriesListViewViewModel: NSObject {
     public weak var delegate: NASAImageCategoriesListViewViewModelDelegate?
     
     private let cellViewModels = [NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Mars Rover Photos", categoryImage: "rover"), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "NASA Image Library", categoryImage: "NASA"), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "EPIC", categoryImage: "EPIC")]
-    private let categories = [NasaImageCategory(id: 1, name: "NASA Mars Rover Images", icon: "rover"), NasaImageCategory(id: 2, name: "NASA Image Library", icon: "NASA"), NasaImageCategory(id: 3, name: "EPIC", icon: "EPIC")]
+    private let categories = [NasaImageCategory(id: 1, name: "NASA Mars Rover Images", icon: "rover", sound: "space.wav"), NasaImageCategory(id: 2, name: "NASA Image Library", icon: "NASA", sound: "camera.wav"), NasaImageCategory(id: 3, name: "EPIC", icon: "EPIC", sound: "space.wav")]
 }
 
 extension NASAImageCategoriesListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -42,7 +42,7 @@ extension NASAImageCategoriesListViewViewModel: UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let category = categories[indexPath.row]
+        SoundClass.shared.PlaySound(resource: category.sound)
         delegate?.didSelectCategory(category)
     }
-    
 }

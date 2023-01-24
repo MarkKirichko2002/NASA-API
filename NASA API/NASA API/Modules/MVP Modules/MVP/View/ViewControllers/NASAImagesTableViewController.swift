@@ -47,6 +47,7 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
             if let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImageDetailViewController") as? NASAImageDetailViewController {
                 vc.info = "Landing Date: \(marsimages[indexPath.row].rover.landingDate)"
                 vc.image = marsimages[indexPath.row].imgSrc
+                vc.sound = category?.sound ?? ""
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
@@ -54,6 +55,7 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
             if let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImageDetailViewController") as? NASAImageDetailViewController {
                 vc.info = nasaimagesinfo[indexPath.row].dataDescription
                 vc.image = nasaimages[indexPath.row].href
+                vc.sound = category?.sound ?? ""
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
@@ -67,6 +69,7 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
             if let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImageDetailViewController") as? NASAImageDetailViewController {
                 vc.info = "\(id) \(centroidcoordinates) \(dscovrj2000position) \(lunarj2000position) \(sunJ2000Position) \(attitudequaternions)"
                 vc.image = earthimages[indexPath.row]
+                vc.sound = category?.sound ?? ""
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
@@ -104,15 +107,13 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
             
         case 1:
             cell.NASAImage.sd_setImage(with: URL(string: marsimages[indexPath.row].imgSrc))
-            cell.NASAImage.layer.cornerRadius = cell.NASAImage.frame.width / 2
-            cell.NASAImage.layer.borderWidth = 5
+            cell.NASAImage.sound = category?.sound ?? ""
             cell.TitleLabel.text = marsimages[indexPath.row].camera.fullName
             cell.DateLabel.text = marsimages[indexPath.row].earthDate
             
         case 2:
             cell.NASAImage.sd_setImage(with: URL(string: nasaimages[indexPath.row].href))
-            cell.NASAImage.layer.cornerRadius = cell.NASAImage.frame.width / 2
-            cell.NASAImage.layer.borderWidth = 5
+            cell.NASAImage.sound = category?.sound ?? ""
             cell.TitleLabel.text = nasaimagesinfo[indexPath.row].title
             cell.DateLabel.text = nasaimagesinfo[indexPath.row].dateCreated
             
@@ -131,12 +132,11 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
             let day = formatter.string(from: date!)
             let totaldate = year + "/" + month + "/" + day
             cell.NASAImage.sd_setImage(with: URL(string: "https://epic.gsfc.nasa.gov/archive/natural/\(totaldate)/png/\(image)"))
+            cell.NASAImage.sound = category?.sound ?? ""
             self.earthimages.append("https://epic.gsfc.nasa.gov/archive/natural/\(totaldate)/png/\(image)")
-            cell.NASAImage.layer.cornerRadius = cell.NASAImage.frame.width / 2
-            cell.NASAImage.layer.borderWidth = 5
             cell.TitleLabel.text = epicimages[indexPath.row].caption
             cell.DateLabel.text = epicimages[indexPath.row].date
-           
+            
         default:
             break
         }

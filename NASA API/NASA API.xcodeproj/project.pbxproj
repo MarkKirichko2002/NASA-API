@@ -30,6 +30,20 @@
 		82E56A0B297E2DA400879E21 /* NasaImagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E56A0A297E2DA400879E21 /* NasaImagesTableViewCell.xib */; };
 		82E56A0E297E31F800879E21 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A0D297E31F800879E21 /* UIView + Extensions.swift */; };
 		82E56A18297E358B00879E21 /* SplashScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A17297E358B00879E21 /* SplashScreenController.swift */; };
+		82E56A32297F688D00879E21 /* EPIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A31297F688D00879E21 /* EPIC.swift */; };
+		82E56A34297F68CA00879E21 /* EPICNASAImagesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A33297F68CA00879E21 /* EPICNASAImagesListView.swift */; };
+		82E56A36297F68F900879E21 /* EPICNASAImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A35297F68F900879E21 /* EPICNASAImagesViewController.swift */; };
+		82E56A38297F692100879E21 /* NASAEPICImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A37297F692100879E21 /* NASAEPICImagesCollectionViewCell.swift */; };
+		82E56A3A297F694D00879E21 /* EPICNASAImagesListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A39297F694D00879E21 /* EPICNASAImagesListViewViewModel.swift */; };
+		82E56A3C297F696A00879E21 /* NASAEPICImagesCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A3B297F696A00879E21 /* NASAEPICImagesCollectionViewCellViewModel.swift */; };
+		82E56A3F297F732800879E21 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A3E297F732800879E21 /* APIManager.swift */; };
+		82E56A47297F8A9200879E21 /* AttitudeQuaternions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A46297F8A9200879E21 /* AttitudeQuaternions.swift */; };
+		82E56A49297F8AA500879E21 /* CentroidCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A48297F8AA500879E21 /* CentroidCoordinates.swift */; };
+		82E56A4B297F8AB900879E21 /* Coords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A4A297F8AB900879E21 /* Coords.swift */; };
+		82E56A4D297F8AD000879E21 /* J2000Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A4C297F8AD000879E21 /* J2000Position.swift */; };
+		82E56A50297F8C2400879E21 /* SoundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A4F297F8C2400879E21 /* SoundClass.swift */; };
+		82E56A53297F8CFB00879E21 /* space.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82E56A52297F8CFB00879E21 /* space.wav */; };
+		82E56A57297F953000879E21 /* camera.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82E56A56297F953000879E21 /* camera.wav */; };
 		82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5933628D8FF3900C05065 /* RoundedImageView.swift */; };
 		82E9B9412976059B000845B3 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B9402976059B000845B3 /* AnimationClass.swift */; };
 		82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B950297607F0000845B3 /* NASATabBarController.swift */; };
@@ -67,6 +81,20 @@
 		82E56A0A297E2DA400879E21 /* NasaImagesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NasaImagesTableViewCell.xib; sourceTree = "<group>"; };
 		82E56A0D297E31F800879E21 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		82E56A17297E358B00879E21 /* SplashScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenController.swift; sourceTree = "<group>"; };
+		82E56A31297F688D00879E21 /* EPIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPIC.swift; sourceTree = "<group>"; };
+		82E56A33297F68CA00879E21 /* EPICNASAImagesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICNASAImagesListView.swift; sourceTree = "<group>"; };
+		82E56A35297F68F900879E21 /* EPICNASAImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICNASAImagesViewController.swift; sourceTree = "<group>"; };
+		82E56A37297F692100879E21 /* NASAEPICImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAEPICImagesCollectionViewCell.swift; sourceTree = "<group>"; };
+		82E56A39297F694D00879E21 /* EPICNASAImagesListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPICNASAImagesListViewViewModel.swift; sourceTree = "<group>"; };
+		82E56A3B297F696A00879E21 /* NASAEPICImagesCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAEPICImagesCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		82E56A3E297F732800879E21 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		82E56A46297F8A9200879E21 /* AttitudeQuaternions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttitudeQuaternions.swift; sourceTree = "<group>"; };
+		82E56A48297F8AA500879E21 /* CentroidCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentroidCoordinates.swift; sourceTree = "<group>"; };
+		82E56A4A297F8AB900879E21 /* Coords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coords.swift; sourceTree = "<group>"; };
+		82E56A4C297F8AD000879E21 /* J2000Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = J2000Position.swift; sourceTree = "<group>"; };
+		82E56A4F297F8C2400879E21 /* SoundClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClass.swift; sourceTree = "<group>"; };
+		82E56A52297F8CFB00879E21 /* space.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = space.wav; path = "../../../../../QUIZ/QUIZ/QUIZ/Resources/sounds/quiz category sounds/space.wav"; sourceTree = "<group>"; };
+		82E56A56297F953000879E21 /* camera.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = camera.wav; path = "NASA API/Sounds/camera.wav"; sourceTree = SOURCE_ROOT; };
 		82E5933628D8FF3900C05065 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		82E9B9402976059B000845B3 /* AnimationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
 		82E9B94D29760751000845B3 /* spring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spring.mp3; sourceTree = "<group>"; };
@@ -230,6 +258,63 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		82E56A2D297F682C00879E21 /* NASA EPIC Images MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A30297F683E00879E21 /* Model */,
+				82E56A2F297F683C00879E21 /* View */,
+				82E56A2E297F683A00879E21 /* ViewModel */,
+			);
+			path = "NASA EPIC Images MVVM";
+			sourceTree = "<group>";
+		};
+		82E56A2E297F683A00879E21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A39297F694D00879E21 /* EPICNASAImagesListViewViewModel.swift */,
+				82E56A3B297F696A00879E21 /* NASAEPICImagesCollectionViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		82E56A2F297F683C00879E21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A33297F68CA00879E21 /* EPICNASAImagesListView.swift */,
+				82E56A35297F68F900879E21 /* EPICNASAImagesViewController.swift */,
+				82E56A37297F692100879E21 /* NASAEPICImagesCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		82E56A30297F683E00879E21 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A31297F688D00879E21 /* EPIC.swift */,
+				82E56A46297F8A9200879E21 /* AttitudeQuaternions.swift */,
+				82E56A48297F8AA500879E21 /* CentroidCoordinates.swift */,
+				82E56A4A297F8AB900879E21 /* Coords.swift */,
+				82E56A4C297F8AD000879E21 /* J2000Position.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		82E56A3D297F731B00879E21 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A3E297F732800879E21 /* APIManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		82E56A4E297F8C0E00879E21 /* AudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A4F297F8C2400879E21 /* SoundClass.swift */,
+			);
+			path = AudioPlayer;
+			sourceTree = "<group>";
+		};
 		82E5933528D8FF0700C05065 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				82E56A06297E2A3200879E21 /* NASA Image Categories MVVM */,
+				82E56A2D297F682C00879E21 /* NASA EPIC Images MVVM */,
 				82F2572B28B837E000824A80 /* MVVM + RxSwift */,
 			);
 			path = "MVVM Modules";
@@ -294,6 +380,8 @@
 		82E9B94A29760710000845B3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				82E56A4E297F8C0E00879E21 /* AudioPlayer */,
+				82E56A3D297F731B00879E21 /* API */,
 				82E5933528D8FF0700C05065 /* Animation */,
 			);
 			path = Services;
@@ -315,7 +403,9 @@
 		82E9B94C29760748000845B3 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				82E56A52297F8CFB00879E21 /* space.wav */,
 				82E9B94D29760751000845B3 /* spring.mp3 */,
+				82E56A56297F953000879E21 /* camera.wav */,
 			);
 			path = sounds;
 			sourceTree = "<group>";
@@ -425,7 +515,9 @@
 				82E56A0B297E2DA400879E21 /* NasaImagesTableViewCell.xib in Resources */,
 				82C6F25328A4091100B8EA70 /* LaunchScreen.storyboard in Resources */,
 				82C6F25028A4091100B8EA70 /* Assets.xcassets in Resources */,
+				82E56A53297F8CFB00879E21 /* space.wav in Resources */,
 				82C6F24E28A4090E00B8EA70 /* Main.storyboard in Resources */,
+				82E56A57297F953000879E21 /* camera.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,30 +570,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E56A3F297F732800879E21 /* APIManager.swift in Sources */,
+				82E56A4B297F8AB900879E21 /* Coords.swift in Sources */,
 				82D3C07828C5743500084046 /* NASAVideoPlayerViewController.swift in Sources */,
 				8239551F28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift in Sources */,
+				82E56A32297F688D00879E21 /* EPIC.swift in Sources */,
+				82E56A50297F8C2400879E21 /* SoundClass.swift in Sources */,
 				82E569FD297E110000879E21 /* NASAImageCategoriesListView.swift in Sources */,
 				82D3C07A28C5759700084046 /* NASAVideosTableViewController.swift in Sources */,
 				82C6F25F28A4093500B8EA70 /* NasaImage.swift in Sources */,
+				82E56A36297F68F900879E21 /* EPICNASAImagesViewController.swift in Sources */,
 				8239552328BF039B0064A1BB /* NASAImageDetailViewController.swift in Sources */,
 				82E9B9412976059B000845B3 /* AnimationClass.swift in Sources */,
+				82E56A34297F68CA00879E21 /* EPICNASAImagesListView.swift in Sources */,
 				8239551D28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift in Sources */,
 				82F2573228B838F800824A80 /* NasaViewModel.swift in Sources */,
 				826E245028A480DC007AF962 /* NASAImagesTableViewController.swift in Sources */,
 				8239552128BEDCE10064A1BB /* NasaImageCategory.swift in Sources */,
 				82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */,
+				82E56A3A297F694D00879E21 /* EPICNASAImagesListViewViewModel.swift in Sources */,
+				82E56A49297F8AA500879E21 /* CentroidCoordinates.swift in Sources */,
 				82E569FF297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift in Sources */,
 				82C6F24728A4090E00B8EA70 /* AppDelegate.swift in Sources */,
 				82E56A01297E114F00879E21 /* NASAImageCategoriesListViewController.swift in Sources */,
 				82C6F24928A4090E00B8EA70 /* SceneDelegate.swift in Sources */,
 				82E56A0E297E31F800879E21 /* UIView + Extensions.swift in Sources */,
 				82C6F26128A40A1800B8EA70 /* NASAPresenter.swift in Sources */,
+				82E56A3C297F696A00879E21 /* NASAEPICImagesCollectionViewCellViewModel.swift in Sources */,
 				826E245228A48101007AF962 /* NasaImagesTableViewCell.swift in Sources */,
+				82E56A4D297F8AD000879E21 /* J2000Position.swift in Sources */,
 				82E56A18297E358B00879E21 /* SplashScreenController.swift in Sources */,
 				82F2573028B838DD00824A80 /* NASA.swift in Sources */,
 				82E56A03297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift in Sources */,
 				82E56A05297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift in Sources */,
+				82E56A47297F8A9200879E21 /* AttitudeQuaternions.swift in Sources */,
 				82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */,
+				82E56A38297F692100879E21 /* NASAEPICImagesCollectionViewCell.swift in Sources */,
 				82F2573428B8392200824A80 /* AsteroidViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
