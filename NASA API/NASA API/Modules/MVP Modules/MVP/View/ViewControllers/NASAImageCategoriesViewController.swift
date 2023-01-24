@@ -9,7 +9,7 @@ import UIKit
 
 class NASAImageCategoriesViewController: UITableViewController {
     
-    var categories = [NasaImageCategory(id: 1, name: "NASA Mars Rover Images", icon: "rover", sound: "space.wav"), NasaImageCategory(id: 2, name: "NASA Image Library", icon: "NASA", sound: "camera.wav"), NasaImageCategory(id: 3, name: "EPIC", icon: "EPIC", sound: "space.wav")]
+    var categories = [NasaImageCategory(id: 1, name: "NASA Mars Rover Images", icon: "rover", sound: "space.wav"), NasaImageCategory(id: 2, name: "NASA Image Library", icon: "NASA", sound: "camera.mp3"), NasaImageCategory(id: 3, name: "EPIC", icon: "EPIC", sound: "space.wav")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,4 @@ class NASAImageCategoriesViewController: UITableViewController {
         
         return cell
     }
-    
-    
 }
