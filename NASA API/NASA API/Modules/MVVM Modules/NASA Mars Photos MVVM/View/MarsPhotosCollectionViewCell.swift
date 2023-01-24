@@ -1,5 +1,5 @@
 //
-//  NASAEPICImagesCollectionViewCell.swift
+//  MarsPhotosCollectionViewCell.swift
 //  NASA API
 //
 //  Created by Марк Киричко on 24.01.2023.
@@ -8,22 +8,22 @@
 import UIKit
 import SDWebImage
 
-class NASAEPICImagesCollectionViewCell: UICollectionViewCell {
+class MarsPhotosCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "NASAEPICImagesCollectionViewCell"
+    static let identifier = "MarsPhotosCollectionViewCell"
     
     private let imageView: UIImageView = {
-       let imageView = UIImageView()
-       imageView.contentMode = .scaleAspectFill
-       imageView.clipsToBounds = true
-       imageView.translatesAutoresizingMaskIntoConstraints = false
-       return imageView
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -31,7 +31,7 @@ class NASAEPICImagesCollectionViewCell: UICollectionViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -40,15 +40,15 @@ class NASAEPICImagesCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubviews(imageView,nameLabel,dateLabel)
-        addConstraints()
-        setUpLayer()
+        SetUpConstraints()
+        SetUpLayer()
     }
     
-    required init(coder: NSCoder) {
-        fatalError("Unsupported")
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpLayer() {
+    private func SetUpLayer() {
         contentView.layer.cornerRadius = 8
         contentView.layer.shadowColor = UIColor.label.cgColor
         contentView.layer.cornerRadius = 4
@@ -56,35 +56,31 @@ class NASAEPICImagesCollectionViewCell: UICollectionViewCell {
         contentView.layer.shadowOpacity = 0.3
     }
     
-    private func addConstraints() {
+    private func SetUpConstraints() {
         NSLayoutConstraint.activate([
-            // изображение земли
+           
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor),
-            // название 
+            imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -3),
+            
             nameLabel.heightAnchor.constraint(equalToConstant: 30),
             nameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 7),
             nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -7),
             nameLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor),
-            // дата
+            
             dateLabel.heightAnchor.constraint(equalToConstant: 30),
             dateLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 7),
             dateLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -7),
             dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
         ])
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        setUpLayer()
-    }
-   
-    public func configure(with viewModel: NASAEPICImagesCollectionViewCellViewModel) {
-        imageView.sd_setImage(with: URL(string: viewModel.EPICIMage))
-        nameLabel.text = viewModel.EPICTitle
-        dateLabel.text = viewModel.EPICDate
+    func configure(with viewModel: MarsPhotosCollectionViewCellViewModel) {
+        imageView.sd_setImage(with: URL(string: viewModel.MarsPhoto))
+        nameLabel.text = viewModel.RoverName
+        dateLabel.text = viewModel.PhotoDate
     }
     
 }
