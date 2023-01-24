@@ -48,26 +48,9 @@ class NASAPresenter {
     var videourls = [String]()
     
     func GetMarsPhotos() {
-        
-        let url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
-        
-        URLSession.shared.dataTask(with: URL(string: url)!) { data, _, error in
-            guard let data = data else {return}
-            
-            var response: MarsImage?
-            
-            do {
-                response = try JSONDecoder().decode(MarsImage.self, from: data)
-            } catch {
-                print(error)
-            }
-            
-            DispatchQueue.main.async {
-                guard let marsimages = response?.photos else {return}
-                self.marsimages = marsimages
-                self.delegate?.PresentMarsPhotos(images: marsimages)
-            }
-        }.resume()
+        APIManager.shared.fetchMarsPhotos { marsimages in
+            self.delegate?.PresentMarsPhotos(images: marsimages)
+        }
     }
     
     func GetNASAImages() {
@@ -113,25 +96,8 @@ class NASAPresenter {
     }
     
     func GetEPICImages() {
-        let url = "https://epic.gsfc.nasa.gov/api/natural"
-        
-        AF.request(url).responseData { response in
-            guard let data = response.data else {return}
-            
-            var epicResponse: [EPIC]?
-            
-            do {
-                epicResponse = try JSONDecoder().decode([EPIC].self, from: data)
-            } catch {
-                print(error)
-            }
-            
-            DispatchQueue.main.async {
-                guard let epicimages = epicResponse else {return}
-                self.epicimages = epicimages
-                print(self.epicimages)
-                self.delegate?.PresentEPICNASAImages(images: epicimages)
-            }
+        APIManager.shared.fetchEPICImages { epicimages in
+            self.delegate?.PresentEPICNASAImages(images: epicimages)
         }
     }
     

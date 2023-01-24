@@ -31,7 +31,12 @@ class NASAImageCategoriesListViewController: UIViewController, NASAImageCategori
         
         switch category.id {
             
-        case 1,2:
+        case 1:
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "MarsPhotosViewController") as? MarsPhotosViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+            
+        case 2:
             let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImagesTableViewController") as? NASAImagesTableViewController
             vc?.category = category
             navigationController?.pushViewController(vc!, animated: true)

@@ -53,6 +53,11 @@
 		82E56A67297FC86600879E21 /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A66297FC86600879E21 /* LibraryData.swift */; };
 		82E56A69297FC87A00879E21 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A68297FC87A00879E21 /* Link.swift */; };
 		82E56A6B297FC89100879E21 /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A6A297FC89100879E21 /* Metadata.swift */; };
+		82E56A7A297FE34800879E21 /* MarsPhotosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A79297FE34800879E21 /* MarsPhotosListView.swift */; };
+		82E56A7C297FE3B500879E21 /* MarsPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A7B297FE3B500879E21 /* MarsPhotosViewController.swift */; };
+		82E56A7E297FE3E700879E21 /* MarsPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A7D297FE3E700879E21 /* MarsPhotosCollectionViewCell.swift */; };
+		82E56A80297FE44500879E21 /* MarsPhotosListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A7F297FE44500879E21 /* MarsPhotosListViewViewModel.swift */; };
+		82E56A82297FE46700879E21 /* MarsPhotosCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A81297FE46700879E21 /* MarsPhotosCollectionViewCellViewModel.swift */; };
 		82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5933628D8FF3900C05065 /* RoundedImageView.swift */; };
 		82E9B9412976059B000845B3 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B9402976059B000845B3 /* AnimationClass.swift */; };
 		82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B950297607F0000845B3 /* NASATabBarController.swift */; };
@@ -113,6 +118,11 @@
 		82E56A66297FC86600879E21 /* LibraryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryData.swift; sourceTree = "<group>"; };
 		82E56A68297FC87A00879E21 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		82E56A6A297FC89100879E21 /* Metadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metadata.swift; sourceTree = "<group>"; };
+		82E56A79297FE34800879E21 /* MarsPhotosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosListView.swift; sourceTree = "<group>"; };
+		82E56A7B297FE3B500879E21 /* MarsPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosViewController.swift; sourceTree = "<group>"; };
+		82E56A7D297FE3E700879E21 /* MarsPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		82E56A7F297FE44500879E21 /* MarsPhotosListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosListViewViewModel.swift; sourceTree = "<group>"; };
+		82E56A81297FE46700879E21 /* MarsPhotosCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		82E5933628D8FF3900C05065 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		82E9B9402976059B000845B3 /* AnimationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
 		82E9B94D29760751000845B3 /* spring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spring.mp3; sourceTree = "<group>"; };
@@ -204,10 +214,6 @@
 		82C6F25D28A4092100B8EA70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				82C6F25E28A4093500B8EA70 /* MarsImage.swift */,
-				82E56A5A297FC7F100879E21 /* Photo.swift */,
-				82E56A5C297FC80E00879E21 /* Camera.swift */,
-				82E56A5E297FC81F00879E21 /* Rover.swift */,
 				82E56A60297FC82A00879E21 /* NASAImageAndVideoLibrary.swift */,
 				82E56A62297FC83A00879E21 /* Collection.swift */,
 				82E56A64297FC84C00879E21 /* Item.swift */,
@@ -307,8 +313,8 @@
 		82E56A2F297F683C00879E21 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				82E56A33297F68CA00879E21 /* EPICNASAImagesListView.swift */,
 				82E56A35297F68F900879E21 /* EPICNASAImagesViewController.swift */,
+				82E56A33297F68CA00879E21 /* EPICNASAImagesListView.swift */,
 				82E56A37297F692100879E21 /* NASAEPICImagesCollectionViewCell.swift */,
 			);
 			path = View;
@@ -342,6 +348,46 @@
 			path = AudioPlayer;
 			sourceTree = "<group>";
 		};
+		82E56A75297FE2DD00879E21 /* NASA Mars Photos MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A78297FE2F900879E21 /* Model */,
+				82E56A77297FE2F700879E21 /* View */,
+				82E56A76297FE2F400879E21 /* ViewModel */,
+			);
+			path = "NASA Mars Photos MVVM";
+			sourceTree = "<group>";
+		};
+		82E56A76297FE2F400879E21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A7F297FE44500879E21 /* MarsPhotosListViewViewModel.swift */,
+				82E56A81297FE46700879E21 /* MarsPhotosCollectionViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		82E56A77297FE2F700879E21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A79297FE34800879E21 /* MarsPhotosListView.swift */,
+				82E56A7B297FE3B500879E21 /* MarsPhotosViewController.swift */,
+				82E56A7D297FE3E700879E21 /* MarsPhotosCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		82E56A78297FE2F900879E21 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				82C6F25E28A4093500B8EA70 /* MarsImage.swift */,
+				82E56A5A297FC7F100879E21 /* Photo.swift */,
+				82E56A5C297FC80E00879E21 /* Camera.swift */,
+				82E56A5E297FC81F00879E21 /* Rover.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		82E5933528D8FF0700C05065 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				82E56A06297E2A3200879E21 /* NASA Image Categories MVVM */,
+				82E56A75297FE2DD00879E21 /* NASA Mars Photos MVVM */,
 				82E56A2D297F682C00879E21 /* NASA EPIC Images MVVM */,
 				82F2572B28B837E000824A80 /* MVVM + RxSwift */,
 			);
@@ -600,6 +647,9 @@
 				82E56A3F297F732800879E21 /* APIManager.swift in Sources */,
 				82E56A4B297F8AB900879E21 /* Coords.swift in Sources */,
 				82D3C07828C5743500084046 /* NASAVideoPlayerViewController.swift in Sources */,
+				82E56A80297FE44500879E21 /* MarsPhotosListViewViewModel.swift in Sources */,
+				82E56A7E297FE3E700879E21 /* MarsPhotosCollectionViewCell.swift in Sources */,
+				82E56A7A297FE34800879E21 /* MarsPhotosListView.swift in Sources */,
 				8239551F28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift in Sources */,
 				82E56A32297F688D00879E21 /* EPIC.swift in Sources */,
 				82E56A50297F8C2400879E21 /* SoundClass.swift in Sources */,
@@ -613,6 +663,7 @@
 				82E56A5B297FC7F100879E21 /* Photo.swift in Sources */,
 				82E56A34297F68CA00879E21 /* EPICNASAImagesListView.swift in Sources */,
 				8239551D28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift in Sources */,
+				82E56A82297FE46700879E21 /* MarsPhotosCollectionViewCellViewModel.swift in Sources */,
 				82F2573228B838F800824A80 /* NasaViewModel.swift in Sources */,
 				82E56A61297FC82A00879E21 /* NASAImageAndVideoLibrary.swift in Sources */,
 				82E56A6B297FC89100879E21 /* Metadata.swift in Sources */,
@@ -636,6 +687,7 @@
 				82E56A4D297F8AD000879E21 /* J2000Position.swift in Sources */,
 				82E56A63297FC83A00879E21 /* Collection.swift in Sources */,
 				82E56A18297E358B00879E21 /* SplashScreenController.swift in Sources */,
+				82E56A7C297FE3B500879E21 /* MarsPhotosViewController.swift in Sources */,
 				82F2573028B838DD00824A80 /* NASA.swift in Sources */,
 				82E56A03297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift in Sources */,
 				82E56A05297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift in Sources */,
