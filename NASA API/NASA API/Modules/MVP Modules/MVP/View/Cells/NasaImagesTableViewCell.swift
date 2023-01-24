@@ -11,7 +11,7 @@ class NasaImagesTableViewCell: UITableViewCell {
 
     static let identifier = "NasaImagesTableViewCell"
     
-    @IBOutlet weak var NASAImage: UIImageView!
+    @IBOutlet weak var NASAImage: RoundedImageView!
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var DateLabel: UILabel!
 

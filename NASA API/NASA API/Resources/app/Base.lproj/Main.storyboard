@@ -50,7 +50,7 @@
                                 <rect key="frame" x="100" y="463" width="228" height="229"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASA" translatesAutoresizingMaskIntoConstraints="NO" id="w77-sZ-5Wm" customClass="RoundedImageView" customModule="NASA_API" customModuleProvider="target">
@@ -74,8 +74,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="EWz-eL-tJe"/>
                     <connections>
-                        <outlet property="NASAImageDetail" destination="w77-sZ-5Wm" id="TyX-G1-FG6"/>
-                        <outlet property="text" destination="bGw-6s-kjy" id="T40-QN-tN4"/>
+                        <outlet property="NASAImageDetail" destination="w77-sZ-5Wm" id="IkB-X3-COv"/>
+                        <outlet property="text" destination="bGw-6s-kjy" id="1cl-r6-m5G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rwj-Yn-Cri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -173,6 +173,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yj1-2q-2LC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3313" y="391"/>
+        </scene>
+        <!--Images View Controller-->
+        <scene sceneID="4dg-SA-aHS">
+            <objects>
+                <viewController storyboardIdentifier="EPICNASAImagesViewController" id="ay5-D2-3U3" customClass="EPICNASAImagesViewController" customModule="NASA_API" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aGn-N9-Xx3">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4sb-Ud-gnb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WH8-I7-EcX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4393" y="384"/>
         </scene>
         <!--Asteroids-->
         <scene sceneID="DLK-qS-CDF">
