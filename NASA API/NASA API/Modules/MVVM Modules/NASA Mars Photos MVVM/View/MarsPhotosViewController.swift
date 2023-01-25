@@ -26,7 +26,6 @@ class MarsPhotosViewController: UIViewController {
             marsPhotosListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
 }
 
 extension MarsPhotosViewController: MarsPhotosListViewDelegate {
