@@ -24,13 +24,13 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
         self.tableView.register(UINib(nibName: NasaImagesTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: NasaImagesTableViewCell.identifier)
         switch category?.id {
             
-        case 1:
+        case 2:
             presenter.GetMarsPhotos()
             
-        case 2:
+        case 3:
             presenter.GetNASAImages()
             
-        case 3:
+        case 4:
             presenter.GetEPICImages()
            
         default:
@@ -43,7 +43,7 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
         
         switch category?.id {
            
-        case 1:
+        case 2:
             if let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImageDetailViewController") as? NASAImageDetailViewController {
                 vc.info = "Landing Date: \(marsimages[indexPath.row].rover.landingDate)"
                 vc.image = marsimages[indexPath.row].imgSrc
@@ -51,7 +51,7 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
-        case 2:
+        case 3:
             if let vc = storyboard?.instantiateViewController(withIdentifier: "NASAImageDetailViewController") as? NASAImageDetailViewController {
                 vc.info = nasaimagesinfo[indexPath.row].dataDescription
                 vc.image = nasaimages[indexPath.row].href
@@ -59,7 +59,7 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
-        case 3:
+        case 4:
             let id = "identifier \(epicimages[indexPath.row].identifier) \n"
             let centroidcoordinates = "\n centroid coordinates \n lat: \(epicimages[indexPath.row].centroidCoordinates.lat) \n lon: \(epicimages[indexPath.row].centroidCoordinates.lon) \n"
             let dscovrj2000position = "\n DSCOVR j2000 coordinates \n x: \(epicimages[indexPath.row].dscovrJ2000Position.x), \n y: \(epicimages[indexPath.row].dscovrJ2000Position.y), \n z: \(epicimages[indexPath.row].dscovrJ2000Position.z) \n"
@@ -83,13 +83,13 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch category?.id {
             
-        case 1:
+        case 2:
             return marsimages.count
             
-        case 2:
+        case 3:
             return nasaimagesinfo.count
             
-        case 3:
+        case 4:
             return epicimages.count
             
         default:
@@ -105,19 +105,19 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
         
         switch category?.id {
             
-        case 1:
+        case 2:
             cell.NASAImage.sd_setImage(with: URL(string: marsimages[indexPath.row].imgSrc))
             cell.NASAImage.sound = category?.sound ?? ""
             cell.TitleLabel.text = marsimages[indexPath.row].camera.fullName
             cell.DateLabel.text = marsimages[indexPath.row].earthDate
             
-        case 2:
+        case 3:
             cell.NASAImage.sd_setImage(with: URL(string: nasaimages[indexPath.row].href))
             cell.NASAImage.sound = category?.sound ?? ""
             cell.TitleLabel.text = nasaimagesinfo[indexPath.row].title
             cell.DateLabel.text = nasaimagesinfo[indexPath.row].dateCreated
             
-        case 3:
+        case 4:
             var image = epicimages[indexPath.row].image
             image += ".png"
             let dateString = epicimages[indexPath.row].date
