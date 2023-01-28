@@ -25,11 +25,9 @@ class NASAVideosTableViewController: UITableViewController, VideoPresentDelegate
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "NASAVideoPlayerViewController") as? NASAVideoPlayerViewController {
-            vc.json = nasavideosjsons[indexPath.row]
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = NASAVideoPlayerViewController()
+        vc.json = nasavideosjsons[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Table view data source

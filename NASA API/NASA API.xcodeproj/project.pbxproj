@@ -294,7 +294,6 @@
 		82C6F25A28A4091800B8EA70 /* MVP */ = {
 			isa = PBXGroup;
 			children = (
-				82C6F25D28A4092100B8EA70 /* Model */,
 				82C6F25C28A4091F00B8EA70 /* View */,
 				82C6F25B28A4091D00B8EA70 /* Presenter */,
 			);
@@ -316,13 +315,6 @@
 				82C6F26228A40BA800B8EA70 /* Cells */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		82C6F25D28A4092100B8EA70 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		82C6F26228A40BA800B8EA70 /* Cells */ = {

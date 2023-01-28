@@ -80,6 +80,10 @@ extension EPICNASAImagesListViewViewModel: UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         SoundClass.shared.PlaySound(resource: "space.wav")
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? NASAEPICImagesCollectionViewCell {
+            cell.didCellTapped(indexPath: indexPath)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.delegate?.didEpicImageSelected(epic: self.cellViewModels[indexPath.row])
         }

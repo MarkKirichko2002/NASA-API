@@ -13,4 +13,8 @@ extension UIView {
            addSubview($0)
         })
     }
+    
+    func didCellTapped(indexPath: IndexPath) {
+        AnimationClass().springView(view: self)
+    }
 }

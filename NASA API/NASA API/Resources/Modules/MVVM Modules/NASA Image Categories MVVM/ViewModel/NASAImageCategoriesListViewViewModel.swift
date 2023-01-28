@@ -82,6 +82,9 @@ extension NASAImageCategoriesListViewViewModel: UICollectionViewDataSource, UICo
         collectionView.deselectItem(at: indexPath, animated: true)
         let category = categories[indexPath.row]
         SoundClass.shared.PlaySound(resource: category.sound)
+        if let cell = collectionView.cellForItem(at: indexPath) as? NASAImageCategoriesCollectionViewCell {
+            cell.didCellTapped(indexPath: indexPath)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.delegate?.didSelectCategory(category)
         }
