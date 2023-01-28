@@ -58,6 +58,9 @@ extension MarsPhotosListViewViewModel: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         SoundClass.shared.PlaySound(resource: "space.wav")
+        if let cell = collectionView.cellForItem(at: indexPath) as? MarsPhotosCollectionViewCell {
+            cell.didCellTapped(indexPath: indexPath)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.delegate?.didMarsPhotoSelected(photo: self.marsphotos[indexPath.row])
         }

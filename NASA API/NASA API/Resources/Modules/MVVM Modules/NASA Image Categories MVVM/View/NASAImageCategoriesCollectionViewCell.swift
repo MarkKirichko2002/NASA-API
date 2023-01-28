@@ -86,5 +86,4 @@ class NASAImageCategoriesCollectionViewCell: UICollectionViewCell {
         nameLabel.text = viewModel.categoryName
         ItemsCountLabel.text = "images count: \(viewModel.imagesCount)"
     }
-    
 }

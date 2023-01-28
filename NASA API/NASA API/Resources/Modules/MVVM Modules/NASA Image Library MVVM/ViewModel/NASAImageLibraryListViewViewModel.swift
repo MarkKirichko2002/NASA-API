@@ -60,7 +60,12 @@ extension NASAImageLibraryListViewViewModel: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didSelectNASAImage(cellViewModels[indexPath.row])
+        if let cell = collectionView.cellForItem(at: indexPath) as? NASAImageLibraryCollectionViewCell {
+            cell.didCellTapped(indexPath: indexPath)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.delegate?.didSelectNASAImage(self.cellViewModels[indexPath.row])
+        }
     }
     
 }
