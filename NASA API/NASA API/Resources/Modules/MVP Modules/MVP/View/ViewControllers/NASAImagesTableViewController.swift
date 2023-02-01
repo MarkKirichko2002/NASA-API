@@ -10,13 +10,13 @@ import SDWebImage
 
 class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate {
     
-    var presenter = NASAPresenter()
-    var marsimages = [Photo]()
-    var nasaimages = [NASAImageViewModel]()
-    var nasaimagesinfo = [NASAImageInfoViewModel]()
-    var epicimages = [EPIC]()
+    private let presenter = NASAPresenter()
+    private var marsimages = [Photo]()
+    private var nasaimages = [NASAImageViewModel]()
+    private var nasaimagesinfo = [NASAImageInfoViewModel]()
+    private var epicimages = [EPIC]()
+    private var earthimages = [String]()
     var category: NasaImageCategory?
-    var earthimages = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

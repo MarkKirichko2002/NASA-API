@@ -52,5 +52,4 @@ class AnimationClass {
         propertyAnimator.addAnimations({ barItemView.transform = .identity }, delayFactor: CGFloat(timeInterval))
         propertyAnimator.startAnimation()
     }
-    
 }
