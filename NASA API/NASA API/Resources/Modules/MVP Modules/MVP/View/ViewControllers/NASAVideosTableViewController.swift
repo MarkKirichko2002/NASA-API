@@ -10,10 +10,10 @@ import SDWebImage
 
 class NASAVideosTableViewController: UITableViewController, VideoPresentDelegate {
     
-    var presenter = NASAPresenter()
-    var nasavideos = [Link]()
-    var nasavideosinfo = [LibraryData]()
-    var nasavideosjsons = [String]()
+    private let presenter = NASAPresenter()
+    private var nasavideos = [Link]()
+    private var nasavideosinfo = [LibraryData]()
+    private var nasavideosjsons = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
