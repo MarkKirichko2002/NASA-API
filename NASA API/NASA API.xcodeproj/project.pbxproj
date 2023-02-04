@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82148B7F298E5842005FA95D /* MarsWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82148B7E298E5842005FA95D /* MarsWeather.swift */; };
+		82148B81298E5866005FA95D /* ValidityChecks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82148B80298E5866005FA95D /* ValidityChecks.swift */; };
+		82148B83298E5876005FA95D /* The1219.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82148B82298E5876005FA95D /* The1219.swift */; };
+		82148B85298E5885005FA95D /* At.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82148B84298E5885005FA95D /* At.swift */; };
+		82148B87298E58A5005FA95D /* MarsWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82148B86298E58A5005FA95D /* MarsWeatherViewController.swift */; };
+		82148B8B298E5F74005FA95D /* MarsWeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82148B8A298E5F74005FA95D /* MarsWeatherPresenter.swift */; };
 		8239551D28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239551C28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift */; };
 		8239551F28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239551E28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift */; };
 		8239552128BEDCE10064A1BB /* NasaImageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239552028BEDCE10064A1BB /* NasaImageCategory.swift */; };
@@ -77,6 +83,12 @@
 
 /* Begin PBXFileReference section */
 		201E09660E9CBBFEC1428311 /* Pods-NASA API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA API.debug.xcconfig"; path = "Target Support Files/Pods-NASA API/Pods-NASA API.debug.xcconfig"; sourceTree = "<group>"; };
+		82148B7E298E5842005FA95D /* MarsWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsWeather.swift; sourceTree = "<group>"; };
+		82148B80298E5866005FA95D /* ValidityChecks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidityChecks.swift; sourceTree = "<group>"; };
+		82148B82298E5876005FA95D /* The1219.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The1219.swift; sourceTree = "<group>"; };
+		82148B84298E5885005FA95D /* At.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = At.swift; sourceTree = "<group>"; };
+		82148B86298E58A5005FA95D /* MarsWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsWeatherViewController.swift; sourceTree = "<group>"; };
+		82148B8A298E5F74005FA95D /* MarsWeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsWeatherPresenter.swift; sourceTree = "<group>"; };
 		8239551C28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesViewController.swift; sourceTree = "<group>"; };
 		8239551E28BEDA2B0064A1BB /* NasaImageCategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageCategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		8239552028BEDCE10064A1BB /* NasaImageCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageCategory.swift; sourceTree = "<group>"; };
@@ -168,6 +180,59 @@
 				82A2E745B9C3FF7B18738670 /* Pods-NASA API.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		82148B7A298E57EC005FA95D /* Mars Weather */ = {
+			isa = PBXGroup;
+			children = (
+				82148B7D298E57F4005FA95D /* Model */,
+				82148B7C298E57F2005FA95D /* View */,
+				82148B7B298E57F0005FA95D /* Presenter */,
+			);
+			path = "Mars Weather";
+			sourceTree = "<group>";
+		};
+		82148B7B298E57F0005FA95D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				82148B8A298E5F74005FA95D /* MarsWeatherPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		82148B7C298E57F2005FA95D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				82148B86298E58A5005FA95D /* MarsWeatherViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		82148B7D298E57F4005FA95D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				82148B7E298E5842005FA95D /* MarsWeather.swift */,
+				82148B80298E5866005FA95D /* ValidityChecks.swift */,
+				82148B82298E5876005FA95D /* The1219.swift */,
+				82148B84298E5885005FA95D /* At.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		82148B88298E5F2D005FA95D /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A17297E358B00879E21 /* SplashScreenController.swift */,
+			);
+			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		82148B89298E5F39005FA95D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				82E9B950297607F0000845B3 /* NASATabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		82C5ABF92981C23E00D26D7C /* APOD MVP */ = {
@@ -522,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				82C5ABF92981C23E00D26D7C /* APOD MVP */,
+				82148B7A298E57EC005FA95D /* Mars Weather */,
 				82C6F25A28A4091800B8EA70 /* MVP */,
 			);
 			path = "MVP Modules";
@@ -530,8 +596,8 @@
 		82E9B94629760641000845B3 /* Other Modules */ = {
 			isa = PBXGroup;
 			children = (
-				82E56A17297E358B00879E21 /* SplashScreenController.swift */,
-				82E9B950297607F0000845B3 /* NASATabBarController.swift */,
+				82148B88298E5F2D005FA95D /* Splash Screen */,
+				82148B89298E5F39005FA95D /* TabBar */,
 			);
 			path = "Other Modules";
 			sourceTree = "<group>";
@@ -741,6 +807,9 @@
 				82E56A3F297F732800879E21 /* APIManager.swift in Sources */,
 				82E56A4B297F8AB900879E21 /* Coords.swift in Sources */,
 				82C5AC122982620000D26D7C /* NASAImageLibraryListView.swift in Sources */,
+				82148B85298E5885005FA95D /* At.swift in Sources */,
+				82148B7F298E5842005FA95D /* MarsWeather.swift in Sources */,
+				82148B81298E5866005FA95D /* ValidityChecks.swift in Sources */,
 				82D3C07828C5743500084046 /* NASAVideoPlayerViewController.swift in Sources */,
 				82E56A80297FE44500879E21 /* MarsPhotosListViewViewModel.swift in Sources */,
 				82E56A7E297FE3E700879E21 /* MarsPhotosCollectionViewCell.swift in Sources */,
@@ -758,10 +827,12 @@
 				82E56A36297F68F900879E21 /* EPICNASAImagesViewController.swift in Sources */,
 				8239552328BF039B0064A1BB /* NASAImageDetailViewController.swift in Sources */,
 				82E9B9412976059B000845B3 /* AnimationClass.swift in Sources */,
+				82148B83298E5876005FA95D /* The1219.swift in Sources */,
 				82E56A5B297FC7F100879E21 /* Photo.swift in Sources */,
 				82E56A34297F68CA00879E21 /* EPICNASAImagesListView.swift in Sources */,
 				8239551D28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift in Sources */,
 				82E56A82297FE46700879E21 /* MarsPhotosCollectionViewCellViewModel.swift in Sources */,
+				82148B8B298E5F74005FA95D /* MarsWeatherPresenter.swift in Sources */,
 				82F2573228B838F800824A80 /* NasaViewModel.swift in Sources */,
 				82C5AC0A29822F6A00D26D7C /* NASAImageInfoViewModel.swift in Sources */,
 				82E56A61297FC82A00879E21 /* NASAImageAndVideoLibrary.swift in Sources */,
@@ -798,6 +869,7 @@
 				82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */,
 				82C5AC18298266F200D26D7C /* NASAImageLibraryCollectionViewCell.swift in Sources */,
 				82E56A38297F692100879E21 /* NASAEPICImagesCollectionViewCell.swift in Sources */,
+				82148B87298E58A5005FA95D /* MarsWeatherViewController.swift in Sources */,
 				82F2573428B8392200824A80 /* AsteroidViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
