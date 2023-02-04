@@ -148,4 +148,27 @@ class APIManager {
             }
         }
     }
+    
+    func fetchMarsWeather(completion: @escaping(ValidityChecks)->()) {
+        
+        url = "https://api.nasa.gov/insight_weather/?api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX&feedtype=json&ver=1.0"
+        
+        AF.request(url).responseData { response in
+            guard let data = response.data else {return}
+            
+            var marsWeatherResponse: MarsWeather?
+            
+            do {
+                marsWeatherResponse = try JSONDecoder().decode(MarsWeather.self, from: data)
+            } catch {
+                print(error)
+            }
+            
+            DispatchQueue.main.async {
+                guard let marsweather = marsWeatherResponse?.validityChecks else {return}
+                print(marsweather)
+                completion(marsweather)
+            }
+        }
+    }
 }
