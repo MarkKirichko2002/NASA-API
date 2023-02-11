@@ -26,7 +26,7 @@ class MarsPhotosListViewViewModel: NSObject {
     private var cellViewModels = [MarsPhotosCollectionViewCellViewModel]()
     
     func GetMarsPhoto() {
-        APIManager.shared.fetchMarsPhotos {[weak self] marsphotos in
+        NASAService.shared.fetchMarsPhotos {[weak self] marsphotos in
             self?.marsphotos = marsphotos
             
             DispatchQueue.main.async {

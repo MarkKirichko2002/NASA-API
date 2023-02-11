@@ -29,10 +29,10 @@ class NASAImageLibraryListViewViewModel: NSObject {
     private var imagesinfo = [NASAImageInfoViewModel]()
     
     func GetNASAImages() {
-        APIManager.shared.fetchNASAImages { images in
+        NASAService.shared.fetchNASAImages { images in
             self.images = images
         }
-        APIManager.shared.fetchNASAImagesInfo { info in
+        NASAService.shared.fetchNASAImagesInfo { info in
             self.imagesinfo = info
             self.delegate?.didLoadInitialNASAImages()
         }

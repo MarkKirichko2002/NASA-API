@@ -18,7 +18,7 @@ class MarsWeatherPresenter {
     var delegate: MarsWeatherPresenterDelegate?
     
     func GetMarsWeather() {
-        APIManager.shared.fetchMarsWeather { marsweather in
+        NASAService.shared.fetchMarsWeather { marsweather in
             self.delegate?.displayMarsWeather(weather: marsweather)
         }
     }

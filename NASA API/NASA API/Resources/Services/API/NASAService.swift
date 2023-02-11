@@ -1,5 +1,5 @@
 //
-//  APIManager.swift
+//  NASAService.swift
 //  NASA API
 //
 //  Created by Марк Киричко on 24.01.2023.
@@ -7,10 +7,9 @@
 
 import Alamofire
 
-class APIManager {
+class NASAService {
     
-    static let shared = APIManager()
-    
+    static let shared = NASAService()
     private var url = ""
     
     func fetchAPOD(completion: @escaping(Apod)->()) {
@@ -126,7 +125,6 @@ class APIManager {
         }
     }
     
-    
     func fetchEPICImages(completion: @escaping([EPIC])->()) {
         
         url = "https://epic.gsfc.nasa.gov/api/natural"
@@ -145,6 +143,47 @@ class APIManager {
             DispatchQueue.main.async {
                 guard let epicimages = epicResponse else {return}
                 completion(epicimages)
+            }
+        }
+    }
+    
+    func fetchAsteroids(completion: @escaping([NearEarthObject])->()) {
+        
+        url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
+        
+        AF.request(url).responseData { response in
+            guard let data = response.data else {return}
+            
+            var asteroidResponse: Asteroid?
+            
+            do {
+                asteroidResponse = try JSONDecoder().decode(Asteroid.self, from: data)
+                let result = asteroidResponse?.nearEarthObjects
+                guard let asteroidresult = result?["2015-09-07", default: [NearEarthObject]()] else {return}
+                completion(asteroidresult)
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    func fetchVideo(json: String, completion: @escaping(String)->()) {
+        
+        AF.request(json).responseData { response in
+            guard let data = response.data else {return}
+            
+            var jsonResponse: [String]?
+            
+            do {
+                jsonResponse = try JSONDecoder().decode([String].self, from: data)
+                
+                for i in jsonResponse! {
+                    if i.contains("orig.mp4") {
+                        completion(i)
+                    }
+                }
+            } catch {
+                print(error)
             }
         }
     }

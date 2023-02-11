@@ -37,7 +37,7 @@ class APODViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubviews(imageView, DateLabel, ExplanationTextView)
         SetUpConstraints()
         presenter.SetViewDelegate(delegate: self)

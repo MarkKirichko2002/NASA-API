@@ -48,23 +48,23 @@ class NASAPresenter {
     var videourls = [String]()
     
     func GetMarsPhotos() {
-        APIManager.shared.fetchMarsPhotos { marsimages in
+        NASAService.shared.fetchMarsPhotos { marsimages in
             self.delegate?.PresentMarsPhotos(images: marsimages)
         }
     }
     
     func GetNASAImages() {
-        APIManager.shared.fetchNASAImages { images in
+        NASAService.shared.fetchNASAImages { images in
             self.delegate?.PresentNASAImages(images: images)
         }
         
-        APIManager.shared.fetchNASAImagesInfo { info in
+        NASAService.shared.fetchNASAImagesInfo { info in
             self.delegate?.PresentNASAImagesInfo(info: info)
         }
     }
     
     func GetEPICImages() {
-        APIManager.shared.fetchEPICImages { epicimages in
+        NASAService.shared.fetchEPICImages { epicimages in
             self.delegate?.PresentEPICNASAImages(images: epicimages)
         }
     }
@@ -116,27 +116,8 @@ class NASAPresenter {
     }
     
     func ParseNASAVideo(json: String) {
-        
-        AF.request(json).responseData { response in
-            guard let data = response.data else {return}
-            
-            var jsonResponse: [String]?
-            
-            do {
-                jsonResponse = try JSONDecoder().decode([String].self, from: data)
-                
-                for i in jsonResponse! {
-                    if i.contains("orig.mp4") {
-                        DispatchQueue.main.async {
-                            self.videoplayerdelegate?.PresentNASAVideo(video: i)
-                            print(i)
-                        }
-                    }
-                }
-                
-            } catch {
-                print(error)
-            }
+        NASAService.shared.fetchVideo(json: json) { video in
+            self.videoplayerdelegate?.PresentNASAVideo(video: video)
         }
     }
     

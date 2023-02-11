@@ -1,5 +1,5 @@
 //
-//  AsteroidViewController.swift
+//  AsteroidsViewController.swift
 //  NASA API
 //
 //  Created by Марк Киричко on 26.08.2022.
@@ -9,10 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AsteroidViewController: UIViewController {
+class AsteroidsViewController: UIViewController {
 
-    var viewModel = NasaViewModel()
-    var bag = DisposeBag()
+    private let viewModel = AsteroidsViewModel()
+    private let bag = DisposeBag()
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.view.frame)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -40,6 +40,6 @@ class AsteroidViewController: UIViewController {
     }
 }
 
-extension AsteroidViewController: UITableViewDelegate {
+extension AsteroidsViewController: UITableViewDelegate {
     
 }

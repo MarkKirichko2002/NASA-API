@@ -18,7 +18,7 @@ class APODPresenter {
     var delegate: APODPresenterType?
     
     func GetAPOD() {
-        APIManager.shared.fetchAPOD { apod in
+        NASAService.shared.fetchAPOD { apod in
             self.delegate?.PresentAPOD(apod: apod)
         }
     }
