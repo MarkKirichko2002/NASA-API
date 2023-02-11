@@ -14,14 +14,14 @@ class NASATabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = UIColor.black
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         SetUpTabs()
     }
     
     private func SetUpTabs() {
         
         let imageCategoriesVC = NASAImageCategoriesListViewController()
-        let asteroidsVC = AsteroidViewController()
+        let asteroidsVC = AsteroidsViewController()
         let mediaLibrary = NASAVideosTableViewController()
         let marsWeatherVC = MarsWeatherViewController()
         

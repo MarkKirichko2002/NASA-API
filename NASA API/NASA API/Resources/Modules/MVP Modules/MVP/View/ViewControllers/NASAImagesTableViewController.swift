@@ -21,7 +21,7 @@ class NASAImagesTableViewController: UITableViewController, PhotoPresentDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 100
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         presenter.SetViewDelegate(delegate: self)
         self.tableView.register(NasaImagesTableViewCell.self, forCellReuseIdentifier: NasaImagesTableViewCell.identifier)
         switch category?.id {

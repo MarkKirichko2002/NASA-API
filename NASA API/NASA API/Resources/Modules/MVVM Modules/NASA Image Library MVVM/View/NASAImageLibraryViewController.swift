@@ -12,7 +12,7 @@ class NASAImageLibraryViewController: UIViewController {
     private let nasaImageLibraryListView = NASAImageLibraryListView()
     
     override func viewDidLoad() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubview(nasaImageLibraryListView)
         SetUpConstraints()
     }

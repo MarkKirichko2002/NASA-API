@@ -19,7 +19,7 @@ class NASAVideoPlayerViewController: UIViewController, AVPlayerViewControllerDel
         button.setTitle("Play Video", for: .normal)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        button.addTarget(NASAVideoPlayerViewController.self, action: #selector(PlayVideo), for: .touchUpInside)
+        button.addTarget(self, action: #selector(PlayVideo), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -38,6 +38,7 @@ class NASAVideoPlayerViewController: UIViewController, AVPlayerViewControllerDel
     }
     
     override func viewDidLoad() {
+        view.backgroundColor = .systemBackground
         view.addSubview(button)
         SetUpConstraints()
         presenter.ParseNASAVideo(json: self.json)

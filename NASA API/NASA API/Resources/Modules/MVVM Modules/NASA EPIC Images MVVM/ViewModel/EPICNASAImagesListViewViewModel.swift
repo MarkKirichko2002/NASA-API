@@ -28,7 +28,7 @@ final class EPICNASAImagesListViewViewModel: NSObject {
     private var cellViewModels = [NASAEPICImagesCollectionViewCellViewModel]()
     
     public func GetEPICImages() {
-        APIManager.shared.fetchEPICImages { [weak self] epicimages in
+        NASAService.shared.fetchEPICImages { [weak self] epicimages in
             self?.epicimages = epicimages
             DispatchQueue.main.async {
                 self?.delegate?.didLoadInitialEPICImages()
