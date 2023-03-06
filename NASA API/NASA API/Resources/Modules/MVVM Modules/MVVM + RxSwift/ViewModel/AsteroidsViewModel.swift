@@ -14,8 +14,16 @@ class AsteroidsViewModel {
     var asteroids = PublishSubject<[NearEarthObject]>()
     
     func GetAsteroids() {
-        NASAService.shared.fetchAsteroids { asteroidresult in
-            self.asteroids.onNext(asteroidresult)
+        NASAService.shared.execute(type: Asteroid.self, response: .asteroids) { [weak self] result in
+            switch result {
+            case .success(let data):
+                guard let data = data.nearEarthObjects?["2015-09-07", default: [NearEarthObject]()] else {
+                    return
+                }
+                self?.asteroids.onNext(data)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }

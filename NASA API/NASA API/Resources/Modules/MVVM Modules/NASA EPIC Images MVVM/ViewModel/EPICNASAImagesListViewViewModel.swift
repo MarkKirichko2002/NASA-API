@@ -28,10 +28,16 @@ final class EPICNASAImagesListViewViewModel: NSObject {
     private var cellViewModels = [NASAEPICImagesCollectionViewCellViewModel]()
     
     public func GetEPICImages() {
-        NASAService.shared.fetchEPICImages { [weak self] epicimages in
-            self?.epicimages = epicimages
-            DispatchQueue.main.async {
-                self?.delegate?.didLoadInitialEPICImages()
+        NASAService.shared.execute(type: [EPIC].self, response: .epic) { [weak self] result in
+            switch result {
+                
+            case .success(let data):
+                self?.epicimages = data
+                DispatchQueue.main.async {
+                    self?.delegate?.didLoadInitialEPICImages()
+                }
+            case .failure(let error):
+                print(error)
             }
         }
     }

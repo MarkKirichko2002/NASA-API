@@ -24,18 +24,28 @@ class NASAImageCategoriesListViewViewModel: NSObject {
     
     func GetCategoryImages() {
         DispatchQueue.main.async {
-            self.apiManager.fetchAPOD { apod in
-                DispatchQueue.main.async {
-                    self.cellViewModels[0].categoryImage = apod.hdurl
-                    self.cellViewModels[0].imagesCount = 1
-                    self.delegate?.didLoadInitialCategoryImages()
+            self.apiManager.execute(type: Apod.self, response: .apod) { result in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.cellViewModels[0].categoryImage = data.hdurl
+                        self.cellViewModels[0].imagesCount = 1
+                        self.delegate?.didLoadInitialCategoryImages()
+                    }
+                case .failure(let error):
+                    print(error)
                 }
             }
-            self.apiManager.fetchMarsPhotos { photo in
-                DispatchQueue.main.async {
-                    self.cellViewModels[1].categoryImage = photo[Int.random(in: 0...photo.count)].imgSrc
-                    self.cellViewModels[1].imagesCount = photo.count
-                    self.delegate?.didLoadInitialCategoryImages()
+            self.apiManager.execute(type: MarsImage.self, response: .marsphotos) { result in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.cellViewModels[1].categoryImage = data.photos[Int.random(in: 0...data.photos.count)].imgSrc
+                        self.cellViewModels[1].imagesCount = data.photos.count
+                        self.delegate?.didLoadInitialCategoryImages()
+                    }
+                case .failure(let error):
+                    print(error)
                 }
             }
             self.apiManager.fetchNASAImages { images in
@@ -45,13 +55,18 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                     self.delegate?.didLoadInitialCategoryImages()
                 }
             }
-            self.apiManager.fetchEPICImages { epicimages in
-                DispatchQueue.main.async {
-                    self.epicNASAImagesListViewViewModel.SetUpImageURL(epic: epicimages[0]) { image in
-                        self.cellViewModels[3].categoryImage = image
-                        self.cellViewModels[3].imagesCount = epicimages.count
-                        self.delegate?.didLoadInitialCategoryImages()
+            self.apiManager.execute(type: [EPIC].self, response: .epic) { [weak self] result in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self?.epicNASAImagesListViewViewModel.SetUpImageURL(epic: data[0]) { image in
+                            self?.cellViewModels[3].categoryImage = image
+                            self?.cellViewModels[3].imagesCount = data.count
+                            self?.delegate?.didLoadInitialCategoryImages()
+                        }
                     }
+                case .failure(let error):
+                    print(error)
                 }
             }
         }

@@ -18,8 +18,14 @@ class MarsWeatherPresenter {
     var delegate: MarsWeatherPresenterDelegate?
     
     func GetMarsWeather() {
-        NASAService.shared.fetchMarsWeather { marsweather in
-            self.delegate?.displayMarsWeather(weather: marsweather)
+        NASAService.shared.execute(type: MarsWeather.self, response: .marsweather) { [weak self] result in
+            switch result {
+            case .success(let data):
+                guard let data = data.validityChecks else {return}
+                self?.delegate?.displayMarsWeather(weather: data)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     
