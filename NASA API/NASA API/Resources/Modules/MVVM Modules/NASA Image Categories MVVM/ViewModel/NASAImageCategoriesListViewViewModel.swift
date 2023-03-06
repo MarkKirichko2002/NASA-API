@@ -24,35 +24,60 @@ class NASAImageCategoriesListViewViewModel: NSObject {
     
     func GetCategoryImages() {
         DispatchQueue.main.async {
-            self.apiManager.execute(type: Apod.self, response: .apod) { result in
+            self.apiManager.execute(type: Apod.self, response: .apod) { [weak self] result in
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async {
-                        self.cellViewModels[0].categoryImage = data.hdurl
-                        self.cellViewModels[0].imagesCount = 1
-                        self.delegate?.didLoadInitialCategoryImages()
+                        self?.cellViewModels[0].categoryImage = data.hdurl
+                        self?.cellViewModels[0].imagesCount = 1
+                        self?.delegate?.didLoadInitialCategoryImages()
                     }
                 case .failure(let error):
                     print(error)
                 }
             }
-            self.apiManager.execute(type: MarsImage.self, response: .marsphotos) { result in
+            self.apiManager.execute(type: MarsImage.self, response: .marsphotos) { [weak self] result in
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async {
-                        self.cellViewModels[1].categoryImage = data.photos[Int.random(in: 0...data.photos.count)].imgSrc
-                        self.cellViewModels[1].imagesCount = data.photos.count
-                        self.delegate?.didLoadInitialCategoryImages()
+                        self?.cellViewModels[1].categoryImage = data.photos[Int.random(in: 0...data.photos.count)].imgSrc
+                        self?.cellViewModels[1].imagesCount = data.photos.count
+                        self?.delegate?.didLoadInitialCategoryImages()
+                    }
+                    Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                        DispatchQueue.main.async {
+                            self?.cellViewModels[1].categoryImage = data.photos[Int.random(in: 0...data.photos.count - 1)].imgSrc
+                            self?.cellViewModels[1].categoryName =  data.photos[Int.random(in: 0...data.photos.count - 1)].rover.name
+                            self?.delegate?.didLoadInitialCategoryImages()
+                        }
                     }
                 case .failure(let error):
                     print(error)
                 }
             }
-            self.apiManager.fetchNASAImages { images in
-                DispatchQueue.main.async {
-                    self.cellViewModels[2].categoryImage = images[0].image
-                    self.cellViewModels[2].imagesCount = images.count
-                    self.delegate?.didLoadInitialCategoryImages()
+            self.apiManager.execute(type: NASAImageAndVideoLibrary.self, response: .nasaimages) { [weak self] result in
+                switch result {
+                case .success(let data):
+                    var images = [NASAImageViewModel]()
+                    let data = data.collection.items
+                    DispatchQueue.main.async {
+                        for i in data {
+                            for i in i.links {
+                                images.append(NASAImageViewModel(image: i.href))
+                            }
+                            self?.cellViewModels[2].categoryImage = images[0].image
+                            self?.cellViewModels[2].imagesCount = images.count
+                            self?.delegate?.didLoadInitialCategoryImages()
+                        }
+                    }
+                    Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                        DispatchQueue.main.async {
+                            self?.cellViewModels[2].categoryImage = images[Int.random(in: 0...images.count - 1)].image
+                            self?.delegate?.didLoadInitialCategoryImages()
+                        }
+                    }
+                case .failure(let error):
+                    print(error)
                 }
             }
             self.apiManager.execute(type: [EPIC].self, response: .epic) { [weak self] result in
@@ -63,6 +88,15 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                             self?.cellViewModels[3].categoryImage = image
                             self?.cellViewModels[3].imagesCount = data.count
                             self?.delegate?.didLoadInitialCategoryImages()
+                        }
+                    }
+                    Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+                        DispatchQueue.main.async {
+                            self?.epicNASAImagesListViewViewModel.SetUpImageURL(epic: data[Int.random(in: 0...data.count - 1)]) { image in
+                                self?.cellViewModels[3].categoryImage = image
+                                self?.cellViewModels[3].categoryName = data[Int.random(in: 0...data.count - 1)].date
+                                self?.delegate?.didLoadInitialCategoryImages()
+                            }
                         }
                     }
                 case .failure(let error):
@@ -82,6 +116,9 @@ extension NASAImageCategoriesListViewViewModel: UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NASAImageCategoriesCollectionViewCell.identifier, for: indexPath) as? NASAImageCategoriesCollectionViewCell else {
             fatalError("Unsupported cell")
+        }
+        if let cell = collectionView.cellForItem(at: indexPath) as? NASAImageCategoriesCollectionViewCell {
+            cell.didCellTapped(indexPath: indexPath)
         }
         cell.configure(with: cellViewModels[indexPath.row])
         return cell

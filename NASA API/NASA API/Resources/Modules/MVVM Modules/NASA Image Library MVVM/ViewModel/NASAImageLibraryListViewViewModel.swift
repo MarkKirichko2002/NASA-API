@@ -29,12 +29,42 @@ class NASAImageLibraryListViewViewModel: NSObject {
     private var imagesinfo = [NASAImageInfoViewModel]()
     
     func GetNASAImages() {
-        NASAService.shared.fetchNASAImages { images in
-            self.images = images
+        NASAService.shared.execute(type: NASAImageAndVideoLibrary.self, response: .nasaimages) { [weak self] result in
+            switch result {
+            case .success(let data):
+                let data = data.collection.items
+                DispatchQueue.main.async {
+                    for i in data {
+                        for i in i.links {
+                            self?.images.append(NASAImageViewModel(image: i.href))
+                        }
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
-        NASAService.shared.fetchNASAImagesInfo { info in
-            self.imagesinfo = info
-            self.delegate?.didLoadInitialNASAImages()
+        NASAService.shared.execute(type: NASAImageAndVideoLibrary.self, response: .nasaimagesinfo) { [weak self] result in
+            switch result {
+            case .success(let data):
+                let data = data.collection.items
+                DispatchQueue.main.async {
+                    for i in data {
+                        for i in i.data {
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                            let date = dateFormatter.date(from:i.dateCreated)!
+                            let calendar = Calendar.current
+                            let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+                            let finalDate = calendar.date(from:components)
+                            self?.imagesinfo.append(NASAImageInfoViewModel(title: i.title, date: "\(finalDate ?? Date())", description: i.dataDescription))
+                        }
+                    }
+                    self?.delegate?.didLoadInitialNASAImages()
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }
