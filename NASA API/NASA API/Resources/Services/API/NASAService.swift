@@ -7,54 +7,58 @@
 
 import Alamofire
 
+enum ResponseType {
+    case apod
+    case marsphotos
+    case nasaimages
+    case nasaimagesinfo
+    case epic
+    case asteroids
+    case marsweather
+}
+
 class NASAService {
     
     static let shared = NASAService()
     private var url = ""
+
+    private func UrlForResponse(response: ResponseType) -> String {
+        switch response {
+        case .apod:
+        return "https://api.nasa.gov/planetary/apod?api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
+            
+        case .marsphotos:
+        return "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
+        case .nasaimages,.nasaimagesinfo:
+        return "https://images-api.nasa.gov/search?q=apollo%2022&description=moon%20landing&media_type=image"
+            
+        case .epic:
+        return "https://epic.gsfc.nasa.gov/api/natural"
+        case .asteroids:
+        return "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
+        case .marsweather:
+        return "https://api.nasa.gov/insight_weather/?api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX&feedtype=json&ver=1.0"
+        }
+    }
     
-    func fetchAPOD(completion: @escaping(Apod)->()) {
+    func execute<T: Codable>(type: T.Type, response: ResponseType,completion: @escaping(Result<T,Error>)->Void) {
         
-        url = "https://api.nasa.gov/planetary/apod?api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
+        url = UrlForResponse(response: response)
         
         AF.request(url).responseData { response in
             guard let data = response.data else {return}
             
-            var response: Apod?
+            var response: T
             
             do {
-                response = try JSONDecoder().decode(Apod.self, from: data)
+                response = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(response))
             } catch {
                 print(error)
-            }
-            
-            DispatchQueue.main.async {
-                guard let apod = response else {return}
-                completion(apod)
             }
         }
     }
     
-    func fetchMarsPhotos(completion: @escaping([Photo])->()) {
-        
-        url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
-        
-        AF.request(url).responseData { response in
-            guard let data = response.data else {return}
-            
-            var response: MarsImage?
-            
-            do {
-                response = try JSONDecoder().decode(MarsImage.self, from: data)
-            } catch {
-                print(error)
-            }
-            
-            DispatchQueue.main.async {
-                guard let marsimages = response?.photos else {return}
-                completion(marsimages)
-            }
-        }
-    }
     
     func fetchNASAImages(completion: @escaping([NASAImageViewModel])->()) {
         
@@ -125,48 +129,6 @@ class NASAService {
         }
     }
     
-    func fetchEPICImages(completion: @escaping([EPIC])->()) {
-        
-        url = "https://epic.gsfc.nasa.gov/api/natural"
-        
-        AF.request(url).responseData { response in
-            guard let data = response.data else {return}
-            
-            var epicResponse: [EPIC]?
-            
-            do {
-                epicResponse = try JSONDecoder().decode([EPIC].self, from: data)
-            } catch {
-                print(error)
-            }
-            
-            DispatchQueue.main.async {
-                guard let epicimages = epicResponse else {return}
-                completion(epicimages)
-            }
-        }
-    }
-    
-    func fetchAsteroids(completion: @escaping([NearEarthObject])->()) {
-        
-        url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
-        
-        AF.request(url).responseData { response in
-            guard let data = response.data else {return}
-            
-            var asteroidResponse: Asteroid?
-            
-            do {
-                asteroidResponse = try JSONDecoder().decode(Asteroid.self, from: data)
-                let result = asteroidResponse?.nearEarthObjects
-                guard let asteroidresult = result?["2015-09-07", default: [NearEarthObject]()] else {return}
-                completion(asteroidresult)
-            } catch {
-                print(error)
-            }
-        }
-    }
-    
     func fetchVideo(json: String, completion: @escaping(String)->()) {
         
         AF.request(json).responseData { response in
@@ -184,29 +146,6 @@ class NASAService {
                 }
             } catch {
                 print(error)
-            }
-        }
-    }
-    
-    func fetchMarsWeather(completion: @escaping(ValidityChecks)->()) {
-        
-        url = "https://api.nasa.gov/insight_weather/?api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX&feedtype=json&ver=1.0"
-        
-        AF.request(url).responseData { response in
-            guard let data = response.data else {return}
-            
-            var marsWeatherResponse: MarsWeather?
-            
-            do {
-                marsWeatherResponse = try JSONDecoder().decode(MarsWeather.self, from: data)
-            } catch {
-                print(error)
-            }
-            
-            DispatchQueue.main.async {
-                guard let marsweather = marsWeatherResponse?.validityChecks else {return}
-                print(marsweather)
-                completion(marsweather)
             }
         }
     }

@@ -26,11 +26,16 @@ class MarsPhotosListViewViewModel: NSObject {
     private var cellViewModels = [MarsPhotosCollectionViewCellViewModel]()
     
     func GetMarsPhoto() {
-        NASAService.shared.fetchMarsPhotos {[weak self] marsphotos in
-            self?.marsphotos = marsphotos
-            
-            DispatchQueue.main.async {
-                self?.delegate?.didLoadInitialMarsPhotos()
+        NASAService.shared.execute(type: MarsImage.self, response: .marsphotos) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.marsphotos = data.photos
+                
+                DispatchQueue.main.async {
+                    self?.delegate?.didLoadInitialMarsPhotos()
+                }
+            case .failure(let error):
+                print(error)
             }
         }
     }
