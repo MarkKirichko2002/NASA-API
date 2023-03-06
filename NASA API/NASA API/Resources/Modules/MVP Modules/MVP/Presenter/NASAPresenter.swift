@@ -48,25 +48,15 @@ class NASAPresenter {
     var videourls = [String]()
     
     func GetMarsPhotos() {
-//        NASAService.shared.fetchMarsPhotos { marsimages in
-//            self.delegate?.PresentMarsPhotos(images: marsimages)
-//        }
+
     }
     
     func GetNASAImages() {
-        NASAService.shared.fetchNASAImages { images in
-            self.delegate?.PresentNASAImages(images: images)
-        }
-        
-        NASAService.shared.fetchNASAImagesInfo { info in
-            self.delegate?.PresentNASAImagesInfo(info: info)
-        }
+ 
     }
     
     func GetEPICImages() {
-//        NASAService.shared.fetchEPICImages { epicimages in
-//            self.delegate?.PresentEPICNASAImages(images: epicimages)
-//        }
+
     }
     
     func GetNASAVideos() {
