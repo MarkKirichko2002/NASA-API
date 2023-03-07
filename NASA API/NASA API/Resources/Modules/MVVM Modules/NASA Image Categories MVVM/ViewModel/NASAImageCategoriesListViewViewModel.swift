@@ -32,6 +32,12 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                         self?.cellViewModels[0].imagesCount = 1
                         self?.delegate?.didLoadInitialCategoryImages()
                     }
+                    Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { timer in
+                        DispatchQueue.main.async {
+                            self?.cellViewModels[0].categoryName = data.date ?? ""
+                            self?.delegate?.didLoadInitialCategoryImages()
+                        }
+                    }
                 case .failure(let error):
                     print(error)
                 }
