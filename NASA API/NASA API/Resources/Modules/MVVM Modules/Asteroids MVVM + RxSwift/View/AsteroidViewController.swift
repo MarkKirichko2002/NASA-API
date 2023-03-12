@@ -21,7 +21,7 @@ class AsteroidsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Asteroids"
+        title = "Астероиды"
         self.view.addSubview(tableView)
         viewModel.GetAsteroids()
         bindTableView()

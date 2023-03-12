@@ -21,7 +21,7 @@ class MarsWeatherViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Mars Weather"
+        title = "Марс Погода"
         view.addSubview(WeatherLabel)
         SetUpConstraints()
         presenter.SetViewDelegate(delegate: self)

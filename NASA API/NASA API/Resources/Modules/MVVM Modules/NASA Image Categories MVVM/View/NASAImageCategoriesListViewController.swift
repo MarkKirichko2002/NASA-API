@@ -13,7 +13,7 @@ class NASAImageCategoriesListViewController: UIViewController, NASAImageCategori
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "NASA Images"
+        title = "Изображения"
         SetUpView()
     }
     

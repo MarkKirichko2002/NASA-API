@@ -84,6 +84,6 @@ class NASAImageCategoriesCollectionViewCell: UICollectionViewCell {
     public func configure(with viewModel: NASAImageCategoriesCollectionViewCellViewModel) {
         imageView.sd_setImage(with: URL(string: viewModel.categoryImage)) 
         nameLabel.text = viewModel.categoryName
-        ItemsCountLabel.text = "images count: \(viewModel.imagesCount)"
+        ItemsCountLabel.text = "изображений: \(viewModel.imagesCount)"
     }
 }

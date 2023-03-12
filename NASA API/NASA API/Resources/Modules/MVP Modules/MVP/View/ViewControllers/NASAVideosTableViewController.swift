@@ -17,7 +17,7 @@ class NASAVideosTableViewController: UITableViewController, VideoPresentDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "NASA Video Library"
+        title = "NASA Видеотека"
         tableView.register(NasaImagesTableViewCell.self, forCellReuseIdentifier: NasaImagesTableViewCell.identifier)
         tableView.rowHeight = 100
         presenter.SetVideosViewDelegate(videodelegate: self)
