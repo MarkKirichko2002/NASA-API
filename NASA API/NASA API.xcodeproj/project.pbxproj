@@ -22,6 +22,17 @@
 		8255247C29BE56A60067EB68 /* NASASettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255247B29BE56A60067EB68 /* NASASettingsViewViewModel.swift */; };
 		8255247E29BE56F70067EB68 /* NASASettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255247D29BE56F70067EB68 /* NASASettingsCellViewModel.swift */; };
 		8255248029BE58B20067EB68 /* NASASettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255247F29BE58B20067EB68 /* NASASettingsViewController.swift */; };
+		8255248229BE67D20067EB68 /* AsteroidLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255248129BE67D20067EB68 /* AsteroidLinks.swift */; };
+		8255248429BE67E30067EB68 /* NearEarthObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255248329BE67E30067EB68 /* NearEarthObject.swift */; };
+		8255248629BE67F60067EB68 /* CloseApproachDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255248529BE67F60067EB68 /* CloseApproachDatum.swift */; };
+		8255248829BE68050067EB68 /* MissDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255248729BE68050067EB68 /* MissDistance.swift */; };
+		8255248A29BE68130067EB68 /* OrbitingBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255248929BE68130067EB68 /* OrbitingBody.swift */; };
+		8255248C29BE68220067EB68 /* RelativeVelocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255248B29BE68220067EB68 /* RelativeVelocity.swift */; };
+		8255248E29BE68310067EB68 /* EstimatedDiameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255248D29BE68310067EB68 /* EstimatedDiameter.swift */; };
+		8255249029BE68400067EB68 /* Feet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255248F29BE68400067EB68 /* Feet.swift */; };
+		8255249229BE684E0067EB68 /* NearEarthObjectLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255249129BE684E0067EB68 /* NearEarthObjectLinks.swift */; };
+		8255249529BE68A90067EB68 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255249429BE68A90067EB68 /* SettingsManager.swift */; };
+		8255249729BE98B70067EB68 /* space music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8255249629BE98B70067EB68 /* space music.mp3 */; };
 		826E245028A480DC007AF962 /* NASAImagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E244F28A480DC007AF962 /* NASAImagesTableViewController.swift */; };
 		826E245228A48101007AF962 /* NasaImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E245128A48101007AF962 /* NasaImagesTableViewCell.swift */; };
 		82C5ABFE2981C2B100D26D7C /* Apod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C5ABFD2981C2B100D26D7C /* Apod.swift */; };
@@ -80,7 +91,7 @@
 		82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5933628D8FF3900C05065 /* RoundedImageView.swift */; };
 		82E9B9412976059B000845B3 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B9402976059B000845B3 /* AnimationClass.swift */; };
 		82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9B950297607F0000845B3 /* NASATabBarController.swift */; };
-		82F2573028B838DD00824A80 /* NASA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F2572F28B838DD00824A80 /* NASA.swift */; };
+		82F2573028B838DD00824A80 /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F2572F28B838DD00824A80 /* Asteroid.swift */; };
 		82F2573228B838F800824A80 /* AsteroidsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F2573128B838F800824A80 /* AsteroidsViewModel.swift */; };
 		82F2573428B8392200824A80 /* AsteroidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F2573328B8392200824A80 /* AsteroidViewController.swift */; };
 		9F7E000EA48567FEF4191BFD /* Pods_NASA_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAA51A617C4D2A88B8622AD /* Pods_NASA_API.framework */; };
@@ -103,6 +114,17 @@
 		8255247B29BE56A60067EB68 /* NASASettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASASettingsViewViewModel.swift; sourceTree = "<group>"; };
 		8255247D29BE56F70067EB68 /* NASASettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASASettingsCellViewModel.swift; sourceTree = "<group>"; };
 		8255247F29BE58B20067EB68 /* NASASettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASASettingsViewController.swift; sourceTree = "<group>"; };
+		8255248129BE67D20067EB68 /* AsteroidLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidLinks.swift; sourceTree = "<group>"; };
+		8255248329BE67E30067EB68 /* NearEarthObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearEarthObject.swift; sourceTree = "<group>"; };
+		8255248529BE67F60067EB68 /* CloseApproachDatum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseApproachDatum.swift; sourceTree = "<group>"; };
+		8255248729BE68050067EB68 /* MissDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissDistance.swift; sourceTree = "<group>"; };
+		8255248929BE68130067EB68 /* OrbitingBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitingBody.swift; sourceTree = "<group>"; };
+		8255248B29BE68220067EB68 /* RelativeVelocity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeVelocity.swift; sourceTree = "<group>"; };
+		8255248D29BE68310067EB68 /* EstimatedDiameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatedDiameter.swift; sourceTree = "<group>"; };
+		8255248F29BE68400067EB68 /* Feet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feet.swift; sourceTree = "<group>"; };
+		8255249129BE684E0067EB68 /* NearEarthObjectLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearEarthObjectLinks.swift; sourceTree = "<group>"; };
+		8255249429BE68A90067EB68 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		8255249629BE98B70067EB68 /* space music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "space music.mp3"; path = "../../../../../QUIZ-2.0/QUIZ 2.0/QUIZ 2.0/Sounds/categories music/space music.mp3"; sourceTree = "<group>"; };
 		826E244F28A480DC007AF962 /* NASAImagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImagesTableViewController.swift; sourceTree = "<group>"; };
 		826E245128A48101007AF962 /* NasaImagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesTableViewCell.swift; sourceTree = "<group>"; };
 		82A2E745B9C3FF7B18738670 /* Pods-NASA API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA API.release.xcconfig"; path = "Target Support Files/Pods-NASA API/Pods-NASA API.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,7 +187,7 @@
 		82E9B9402976059B000845B3 /* AnimationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
 		82E9B94D29760751000845B3 /* spring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spring.mp3; sourceTree = "<group>"; };
 		82E9B950297607F0000845B3 /* NASATabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASATabBarController.swift; sourceTree = "<group>"; };
-		82F2572F28B838DD00824A80 /* NASA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASA.swift; sourceTree = "<group>"; };
+		82F2572F28B838DD00824A80 /* Asteroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
 		82F2573128B838F800824A80 /* AsteroidsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidsViewModel.swift; sourceTree = "<group>"; };
 		82F2573328B8392200824A80 /* AsteroidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidViewController.swift; sourceTree = "<group>"; };
 		BDAA51A617C4D2A88B8622AD /* Pods_NASA_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NASA_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +301,14 @@
 				8255247729BE55510067EB68 /* NASASettingsOption.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		8255249329BE68950067EB68 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8255249429BE68A90067EB68 /* SettingsManager.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		82C5ABF92981C23E00D26D7C /* APOD MVP */ = {
@@ -667,6 +697,7 @@
 				82E56A4E297F8C0E00879E21 /* AudioPlayer */,
 				82E56A3D297F731B00879E21 /* API */,
 				82E5933528D8FF0700C05065 /* Animation */,
+				8255249329BE68950067EB68 /* Settings */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -689,6 +720,7 @@
 				82E9B94D29760751000845B3 /* spring.mp3 */,
 				82C5AC042981FBEB00D26D7C /* space.wav */,
 				82E56A58297FC65700879E21 /* camera.mp3 */,
+				8255249629BE98B70067EB68 /* space music.mp3 */,
 			);
 			path = sounds;
 			sourceTree = "<group>";
@@ -722,7 +754,16 @@
 		82F2572E28B837EE00824A80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				82F2572F28B838DD00824A80 /* NASA.swift */,
+				82F2572F28B838DD00824A80 /* Asteroid.swift */,
+				8255248129BE67D20067EB68 /* AsteroidLinks.swift */,
+				8255248329BE67E30067EB68 /* NearEarthObject.swift */,
+				8255248529BE67F60067EB68 /* CloseApproachDatum.swift */,
+				8255248729BE68050067EB68 /* MissDistance.swift */,
+				8255248929BE68130067EB68 /* OrbitingBody.swift */,
+				8255248B29BE68220067EB68 /* RelativeVelocity.swift */,
+				8255248D29BE68310067EB68 /* EstimatedDiameter.swift */,
+				8255248F29BE68400067EB68 /* Feet.swift */,
+				8255249129BE684E0067EB68 /* NearEarthObjectLinks.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -799,6 +840,7 @@
 				82E56A59297FC65700879E21 /* camera.mp3 in Resources */,
 				82C6F25328A4091100B8EA70 /* LaunchScreen.storyboard in Resources */,
 				82C6F25028A4091100B8EA70 /* Assets.xcassets in Resources */,
+				8255249729BE98B70067EB68 /* space music.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +896,7 @@
 				82E56A3F297F732800879E21 /* NASAService.swift in Sources */,
 				82E56A4B297F8AB900879E21 /* Coords.swift in Sources */,
 				82C5AC122982620000D26D7C /* NASAImageLibraryListView.swift in Sources */,
+				8255249229BE684E0067EB68 /* NearEarthObjectLinks.swift in Sources */,
 				82148B85298E5885005FA95D /* At.swift in Sources */,
 				82148B7F298E5842005FA95D /* MarsWeather.swift in Sources */,
 				8255247C29BE56A60067EB68 /* NASASettingsViewViewModel.swift in Sources */,
@@ -878,6 +921,7 @@
 				8239552328BF039B0064A1BB /* NASAImageDetailViewController.swift in Sources */,
 				82E9B9412976059B000845B3 /* AnimationClass.swift in Sources */,
 				82148B83298E5876005FA95D /* The1219.swift in Sources */,
+				8255248229BE67D20067EB68 /* AsteroidLinks.swift in Sources */,
 				82E56A5B297FC7F100879E21 /* Photo.swift in Sources */,
 				82E56A34297F68CA00879E21 /* EPICNASAImagesListView.swift in Sources */,
 				8239551D28BED9BD0064A1BB /* NASAImageCategoriesViewController.swift in Sources */,
@@ -887,10 +931,13 @@
 				82C5AC0A29822F6A00D26D7C /* NASAImageInfoViewModel.swift in Sources */,
 				82E56A61297FC82A00879E21 /* NASAImageAndVideoLibrary.swift in Sources */,
 				82E56A6B297FC89100879E21 /* Metadata.swift in Sources */,
+				8255248A29BE68130067EB68 /* OrbitingBody.swift in Sources */,
 				826E245028A480DC007AF962 /* NASAImagesTableViewController.swift in Sources */,
 				8239552128BEDCE10064A1BB /* NasaImageCategory.swift in Sources */,
 				82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */,
+				8255249029BE68400067EB68 /* Feet.swift in Sources */,
 				82C5AC14298263BE00D26D7C /* NASAImageLibraryListViewViewModel.swift in Sources */,
+				8255249529BE68A90067EB68 /* SettingsManager.swift in Sources */,
 				82E56A3A297F694D00879E21 /* EPICNASAImagesListViewViewModel.swift in Sources */,
 				82E56A5F297FC81F00879E21 /* Rover.swift in Sources */,
 				82E56A67297FC86600879E21 /* LibraryData.swift in Sources */,
@@ -898,6 +945,7 @@
 				82E56A49297F8AA500879E21 /* CentroidCoordinates.swift in Sources */,
 				82E569FF297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift in Sources */,
 				82C6F24728A4090E00B8EA70 /* AppDelegate.swift in Sources */,
+				8255248829BE68050067EB68 /* MissDistance.swift in Sources */,
 				82E56A5D297FC80E00879E21 /* Camera.swift in Sources */,
 				82E56A01297E114F00879E21 /* NASAImageCategoriesListViewController.swift in Sources */,
 				82C6F24928A4090E00B8EA70 /* SceneDelegate.swift in Sources */,
@@ -911,17 +959,21 @@
 				8255247E29BE56F70067EB68 /* NASASettingsCellViewModel.swift in Sources */,
 				82E56A18297E358B00879E21 /* SplashScreenController.swift in Sources */,
 				82E56A7C297FE3B500879E21 /* MarsPhotosViewController.swift in Sources */,
-				82F2573028B838DD00824A80 /* NASA.swift in Sources */,
+				82F2573028B838DD00824A80 /* Asteroid.swift in Sources */,
 				82C5AC022981C4FA00D26D7C /* APODPresenter.swift in Sources */,
+				8255248E29BE68310067EB68 /* EstimatedDiameter.swift in Sources */,
 				82C5ABFE2981C2B100D26D7C /* Apod.swift in Sources */,
+				8255248629BE67F60067EB68 /* CloseApproachDatum.swift in Sources */,
 				82E56A03297E128700879E21 /* NASAImageCategoriesCollectionViewCell.swift in Sources */,
 				82E56A05297E167C00879E21 /* NASAImageCategoriesCollectionViewViewModel.swift in Sources */,
 				82E56A47297F8A9200879E21 /* AttitudeQuaternions.swift in Sources */,
 				82E9B951297607F0000845B3 /* NASATabBarController.swift in Sources */,
 				82C5AC18298266F200D26D7C /* NASAImageLibraryCollectionViewCell.swift in Sources */,
+				8255248429BE67E30067EB68 /* NearEarthObject.swift in Sources */,
 				82E56A38297F692100879E21 /* NASAEPICImagesCollectionViewCell.swift in Sources */,
 				8255247829BE55510067EB68 /* NASASettingsOption.swift in Sources */,
 				82148B87298E58A5005FA95D /* MarsWeatherViewController.swift in Sources */,
+				8255248C29BE68220067EB68 /* RelativeVelocity.swift in Sources */,
 				82F2573428B8392200824A80 /* AsteroidViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

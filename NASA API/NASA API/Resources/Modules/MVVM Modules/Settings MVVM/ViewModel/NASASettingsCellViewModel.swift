@@ -8,6 +8,7 @@
 import UIKit
 
 struct NASASettingsCellViewModel: Identifiable {
+    
     let id = UUID()
     
     public let type: NASASettingsOption
@@ -22,16 +23,13 @@ struct NASASettingsCellViewModel: Identifiable {
     
     // MARK: - Public
     
+   
     public var image: UIImage? {
         return type.iconImage
     }
     
     public var title: String {
         return type.displayTitle
-    }
-    
-    public var description: String {
-        return type.displayDescription
     }
     
 }

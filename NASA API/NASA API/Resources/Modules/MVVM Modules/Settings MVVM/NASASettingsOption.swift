@@ -8,26 +8,27 @@
 import UIKit
 
 enum NASASettingsOption: CaseIterable {
-    case livePreview
+    case apiReference
     
-    var iconImage: UIImage? {
+    var targetUrl: URL? {
         switch self {
-        case .livePreview:
-            return UIImage(named: "NASA")
+        case .apiReference:
+            return URL(string: "https://api.nasa.gov/")
         }
     }
     
     var displayTitle: String {
         switch self {
-        case .livePreview:
-            return "Live Preview"
+        case .apiReference:
+            return "ссылка на API"
         }
     }
     
-    var displayDescription: String {
+    var iconImage: UIImage? {
         switch self {
-        case .livePreview:
-            return "динамический предосмотр контекта NASA"
+        case .apiReference:
+            return UIImage(named: "NASA")
         }
     }
+    
 }
