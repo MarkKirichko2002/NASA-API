@@ -5,8 +5,10 @@
 //  Created by Марк Киричко on 12.03.2023.
 //
 
-import UIKit
+import SafariServices
 import SwiftUI
+import UIKit
+
 
 final class NASASettingsViewController: UIViewController {
     
@@ -25,7 +27,7 @@ final class NASASettingsViewController: UIViewController {
                 viewModel: NASASettingsViewViewModel(
                     cellViewModels: NASASettingsOption.allCases.compactMap ({
                         return NASASettingsCellViewModel(type: $0) { [weak self] option in
-                            //self?.handleTap(option: option)
+                            self?.handleTap(option: option)
                         }
                     })
                   )
@@ -46,4 +48,15 @@ final class NASASettingsViewController: UIViewController {
         
         self.settingsSwiftUIController = settingsSwiftUIController
       }
+    
+    private func handleTap(option: NASASettingsOption) {
+        guard Thread.current.isMainThread else {
+            return
+        }
+        
+        if let url = option.targetUrl {
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true)
+        } 
+    }
 }

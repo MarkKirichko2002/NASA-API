@@ -14,7 +14,7 @@ protocol NASAImageCategoriesListViewDelegate: AnyObject {
 final class NASAImageCategoriesListView: UIView {
 
     public weak var delegate: NASAImageCategoriesListViewDelegate?
-    private let viewModel = NASAImageCategoriesListViewViewModel()
+    let viewModel = NASAImageCategoriesListViewViewModel()
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -33,7 +33,7 @@ final class NASAImageCategoriesListView: UIView {
         addConstraints()
         setUpCollectionView()
         viewModel.delegate = self
-        viewModel.GetCategoryImages()
+        //viewModel.GetCategoryImages()
     }
     
     required init?(coder: NSCoder) {

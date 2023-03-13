@@ -11,8 +11,6 @@ struct NASASettingsView: View {
     
     let viewModel: NASASettingsViewViewModel
     
-    @State var isOn = false
-    
     init(viewModel: NASASettingsViewViewModel) {
         self.viewModel = viewModel
     }
@@ -28,24 +26,12 @@ struct NASASettingsView: View {
                         .clipShape(Circle())
                         .overlay(Circle().stroke(.black, lineWidth: 5))
                 }
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(viewModel.title)
-                        .fontWeight(.black)
-                    Text(viewModel.description)
-                        .fontWeight(.medium)
-                    Toggle(isOn: $isOn) {
-                        switch isOn {
-                        case true:
-                            Text("включено")
-                                .fontWeight(.black)
-                                .foregroundColor(.green)
-                        case false:
-                            Text("выключено")
-                                .fontWeight(.black)
-                                .foregroundColor(.gray)
-                        }
-                    }
-                }
+                Text(viewModel.title)
+                    .fontWeight(.black)
+            }
+            .padding(.bottom, 3)
+            .onTapGesture {
+                viewModel.onTapHandler(viewModel.type)
             }
         }
     }
