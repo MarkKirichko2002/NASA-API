@@ -33,7 +33,7 @@ final class NASAImageCategoriesListView: UIView {
         addConstraints()
         setUpCollectionView()
         viewModel.delegate = self
-        //viewModel.GetCategoryImages()
+        viewModel.GetCategoryImages()
     }
     
     required init?(coder: NSCoder) {
