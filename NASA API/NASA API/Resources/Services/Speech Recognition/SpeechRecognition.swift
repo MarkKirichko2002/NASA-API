@@ -16,9 +16,14 @@ class SpeechRecognition {
     private var recognitionTask: SFSpeechRecognitionTask?
     private var text = ""
     private var speechRecognitionHandler: ((String)->Void)?
+    private var scrollHandler: ((Int)->Void)?
     
     func registerSpeechRecognitionHandler(block: @escaping(String)->Void) {
         self.speechRecognitionHandler = block
+    }
+    
+    func registerScrollHandler(block: @escaping(Int)->Void) {
+        self.scrollHandler = block
     }
     
     func startSpeechRecognition() {
@@ -43,7 +48,9 @@ class SpeechRecognition {
             if let res = result?.bestTranscription {
                 DispatchQueue.main.async {
                     self.text = res.formattedString
+                    print(self.text)
                     self.speechRecognitionHandler?(self.text)
+                    self.scrollHandler?(Int(self.text) ?? 0)
                 }
                 
             } else if let error = error {

@@ -9,7 +9,7 @@ import UIKit
 
 class MarsPhotosViewController: UIViewController {
     
-    private let marsPhotosListView = MarsPhotosListView()
+    let marsPhotosListView = MarsPhotosListView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

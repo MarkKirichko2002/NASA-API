@@ -144,15 +144,27 @@ class NASATabBarController: UITabBarController {
             self.button.setImage(UIImage(named: "rover"), for: .normal)
             self.animation.springButton(button: self.button)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                let vc = MarsPhotosViewController()
-                self.present(vc, animated: true)
-            }
+            let vc = MarsPhotosViewController()
             
             speechRecognition.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.speechRecognition.startSpeechRecognition()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.present(vc, animated: true)
+                self.speechRecognition.registerScrollHandler { index in
+                    print(index)
+                    let path = IndexPath(row: index, section: 0)
+                    vc.marsPhotosListView.collectionView.scrollToItem(at: path, at: .top, animated: true)
+                    
+                    self.speechRecognition.cancelSpeechRecognization()
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.speechRecognition.startSpeechRecognition()
+                    }
+                }
             }
             
         case _ where text.lowercased().contains("земл"):
