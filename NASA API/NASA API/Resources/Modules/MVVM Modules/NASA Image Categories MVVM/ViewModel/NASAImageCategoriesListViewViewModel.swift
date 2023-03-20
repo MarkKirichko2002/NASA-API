@@ -28,7 +28,7 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async {
-                        self?.cellViewModels[0].categoryImage = data.hdurl
+                        self?.cellViewModels[0].categoryImage = data.hdurl ?? ""
                         self?.cellViewModels[0].imagesCount = 1
                         self?.delegate?.didLoadInitialCategoryImages()
                     }

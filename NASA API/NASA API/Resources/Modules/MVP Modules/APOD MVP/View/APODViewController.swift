@@ -70,7 +70,7 @@ class APODViewController: UIViewController {
 extension APODViewController: APODPresentDelegate {
     
     func PresentAPOD(apod: Apod) {
-        imageView.sd_setImage(with: URL(string: apod.hdurl))
+        imageView.sd_setImage(with: URL(string: apod.hdurl ?? ""))
         DispatchQueue.main.async {
             self.DateLabel.text = apod.date
             self.ExplanationTextView.text = apod.explanation
