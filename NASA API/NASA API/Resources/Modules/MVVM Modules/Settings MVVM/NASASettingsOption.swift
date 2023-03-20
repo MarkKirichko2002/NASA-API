@@ -9,11 +9,15 @@ import UIKit
 
 enum NASASettingsOption: CaseIterable {
     case apiReference
+    case viewAppCode
     
     var targetUrl: URL? {
         switch self {
         case .apiReference:
             return URL(string: "https://api.nasa.gov/")
+            
+        case .viewAppCode:
+            return URL(string: "https://github.com/MarkKirichko2002/NASA-API")
         }
     }
     
@@ -21,6 +25,9 @@ enum NASASettingsOption: CaseIterable {
         switch self {
         case .apiReference:
             return "ссылка на API"
+            
+        case .viewAppCode:
+            return "код приложения"
         }
     }
     
@@ -28,6 +35,9 @@ enum NASASettingsOption: CaseIterable {
         switch self {
         case .apiReference:
             return UIImage(named: "NASA")
+        
+        case .viewAppCode:
+            return UIImage(named: "EPIC")
         }
     }
     

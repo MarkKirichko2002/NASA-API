@@ -6,16 +6,62 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NASATabBarController: UITabBarController {
     
     private let animation = AnimationClass()
+    private let speechRecognition = SpeechRecognition()
+    private let button: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = button.frame.width / 2
+        button.clipsToBounds = true
+        return button
+    }()
+    private var isStart: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = UIColor.black
         view.backgroundColor = .systemBackground
         SetUpTabs()
+        createMiddleButton()
+    }
+    
+    // Override selectedViewController for User initiated changes
+    override var selectedViewController: UIViewController? {
+        didSet {
+            tabChangedTo(selectedIndex: selectedIndex)
+        }
+    }
+    // Override selectedIndex for Programmatic changes
+    override var selectedIndex: Int {
+        didSet {
+            tabChangedTo(selectedIndex: selectedIndex)
+        }
+    }
+    
+    func tabChangedTo(selectedIndex: Int) {
+        UserDefaults.standard.set(selectedIndex, forKey: "index")
+        switch selectedIndex {
+            
+        case 0:
+            break
+        case 1:
+            break
+        case 3:
+            break
+        case 4:
+            break
+        default:
+            break
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        button.frame = CGRect.init(x: self.tabBar.center.x - 32, y: self.view.bounds.height - 100, width: 64, height: 64)
+        button.layer.cornerRadius = 32
     }
     
     private func SetUpTabs() {
@@ -23,6 +69,7 @@ class NASATabBarController: UITabBarController {
         let imageCategoriesVC = NASAImageCategoriesListViewController()
         let asteroidsVC = AsteroidsViewController()
         let mediaLibrary = NASAVideosTableViewController()
+        let middleButton = UIViewController()
         let marsWeatherVC = MarsWeatherViewController()
         let settingsVC = NASASettingsViewController()
         
@@ -43,14 +90,130 @@ class NASATabBarController: UITabBarController {
         nav3.tabBarItem = UITabBarItem(title: "NASA Видеотека", image: UIImage(named: "video player"), selectedImage: UIImage(named: "video player selected"))
         nav4.tabBarItem = UITabBarItem(title: "Марс Погода", image: UIImage(systemName: "cloud"), selectedImage: UIImage(systemName: "cloud.fill"))
         nav5.tabBarItem = UITabBarItem(title: "Настройки", image: UIImage(systemName: "gear"),
-            selectedImage: UIImage(systemName: "gear.fill"))
+                                       selectedImage: UIImage(systemName: "gear.fill"))
         
-               
-        for nav in [nav1,nav2,nav3,nav4,nav5] {
+        
+        for nav in [nav1,nav2,nav3,nav4] {
             nav.navigationBar.prefersLargeTitles = true
         }
         
-        setViewControllers([nav1,nav2,nav3,nav4,nav5], animated: true)
+        setViewControllers([nav1,nav2,middleButton,nav3,nav4], animated: true)
+    }
+    
+    private func createMiddleButton() {
+        button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        button.layer.borderWidth = 2
+        button.setImage(UIImage(named: "NASA"), for: .normal)
+        self.view.insertSubview(button, aboveSubview: self.tabBar)
+        button.addTarget(self, action:  #selector(NASATabBarController.VoiceCommands(_:)), for: .touchUpInside)
+    }
+    
+    @objc func VoiceCommands(_ sender: UIButton) {
+        isStart = !isStart
+        if isStart {
+            button.setImage(UIImage(systemName: "mic.fill"), for: .normal)
+            button.imageView?.tintColor = .black
+            animation.springButton(button: button)
+            speechRecognition.startSpeechRecognition()
+            speechRecognition.registerSpeechRecognitionHandler { text in
+                self.CheckVoiceCommands(text: text)
+            }
+        } else {
+            button.setImage(UIImage(named: "NASA"), for: .normal)
+            animation.springButton(button: button)
+            speechRecognition.cancelSpeechRecognization()
+        }
+    }
+    
+    private func CheckVoiceCommands(text: String) {
+        switch text {
+            
+        case _ where text.lowercased().contains("фото дня"):
+            
+            let vc = APODViewController()
+            self.present(vc, animated: true)
+            
+            speechRecognition.cancelSpeechRecognization()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.speechRecognition.startSpeechRecognition()
+            }
+            
+        case _ where text.lowercased().contains("марс"):
+            
+            self.button.setImage(UIImage(named: "rover"), for: .normal)
+            self.animation.springButton(button: self.button)
+            
+            let vc = MarsPhotosViewController()
+            
+            speechRecognition.cancelSpeechRecognization()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.speechRecognition.startSpeechRecognition()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.present(vc, animated: true)
+                self.speechRecognition.registerScrollHandler { index in
+                    print(index)
+                    let path = IndexPath(row: index, section: 0)
+                    vc.marsPhotosListView.collectionView.scrollToItem(at: path, at: .top, animated: true)
+                    
+                    self.speechRecognition.cancelSpeechRecognization()
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.speechRecognition.startSpeechRecognition()
+                    }
+                }
+            }
+            
+        case _ where text.lowercased().contains("земл"):
+            
+            self.button.setImage(UIImage(named: "EPIC"), for: .normal)
+            self.animation.springButton(button: self.button)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                let vc = EPICNASAImagesViewController()
+                self.present(vc, animated: true)
+            }
+            
+            speechRecognition.cancelSpeechRecognization()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.speechRecognition.startSpeechRecognition()
+            }
+            
+        case _ where text.lowercased().contains("изображ"):
+            
+            self.button.setImage(UIImage(named: "camera"), for: .normal)
+            self.animation.springButton(button: self.button)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                let vc = NASAImageLibraryViewController()
+                self.present(vc, animated: true)
+            }
+            
+            speechRecognition.cancelSpeechRecognization()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.speechRecognition.startSpeechRecognition()
+            }
+            
+        case _ where text.lowercased().contains("стоп"):
+            button.sendActions(for: .touchUpInside)
+            
+        case _ where text.lowercased().contains("закр"):
+            self.dismiss(animated: true)
+            
+            speechRecognition.cancelSpeechRecognization()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.speechRecognition.startSpeechRecognition()
+            }
+            
+        default:
+            break
+        }
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
