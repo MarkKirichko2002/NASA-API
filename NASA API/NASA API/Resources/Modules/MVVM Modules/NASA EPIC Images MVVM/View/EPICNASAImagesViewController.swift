@@ -9,7 +9,7 @@ import UIKit
 
 class EPICNASAImagesViewController: UIViewController, EPICNASAImagesListViewDelegate {
     
-    private let epicNasaImagesListView = EPICNASAImagesListView()
+    let epicNasaImagesListView = EPICNASAImagesListView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

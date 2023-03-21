@@ -172,15 +172,27 @@ class NASATabBarController: UITabBarController {
             self.button.setImage(UIImage(named: "EPIC"), for: .normal)
             self.animation.springButton(button: self.button)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                let vc = EPICNASAImagesViewController()
-                self.present(vc, animated: true)
-            }
-            
+            let vc = EPICNASAImagesViewController()
+             
             speechRecognition.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.speechRecognition.startSpeechRecognition()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.present(vc, animated: true)
+                self.speechRecognition.registerScrollHandler { index in
+                    print(index)
+                    let path = IndexPath(row: index, section: 0)
+                    vc.epicNasaImagesListView.collectionView.scrollToItem(at: path, at: .top, animated: true)
+                    
+                    self.speechRecognition.cancelSpeechRecognization()
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.speechRecognition.startSpeechRecognition()
+                    }
+                }
             }
             
         case _ where text.lowercased().contains("изображ"):
@@ -188,15 +200,27 @@ class NASATabBarController: UITabBarController {
             self.button.setImage(UIImage(named: "camera"), for: .normal)
             self.animation.springButton(button: self.button)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                let vc = NASAImageLibraryViewController()
-                self.present(vc, animated: true)
-            }
+            let vc = NASAImageLibraryViewController()
             
             speechRecognition.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.speechRecognition.startSpeechRecognition()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.present(vc, animated: true)
+                self.speechRecognition.registerScrollHandler { index in
+                    print(index)
+                    let path = IndexPath(row: index, section: 0)
+                    vc.nasaImageLibraryListView.collectionView.scrollToItem(at: path, at: .top, animated: true)
+                    
+                    self.speechRecognition.cancelSpeechRecognization()
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.speechRecognition.startSpeechRecognition()
+                    }
+                }
             }
             
         case _ where text.lowercased().contains("стоп"):
