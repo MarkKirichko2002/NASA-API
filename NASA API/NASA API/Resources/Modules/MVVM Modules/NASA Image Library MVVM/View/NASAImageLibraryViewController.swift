@@ -9,7 +9,7 @@ import UIKit
 
 class NASAImageLibraryViewController: UIViewController {
     
-    private let nasaImageLibraryListView = NASAImageLibraryListView()
+    let nasaImageLibraryListView = NASAImageLibraryListView()
     
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground

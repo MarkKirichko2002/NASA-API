@@ -16,7 +16,7 @@ class NASAImageLibraryListView: UIView {
     public weak var delegate: NASAImageLibraryListViewDelegate?
     private let viewModel = NASAImageLibraryListViewViewModel()
     
-    private let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
