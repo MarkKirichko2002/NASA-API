@@ -113,14 +113,14 @@ class NASATabBarController: UITabBarController {
         if isStart {
             button.setImage(UIImage(systemName: "mic.fill"), for: .normal)
             button.imageView?.tintColor = .black
-            animation.springButton(button: button)
+            animation.SpringAnimation(view: button)
             speechRecognition.startSpeechRecognition()
             speechRecognition.registerSpeechRecognitionHandler { text in
                 self.CheckVoiceCommands(text: text)
             }
         } else {
             button.setImage(UIImage(named: "NASA"), for: .normal)
-            animation.springButton(button: button)
+            animation.SpringAnimation(view: button)
             speechRecognition.cancelSpeechRecognization()
         }
     }
@@ -134,10 +134,10 @@ class NASATabBarController: UITabBarController {
                 switch result {
                 case .success(let data):
                     self.button.sd_setImage(with: URL(string: data.hdurl ?? ""), for: .normal)
-                    self.animation.springButton(button: self.button)
+                    self.animation.SpringAnimation(view: self.button)
                 case .failure:
                     self.button.setImage(UIImage(named: "error"), for: .normal)
-                    self.animation.springButton(button: self.button)
+                    self.animation.SpringAnimation(view: self.button)
                 }
             }
             
@@ -156,7 +156,7 @@ class NASATabBarController: UITabBarController {
         case _ where text.lowercased().contains("марс"):
             
             self.button.setImage(UIImage(named: "rover"), for: .normal)
-            self.animation.springButton(button: self.button)
+            self.animation.SpringAnimation(view: self.button)
             
             let vc = MarsPhotosViewController()
             
@@ -184,7 +184,7 @@ class NASATabBarController: UITabBarController {
         case _ where text.lowercased().contains("земл"):
             
             self.button.setImage(UIImage(named: "EPIC"), for: .normal)
-            self.animation.springButton(button: self.button)
+            self.animation.SpringAnimation(view: self.button)
             
             let vc = EPICNASAImagesViewController()
              
@@ -212,7 +212,7 @@ class NASATabBarController: UITabBarController {
         case _ where text.lowercased().contains("изображ"):
             
             self.button.setImage(UIImage(named: "camera"), for: .normal)
-            self.animation.springButton(button: self.button)
+            self.animation.SpringAnimation(view: self.button)
             
             let vc = NASAImageLibraryViewController()
             

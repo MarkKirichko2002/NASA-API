@@ -49,11 +49,11 @@ class SplashScreenController: UIViewController {
     
     private func SplashScreen() {
         
-        animation.springImage(image: Icon)
+        animation.SpringAnimation(view: Icon)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.TitleLabel.text = "NASA API"
-            self.animation.springLabel(label: self.TitleLabel)
+            self.animation.SpringAnimation(view: self.TitleLabel)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
