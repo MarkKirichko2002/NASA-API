@@ -92,7 +92,6 @@ class NASATabBarController: UITabBarController {
         nav5.tabBarItem = UITabBarItem(title: "Настройки", image: UIImage(systemName: "gear"),
                                        selectedImage: UIImage(systemName: "gear.fill"))
         
-        
         for nav in [nav1,nav2,nav3,nav4] {
             nav.navigationBar.prefersLargeTitles = true
         }
@@ -130,13 +129,27 @@ class NASATabBarController: UITabBarController {
             
         case _ where text.lowercased().contains("фото дня"):
             
+            NASAService.shared.execute(type: Apod.self, response: .apod) { result in
+                switch result {
+                case .success(let data):
+                    self.button.sd_setImage(with: URL(string: data.hdurl ?? ""), for: .normal)
+                    self.animation.springButton(button: self.button)
+                case .failure:
+                    self.button.setImage(UIImage(named: "error"), for: .normal)
+                    self.animation.springButton(button: self.button)
+                }
+            }
+            
             let vc = APODViewController()
-            self.present(vc, animated: true)
             
             speechRecognition.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.speechRecognition.startSpeechRecognition()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.present(vc, animated: true)
             }
             
         case _ where text.lowercased().contains("марс"):
