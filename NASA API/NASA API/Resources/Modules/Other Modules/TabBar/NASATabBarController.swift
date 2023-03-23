@@ -11,6 +11,7 @@ import SDWebImage
 class NASATabBarController: UITabBarController {
     
     private let animation = AnimationClass()
+    private let player = SoundClass()
     private let speechRecognition = SpeechRecognition()
     private let button: UIButton = {
         let button = UIButton()
@@ -236,7 +237,40 @@ class NASATabBarController: UITabBarController {
                 }
             }
             
+        case _ where text.lowercased().contains("муз"):
+            
+            button.setImage(UIImage(named: "EPIC"), for: .normal)
+            
+            player.PlaySound(resource: "space music.mp3")
+            
+            animation.StartRotateImage(image: self.button.imageView!)
+            
+            speechRecognition.cancelSpeechRecognization()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.speechRecognition.startSpeechRecognition()
+            }
+            
+        case _ where text.lowercased().contains("выкл"):
+            
+            button.setImage(UIImage(systemName: "mic.fill"), for: .normal)
+            
+            player.StopSound(resource: "space music.mp3")
+            
+            animation.StopRotateImage(image: self.button.imageView!)
+            
+            speechRecognition.cancelSpeechRecognization()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.speechRecognition.startSpeechRecognition()
+            }
+            
         case _ where text.lowercased().contains("стоп"):
+            
+            player.StopSound(resource: "space music.mp3")
+            
+            animation.StopRotateImage(image: self.button.imageView!)
+            
             button.sendActions(for: .touchUpInside)
             
         case _ where text.lowercased().contains("закр"):

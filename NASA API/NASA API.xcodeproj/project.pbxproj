@@ -31,7 +31,6 @@
 		8255248E29BE68310067EB68 /* EstimatedDiameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255248D29BE68310067EB68 /* EstimatedDiameter.swift */; };
 		8255249029BE68400067EB68 /* Feet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255248F29BE68400067EB68 /* Feet.swift */; };
 		8255249229BE684E0067EB68 /* NearEarthObjectLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255249129BE684E0067EB68 /* NearEarthObjectLinks.swift */; };
-		8255249529BE68A90067EB68 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255249429BE68A90067EB68 /* SettingsManager.swift */; };
 		8255249729BE98B70067EB68 /* space music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8255249629BE98B70067EB68 /* space music.mp3 */; };
 		826E245028A480DC007AF962 /* NASAImagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E244F28A480DC007AF962 /* NASAImagesTableViewController.swift */; };
 		826E245228A48101007AF962 /* NasaImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826E245128A48101007AF962 /* NasaImagesTableViewCell.swift */; };
@@ -124,7 +123,6 @@
 		8255248D29BE68310067EB68 /* EstimatedDiameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatedDiameter.swift; sourceTree = "<group>"; };
 		8255248F29BE68400067EB68 /* Feet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feet.swift; sourceTree = "<group>"; };
 		8255249129BE684E0067EB68 /* NearEarthObjectLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearEarthObjectLinks.swift; sourceTree = "<group>"; };
-		8255249429BE68A90067EB68 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		8255249629BE98B70067EB68 /* space music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "space music.mp3"; path = "../../../../../QUIZ-2.0/QUIZ 2.0/QUIZ 2.0/Sounds/categories music/space music.mp3"; sourceTree = "<group>"; };
 		826E244F28A480DC007AF962 /* NASAImagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImagesTableViewController.swift; sourceTree = "<group>"; };
 		826E245128A48101007AF962 /* NasaImagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImagesTableViewCell.swift; sourceTree = "<group>"; };
@@ -303,14 +301,6 @@
 				8255247729BE55510067EB68 /* NASASettingsOption.swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		8255249329BE68950067EB68 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				8255249429BE68A90067EB68 /* SettingsManager.swift */,
-			);
-			name = Settings;
 			sourceTree = "<group>";
 		};
 		827EA8BF29C8A390009570D3 /* Speech Recognition */ = {
@@ -708,7 +698,6 @@
 				82E56A4E297F8C0E00879E21 /* AudioPlayer */,
 				82E56A3D297F731B00879E21 /* API */,
 				82E5933528D8FF0700C05065 /* Animation */,
-				8255249329BE68950067EB68 /* Settings */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -949,7 +938,6 @@
 				82E5933728D8FF3900C05065 /* RoundedImageView.swift in Sources */,
 				8255249029BE68400067EB68 /* Feet.swift in Sources */,
 				82C5AC14298263BE00D26D7C /* NASAImageLibraryListViewViewModel.swift in Sources */,
-				8255249529BE68A90067EB68 /* SettingsManager.swift in Sources */,
 				82E56A3A297F694D00879E21 /* EPICNASAImagesListViewViewModel.swift in Sources */,
 				82E56A5F297FC81F00879E21 /* Rover.swift in Sources */,
 				82E56A67297FC86600879E21 /* LibraryData.swift in Sources */,
