@@ -15,6 +15,6 @@ extension UIView {
     }
     
     func didCellTapped(indexPath: IndexPath) {
-        AnimationClass().springView(view: self)
+        AnimationClass().SpringAnimation(view: self)
     }
 }
