@@ -46,7 +46,7 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async {
-                        self?.cellViewModels[1].categoryImage = data.photos[Int.random(in: 0...data.photos.count)].imgSrc
+                        self?.cellViewModels[1].categoryImage = data.photos[Int.random(in: 0...data.photos.count - 1)].imgSrc
                         self?.cellViewModels[1].imagesCount = data.photos.count
                         self?.delegate?.didLoadInitialCategoryImages()
                     }

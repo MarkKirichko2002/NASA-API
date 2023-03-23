@@ -21,21 +21,25 @@ class NASAService {
     
     static let shared = NASAService()
     private var url = ""
+    
+    struct Contacts {
+        static var apiKey = "iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
+    }
 
     private func UrlForResponse(response: ResponseType) -> String {
         switch response {
         case .apod:
-        return "https://api.nasa.gov/planetary/apod?api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
+            return "https://api.nasa.gov/planetary/apod?api_key=\(Contacts.apiKey)"
             
         case .marsphotos:
-        return "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
+        return "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=\(Contacts.apiKey)"
         case .nasaimages,.nasaimagesinfo:
         return "https://images-api.nasa.gov/search?q=apollo%2022&description=moon%20landing&media_type=image"
             
         case .epic:
         return "https://epic.gsfc.nasa.gov/api/natural"
         case .asteroids:
-        return "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
+        return "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=\(Contacts.apiKey)"
         case .marsweather:
         return "https://api.nasa.gov/insight_weather/?api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX&feedtype=json&ver=1.0"
         }
@@ -55,6 +59,7 @@ class NASAService {
                 completion(.success(response))
             } catch {
                 print(error)
+                completion(.failure(error))
             }
         }
     }
