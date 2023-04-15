@@ -13,6 +13,7 @@ enum ResponseType {
     case nasaimages
     case nasaimagesinfo
     case epic
+    case earth
     case asteroids
     case marsweather
 }
@@ -42,6 +43,8 @@ class NASAService {
         return "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=\(Contacts.apiKey)"
         case .marsweather:
         return "https://api.nasa.gov/insight_weather/?api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX&feedtype=json&ver=1.0"
+        case .earth:
+            return "https://api.nasa.gov/planetary/earth/assets?lon=\(LocationManager().GetCurrentLocation().longitude)&lat=\(LocationManager().GetCurrentLocation().latitude)&date=2021-02-01&dim=0.15&api_key=\(Contacts.apiKey)"
         }
     }
     

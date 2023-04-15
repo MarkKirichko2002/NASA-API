@@ -18,8 +18,8 @@ class NASAImageCategoriesListViewViewModel: NSObject {
     
     private let apiManager = NASAService()
     
-    private let cellViewModels = [NASAImageCategoriesCollectionViewCellViewModel(categoryName: "APOD", categoryImage: "camera", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Фото Марса", categoryImage: "rover", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "NASA Изображения", categoryImage: "NASA", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "EPIC", categoryImage: "EPIC", imagesCount: 0)]
-    private let categories = [NasaImageCategory(id: 1, name: "APOD", icon: "camera", sound: "space.wav"), NasaImageCategory(id: 2, name: "Фото Марса", icon: "rover", sound: "space.wav"), NasaImageCategory(id: 3, name: "NASA Изображения", icon: "NASA", sound: "camera.mp3"), NasaImageCategory(id: 4, name: "EPIC", icon: "EPIC", sound: "space.wav")]
+    private let cellViewModels = [NASAImageCategoriesCollectionViewCellViewModel(categoryName: "APOD", categoryImage: "camera", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Фото Марса", categoryImage: "rover", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "NASA Изображения", categoryImage: "NASA", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "EPIC", categoryImage: "EPIC", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Земля", categoryImage: "", imagesCount: 0)]
+    private let categories = [NasaImageCategory(id: 1, name: "APOD", icon: "camera", sound: "space.wav"), NasaImageCategory(id: 2, name: "Фото Марса", icon: "rover", sound: "space.wav"), NasaImageCategory(id: 3, name: "NASA Изображения", icon: "NASA", sound: "camera.mp3"), NasaImageCategory(id: 4, name: "EPIC", icon: "EPIC", sound: "space.wav"), NasaImageCategory(id: 5, name: "Земля", icon: "", sound: "space.wav")]
     private let epicNASAImagesListViewViewModel = EPICNASAImagesListViewViewModel()
     
     func GetCategoryImages() {
@@ -104,6 +104,18 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                                 self?.delegate?.didLoadInitialCategoryImages()
                             }
                         }
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            self.apiManager.execute(type: Earth.self, response: .earth) {  [weak self] result in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self?.cellViewModels[4].categoryImage = data.url ?? ""
+                        self?.cellViewModels[4].imagesCount = 1
+                        self?.delegate?.didLoadInitialCategoryImages()
                     }
                 case .failure(let error):
                     print(error)
