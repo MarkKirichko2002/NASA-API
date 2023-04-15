@@ -56,6 +56,12 @@ class NASAImageCategoriesListViewController: UIViewController, NASAImageCategori
             vc.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(vc, animated: true)
             
+        case 5:
+            let vc = EarthViewController()
+            vc.title = category.name
+            vc.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(vc, animated: true)
+            
         default:
             break
         }
