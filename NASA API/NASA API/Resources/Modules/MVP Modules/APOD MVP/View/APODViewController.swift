@@ -11,7 +11,7 @@ import SDWebImage
 class APODViewController: UIViewController {
     
     private let presenter = APODPresenter()
-    
+   
     private let imageView: RoundedImageView = {
         let imageView = RoundedImageView()
         imageView.sound = "space.wav"
@@ -40,6 +40,7 @@ class APODViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubviews(imageView, DateLabel, ExplanationTextView)
         SetUpConstraints()
+        SetUpCalendarButton()
         presenter.SetViewDelegate(delegate: self)
         presenter.GetAPOD()
     }
@@ -65,12 +66,23 @@ class APODViewController: UIViewController {
             ExplanationTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
+    private func SetUpCalendarButton() {
+        let calendar = UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(showCalendar))
+        calendar.tintColor = .black
+        navigationItem.rightBarButtonItem = calendar
+    }
+    
+    @objc private func showCalendar() {
+        let vc = CalendarViewController(presenter: presenter)
+        present(vc, animated: true)
+    }
 }
 
 extension APODViewController: APODPresentDelegate {
-    
+        
     func PresentAPOD(apod: Apod) {
-        imageView.sd_setImage(with: URL(string: apod.hdurl ?? ""))
+        self.imageView.sd_setImage(with: URL(string: apod.hdurl ?? ""), placeholderImage: UIImage(named: "NASA"))
         DispatchQueue.main.async {
             self.DateLabel.text = apod.date
             self.ExplanationTextView.text = apod.explanation

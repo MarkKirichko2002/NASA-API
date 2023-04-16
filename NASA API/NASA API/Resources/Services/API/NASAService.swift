@@ -30,7 +30,7 @@ class NASAService {
     private func UrlForResponse(response: ResponseType) -> String {
         switch response {
         case .apod:
-            return "https://api.nasa.gov/planetary/apod?api_key=\(Contacts.apiKey)"
+            return "https://api.nasa.gov/planetary/apod?date=\(DateManager().GetCurrentDate())&api_key=\(Contacts.apiKey)"
             
         case .marsphotos:
         return "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=\(Contacts.apiKey)"
@@ -48,6 +48,45 @@ class NASAService {
         }
     }
     
+    private func UrlForResponseWithOtherDate(response: ResponseType, date: String) -> String {
+        switch response {
+        case .apod:
+            return "https://api.nasa.gov/planetary/apod?date=\(date)&api_key=\(Contacts.apiKey)"
+        case .marsphotos:
+            break
+        case .nasaimages,.nasaimagesinfo:
+            break
+        case .epic:
+            break
+        case .asteroids:
+            break
+        case .marsweather:
+         break
+        case .earth:
+            break
+        }
+        return ""
+    }
+    
+    func MakeAPICallWithOtherDate<T: Codable>(type: T.Type, response: ResponseType, date: String, completion: @escaping(Result<T,Error>)->Void) {
+        
+        url = UrlForResponseWithOtherDate(response: response, date: date)
+        
+        AF.request(url).responseData { response in
+            guard let data = response.data else {return}
+            
+            var response: T
+            
+            do {
+                response = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(response))
+            } catch {
+                print(error)
+                completion(.failure(error))
+            }
+        }
+    }
+        
     func execute<T: Codable>(type: T.Type, response: ResponseType,completion: @escaping(Result<T,Error>)->Void) {
         
         url = UrlForResponse(response: response)
