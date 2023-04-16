@@ -28,6 +28,17 @@ class APODPresenter {
         }
     }
     
+    func GetAPODWithOtherDate(date: String) {
+        NASAService.shared.MakeAPICallWithOtherDate(type: Apod.self, response: .apod, date: date) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.delegate?.PresentAPOD(apod: data)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func SetViewDelegate(delegate: APODPresenterType) {
         self.delegate = delegate
     }
