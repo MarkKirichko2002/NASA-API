@@ -8,7 +8,7 @@
 import Foundation
 import Speech
 
-class SpeechRecognition {
+class SpeechRecognition: SpeechRecognitionProtocol {
     
     private let audioEngine = AVAudioEngine()
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ru_RU"))
@@ -59,7 +59,7 @@ class SpeechRecognition {
         })
     }
     
-    func cancelSpeechRecognization(){
+    func cancelSpeechRecognization() {
         audioEngine.stop()
         recognitionTask?.cancel()
         request.endAudio()
