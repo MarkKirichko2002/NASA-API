@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 
-class SoundClass {
+class SoundClass: SoundClassProtocol {
     
     static let shared = SoundClass()
     
@@ -45,5 +45,4 @@ class SoundClass {
             
         }
     }
-    
 }

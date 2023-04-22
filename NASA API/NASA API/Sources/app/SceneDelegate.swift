@@ -6,17 +6,29 @@
 //
 
 import UIKit
+import Swinject
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let vc = SplashScreenController()
+        let container: Container = {
+            let container = Container()
+            container.register(AnimationClassProtocol.self) { _ in
+                return AnimationClass()
+            }
+            container.register(SplashScreenController.self) { resolver in
+                let vc = SplashScreenController(animation: resolver.resolve(AnimationClassProtocol.self))
+                return vc
+            }
+            return container
+        }()
+        
+        guard let vc = container.resolve(SplashScreenController.self) else {return}
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = vc

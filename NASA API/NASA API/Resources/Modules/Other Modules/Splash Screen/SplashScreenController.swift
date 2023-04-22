@@ -6,10 +6,33 @@
 //
 
 import UIKit
+import Swinject
 
 class SplashScreenController: UIViewController {
     
-    private let animation = AnimationClass()
+    private let animation: AnimationClassProtocol?
+    
+    private let container: Container = {
+        // контейнер
+        let container = Container()
+        // анимация
+        container.register(AnimationClassProtocol.self) { _ in
+            return AnimationClass()
+        }
+        // аудио
+        container.register(SoundClassProtocol.self) { _ in
+            return SoundClass()
+        }
+        // распознавание речи
+        container.register(SpeechRecognitionProtocol.self) { _ in
+            return SpeechRecognition()
+        }
+        container.register(NASATabBarController.self) { resolver in
+            let vc = NASATabBarController(animation: resolver.resolve(AnimationClassProtocol.self), player: resolver.resolve(SoundClassProtocol.self), speechRecognition: resolver.resolve(SpeechRecognitionProtocol.self))
+            return vc
+        }
+        return container
+    }()
     
     private let Icon: UIImageView = {
         let imageView = UIImageView()
@@ -31,7 +54,16 @@ class SplashScreenController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubviews(Icon,TitleLabel)
         SetUpConstraints()
-        SplashScreen()
+        ShowSplashScreen()
+    }
+    
+    init(animation: AnimationClassProtocol?) {
+        self.animation = animation
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func SetUpConstraints() {
@@ -47,17 +79,17 @@ class SplashScreenController: UIViewController {
         ])
     }
     
-    private func SplashScreen() {
+    private func ShowSplashScreen() {
         
-        animation.SpringAnimation(view: Icon)
+        animation?.SpringAnimation(view: Icon)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.TitleLabel.text = "NASA API"
-            self.animation.SpringAnimation(view: self.TitleLabel)
+            self.animation?.SpringAnimation(view: self.TitleLabel)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            let vc = NASATabBarController()
+            guard let vc = self.container.resolve(NASATabBarController.self) else {return}
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .currentContext
             self.present(vc, animated: false, completion: nil)

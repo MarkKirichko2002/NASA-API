@@ -10,9 +10,10 @@ import SDWebImage
 
 class NASATabBarController: UITabBarController {
     
-    private let animation = AnimationClass()
-    private let player = SoundClass()
-    private let speechRecognition = SpeechRecognition()
+    private let animation: AnimationClassProtocol?
+    private let player: SoundClassProtocol?
+    private let speechRecognition: SpeechRecognitionProtocol?
+    
     private let button: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = button.frame.width / 2
@@ -27,6 +28,17 @@ class NASATabBarController: UITabBarController {
         view.backgroundColor = .systemBackground
         SetUpTabs()
         createMiddleButton()
+    }
+    
+    init(animation: AnimationClassProtocol?, player: SoundClassProtocol?, speechRecognition: SpeechRecognitionProtocol?) {
+        self.animation = animation
+        self.player = player
+        self.speechRecognition = speechRecognition
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // Override selectedViewController for User initiated changes
@@ -113,15 +125,15 @@ class NASATabBarController: UITabBarController {
         if isStart {
             button.setImage(UIImage(systemName: "mic.fill"), for: .normal)
             button.imageView?.tintColor = .black
-            animation.SpringAnimation(view: button)
-            speechRecognition.startSpeechRecognition()
-            speechRecognition.registerSpeechRecognitionHandler { text in
+            animation?.SpringAnimation(view: button)
+            speechRecognition?.startSpeechRecognition()
+            speechRecognition?.registerSpeechRecognitionHandler { text in
                 self.CheckVoiceCommands(text: text)
             }
         } else {
             button.setImage(UIImage(named: "NASA"), for: .normal)
-            animation.SpringAnimation(view: button)
-            speechRecognition.cancelSpeechRecognization()
+            animation?.SpringAnimation(view: button)
+            speechRecognition?.cancelSpeechRecognization()
         }
     }
     
@@ -134,19 +146,19 @@ class NASATabBarController: UITabBarController {
                 switch result {
                 case .success(let data):
                     self.button.sd_setImage(with: URL(string: data.hdurl ?? ""), for: .normal)
-                    self.animation.SpringAnimation(view: self.button)
+                    self.animation?.SpringAnimation(view: self.button)
                 case .failure:
                     self.button.setImage(UIImage(named: "error"), for: .normal)
-                    self.animation.SpringAnimation(view: self.button)
+                    self.animation?.SpringAnimation(view: self.button)
                 }
             }
             
             let vc = APODViewController()
             
-            speechRecognition.cancelSpeechRecognization()
+            speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.speechRecognition.startSpeechRecognition()
+                self.speechRecognition?.startSpeechRecognition()
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -156,27 +168,27 @@ class NASATabBarController: UITabBarController {
         case _ where text.lowercased().contains("марс"):
             
             self.button.setImage(UIImage(named: "rover"), for: .normal)
-            self.animation.SpringAnimation(view: self.button)
+            self.animation?.SpringAnimation(view: self.button)
             
             let vc = MarsPhotosViewController()
             
-            speechRecognition.cancelSpeechRecognization()
+            speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.speechRecognition.startSpeechRecognition()
+                self.speechRecognition?.startSpeechRecognition()
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.present(vc, animated: true)
-                self.speechRecognition.registerScrollHandler { index in
+                self.speechRecognition?.registerScrollHandler { index in
                     print(index)
                     let path = IndexPath(row: index, section: 0)
                     vc.marsPhotosListView.collectionView.scrollToItem(at: path, at: .top, animated: true)
                     
-                    self.speechRecognition.cancelSpeechRecognization()
+                    self.speechRecognition?.cancelSpeechRecognization()
 
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.speechRecognition.startSpeechRecognition()
+                        self.speechRecognition?.startSpeechRecognition()
                     }
                 }
             }
@@ -184,27 +196,27 @@ class NASATabBarController: UITabBarController {
         case _ where text.lowercased().contains("земл"):
             
             self.button.setImage(UIImage(named: "EPIC"), for: .normal)
-            self.animation.SpringAnimation(view: self.button)
+            self.animation?.SpringAnimation(view: self.button)
             
             let vc = EPICNASAImagesViewController()
              
-            speechRecognition.cancelSpeechRecognization()
+            speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.speechRecognition.startSpeechRecognition()
+                self.speechRecognition?.startSpeechRecognition()
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.present(vc, animated: true)
-                self.speechRecognition.registerScrollHandler { index in
+                self.speechRecognition?.registerScrollHandler { index in
                     print(index)
                     let path = IndexPath(row: index, section: 0)
                     vc.epicNasaImagesListView.collectionView.scrollToItem(at: path, at: .top, animated: true)
                     
-                    self.speechRecognition.cancelSpeechRecognization()
+                    self.speechRecognition?.cancelSpeechRecognization()
 
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.speechRecognition.startSpeechRecognition()
+                        self.speechRecognition?.startSpeechRecognition()
                     }
                 }
             }
@@ -212,27 +224,27 @@ class NASATabBarController: UITabBarController {
         case _ where text.lowercased().contains("изображ"):
             
             self.button.setImage(UIImage(named: "camera"), for: .normal)
-            self.animation.SpringAnimation(view: self.button)
+            self.animation?.SpringAnimation(view: self.button)
             
             let vc = NASAImageLibraryViewController()
             
-            speechRecognition.cancelSpeechRecognization()
+            speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.speechRecognition.startSpeechRecognition()
+                self.speechRecognition?.startSpeechRecognition()
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.present(vc, animated: true)
-                self.speechRecognition.registerScrollHandler { index in
+                self.speechRecognition?.registerScrollHandler { index in
                     print(index)
                     let path = IndexPath(row: index, section: 0)
                     vc.nasaImageLibraryListView.collectionView.scrollToItem(at: path, at: .top, animated: true)
                     
-                    self.speechRecognition.cancelSpeechRecognization()
+                    self.speechRecognition?.cancelSpeechRecognization()
 
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.speechRecognition.startSpeechRecognition()
+                        self.speechRecognition?.startSpeechRecognition()
                     }
                 }
             }
@@ -241,45 +253,45 @@ class NASATabBarController: UITabBarController {
             
             button.setImage(UIImage(named: "EPIC"), for: .normal)
             
-            player.PlaySound(resource: "space music.mp3")
+            player?.PlaySound(resource: "space music.mp3")
             
-            animation.StartRotateImage(image: self.button.imageView!)
+            animation?.StartRotateImage(image: self.button.imageView!)
             
-            speechRecognition.cancelSpeechRecognization()
+            speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.speechRecognition.startSpeechRecognition()
+                self.speechRecognition?.startSpeechRecognition()
             }
             
         case _ where text.lowercased().contains("выкл"):
             
             button.setImage(UIImage(systemName: "mic.fill"), for: .normal)
             
-            player.StopSound(resource: "space music.mp3")
+            player?.StopSound(resource: "space music.mp3")
             
-            animation.StopRotateImage(image: self.button.imageView!)
+            animation?.StopRotateImage(image: self.button.imageView!)
             
-            speechRecognition.cancelSpeechRecognization()
+            speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.speechRecognition.startSpeechRecognition()
+                self.speechRecognition?.startSpeechRecognition()
             }
             
         case _ where text.lowercased().contains("стоп"):
             
-            player.StopSound(resource: "space music.mp3")
+            player?.StopSound(resource: "space music.mp3")
             
-            animation.StopRotateImage(image: self.button.imageView!)
+            animation?.StopRotateImage(image: self.button.imageView!)
             
             button.sendActions(for: .touchUpInside)
             
         case _ where text.lowercased().contains("закр"):
             self.dismiss(animated: true)
             
-            speechRecognition.cancelSpeechRecognization()
+            speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.speechRecognition.startSpeechRecognition()
+                self.speechRecognition?.startSpeechRecognition()
             }
             
         default:
@@ -288,6 +300,6 @@ class NASATabBarController: UITabBarController {
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        animation.TabBarItemAnimation(item: item)
+        animation?.TabBarItemAnimation(item: item)
     }
 }
