@@ -44,4 +44,10 @@ class AnimationClass: AnimationClassProtocol {
         propertyAnimator.addAnimations({ barItemView.transform = .identity }, delayFactor: CGFloat(timeInterval))
         propertyAnimator.startAnimation()
     }
+    
+    func FlipAnimation<T: UIView>(view: T) {
+        T.transition(with: view, duration: 0.4,
+                     options: .transitionFlipFromRight, animations: nil,
+                     completion: nil)
+    }
 }
