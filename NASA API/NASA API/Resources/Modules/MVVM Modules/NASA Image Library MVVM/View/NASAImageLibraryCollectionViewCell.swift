@@ -55,5 +55,4 @@ class NASAImageLibraryCollectionViewCell: UICollectionViewCell {
         imageView.sd_setImage(with: URL(string: viewModel.NASAImage))
         titleLabel.text = viewModel.NASAImageTitle
     }
-    
 }

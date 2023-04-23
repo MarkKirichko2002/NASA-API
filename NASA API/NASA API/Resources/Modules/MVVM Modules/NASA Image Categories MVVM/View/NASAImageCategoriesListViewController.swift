@@ -6,11 +6,24 @@
 //
 
 import UIKit
+import Swinject
 
 class NASAImageCategoriesListViewController: UIViewController, NASAImageCategoriesListViewDelegate {
     
-    private let nasaImageCategoriesListView = NASAImageCategoriesListView()
-    
+    private let container: Container = {
+        let container = Container()
+        // API
+        container.register(NASAServiceProtocol.self) { _ in
+            return NASAService()
+        }
+        // ViewModel
+        container.register(NASAImageCategoriesListViewViewModel.self) { resolver in
+            let viewModel = NASAImageCategoriesListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
+            return viewModel
+        }
+        return container
+    }()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Изображения"
@@ -18,6 +31,7 @@ class NASAImageCategoriesListViewController: UIViewController, NASAImageCategori
     }
     
     private func SetUpView() {
+        let nasaImageCategoriesListView = NASAImageCategoriesListView(frame: .zero, viewModel: container.resolve(NASAImageCategoriesListViewViewModel.self))
         nasaImageCategoriesListView.delegate = self
         view.addSubview(nasaImageCategoriesListView)
         NSLayoutConstraint.activate([

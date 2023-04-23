@@ -16,15 +16,19 @@ class NASAImageCategoriesListViewViewModel: NSObject {
     
     public weak var delegate: NASAImageCategoriesListViewViewModelDelegate?
     
-    private let apiManager = NASAService()
+    private let nasaService: NASAServiceProtocol?
     
     private let cellViewModels = [NASAImageCategoriesCollectionViewCellViewModel(categoryName: "APOD", categoryImage: "camera", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Фото Марса", categoryImage: "rover", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "NASA Изображения", categoryImage: "NASA", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "EPIC", categoryImage: "EPIC", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Земля", categoryImage: "", imagesCount: 0)]
     private let categories = [NasaImageCategory(id: 1, name: "APOD", icon: "camera", sound: "space.wav"), NasaImageCategory(id: 2, name: "Фото Марса", icon: "rover", sound: "space.wav"), NasaImageCategory(id: 3, name: "NASA Изображения", icon: "NASA", sound: "camera.mp3"), NasaImageCategory(id: 4, name: "EPIC", icon: "EPIC", sound: "space.wav"), NasaImageCategory(id: 5, name: "Земля", icon: "", sound: "space.wav")]
     private let epicNASAImagesListViewViewModel = EPICNASAImagesListViewViewModel()
     
+    init(nasaService: NASAServiceProtocol?) {
+        self.nasaService = nasaService
+    }
+    
     func GetCategoryImages() {
         DispatchQueue.main.async {
-            self.apiManager.execute(type: Apod.self, response: .apod) { [weak self] result in
+            self.nasaService?.execute(type: Apod.self, response: .apod) { [weak self] result in
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async {
@@ -42,7 +46,7 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                     print(error)
                 }
             }
-            self.apiManager.execute(type: MarsImage.self, response: .marsphotos) { [weak self] result in
+            self.nasaService?.execute(type: MarsImage.self, response: .marsphotos) { [weak self] result in
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async {
@@ -61,7 +65,7 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                     print(error)
                 }
             }
-            self.apiManager.execute(type: NASAImageAndVideoLibrary.self, response: .nasaimages) { [weak self] result in
+            self.nasaService?.execute(type: NASAImageAndVideoLibrary.self, response: .nasaimages) { [weak self] result in
                 switch result {
                 case .success(let data):
                     var images = [NASAImageViewModel]()
@@ -86,7 +90,7 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                     print(error)
                 }
             }
-            self.apiManager.execute(type: [EPIC].self, response: .epic) { [weak self] result in
+            self.nasaService?.execute(type: [EPIC].self, response: .epic) { [weak self] result in
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async {
@@ -109,7 +113,7 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                     print(error)
                 }
             }
-            self.apiManager.execute(type: Earth.self, response: .earth) {  [weak self] result in
+            self.nasaService?.execute(type: Earth.self, response: .earth) {  [weak self] result in
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async {

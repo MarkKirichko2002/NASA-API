@@ -97,5 +97,4 @@ extension NASAImageLibraryListViewViewModel: UICollectionViewDelegate, UICollect
             self.delegate?.didSelectNASAImage(self.cellViewModels[indexPath.row])
         }
     }
-    
 }

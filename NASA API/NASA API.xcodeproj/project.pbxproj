@@ -26,6 +26,7 @@
 		824658BE29F45C0E00EE7AC4 /* AnimationClassProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824658BD29F45C0E00EE7AC4 /* AnimationClassProtocol.swift */; };
 		824658C029F45EED00EE7AC4 /* SoundClassProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824658BF29F45EED00EE7AC4 /* SoundClassProtocol.swift */; };
 		824658C229F460CD00EE7AC4 /* SpeechRecognitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824658C129F460CD00EE7AC4 /* SpeechRecognitionProtocol.swift */; };
+		824658DD29F49CC300EE7AC4 /* NASAServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824658DC29F49CC300EE7AC4 /* NASAServiceProtocol.swift */; };
 		8255247829BE55510067EB68 /* NASASettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255247729BE55510067EB68 /* NASASettingsOption.swift */; };
 		8255247A29BE56770067EB68 /* NASASettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255247929BE56770067EB68 /* NASASettingsView.swift */; };
 		8255247C29BE56A60067EB68 /* NASASettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255247B29BE56A60067EB68 /* NASASettingsViewViewModel.swift */; };
@@ -129,6 +130,7 @@
 		824658BD29F45C0E00EE7AC4 /* AnimationClassProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClassProtocol.swift; sourceTree = "<group>"; };
 		824658BF29F45EED00EE7AC4 /* SoundClassProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassProtocol.swift; sourceTree = "<group>"; };
 		824658C129F460CD00EE7AC4 /* SpeechRecognitionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionProtocol.swift; sourceTree = "<group>"; };
+		824658DC29F49CC300EE7AC4 /* NASAServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAServiceProtocol.swift; sourceTree = "<group>"; };
 		8255247729BE55510067EB68 /* NASASettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASASettingsOption.swift; sourceTree = "<group>"; };
 		8255247929BE56770067EB68 /* NASASettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASASettingsView.swift; sourceTree = "<group>"; };
 		8255247B29BE56A60067EB68 /* NASASettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASASettingsViewViewModel.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				824658BD29F45C0E00EE7AC4 /* AnimationClassProtocol.swift */,
 				824658BF29F45EED00EE7AC4 /* SoundClassProtocol.swift */,
 				824658C129F460CD00EE7AC4 /* SpeechRecognitionProtocol.swift */,
+				824658DC29F49CC300EE7AC4 /* NASAServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -732,8 +735,8 @@
 		82E9B94329760604000845B3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				82E9B94529760610000845B3 /* MVP Modules */,
 				82E9B94429760609000845B3 /* MVVM Modules */,
+				82E9B94529760610000845B3 /* MVP Modules */,
 				82E9B94629760641000845B3 /* Other Modules */,
 			);
 			path = Modules;
@@ -1012,6 +1015,7 @@
 				82E56A65297FC84C00879E21 /* Item.swift in Sources */,
 				82C5AC002981C2D900D26D7C /* APODViewController.swift in Sources */,
 				82E569FD297E110000879E21 /* NASAImageCategoriesListView.swift in Sources */,
+				824658DD29F49CC300EE7AC4 /* NASAServiceProtocol.swift in Sources */,
 				8255248029BE58B20067EB68 /* NASASettingsViewController.swift in Sources */,
 				82D3C07A28C5759700084046 /* NASAVideosTableViewController.swift in Sources */,
 				82C6F25F28A4093500B8EA70 /* MarsImage.swift in Sources */,
