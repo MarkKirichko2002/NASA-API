@@ -18,7 +18,7 @@ enum ResponseType {
     case marsweather
 }
 
-class NASAService {
+class NASAService: NASAServiceProtocol {
     
     static let shared = NASAService()
     private var url = ""
