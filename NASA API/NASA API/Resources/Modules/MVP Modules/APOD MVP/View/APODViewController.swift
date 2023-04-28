@@ -10,7 +10,7 @@ import SDWebImage
 
 class APODViewController: UIViewController {
     
-    private let presenter = APODPresenter()
+    private var presenter: APODPresenter?
    
     private let imageView: RoundedImageView = {
         let imageView = RoundedImageView()
@@ -41,8 +41,17 @@ class APODViewController: UIViewController {
         view.addSubviews(imageView, DateLabel, ExplanationTextView)
         SetUpConstraints()
         SetUpCalendarButton()
-        presenter.SetViewDelegate(delegate: self)
-        presenter.GetAPOD()
+        presenter?.SetViewDelegate(delegate: self)
+        presenter?.GetAPOD()
+    }
+    
+    init(presenter: APODPresenter?) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     private func SetUpConstraints() {
@@ -74,8 +83,8 @@ class APODViewController: UIViewController {
     }
     
     @objc private func showCalendar() {
-        let vc = CalendarViewController(presenter: presenter)
-        present(vc, animated: true)
+//        let vc = CalendarViewController(presenter: presenter)
+//        present(vc, animated: true)
     }
 }
 

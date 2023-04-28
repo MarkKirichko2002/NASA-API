@@ -6,19 +6,29 @@
 //
 
 import UIKit
+import Swinject
 
 class NASAImageLibraryViewController: UIViewController {
     
-    let nasaImageLibraryListView = NASAImageLibraryListView()
+    private let container: Container = {
+        let container = Container()
+        // ViewModel
+        container.register(NASAImageLibraryListViewViewModel.self) { resolver in
+            let viewModel = NASAImageLibraryListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
+            return viewModel
+        }
+        return container
+    }()
     
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground
-        view.addSubview(nasaImageLibraryListView)
         SetUpConstraints()
     }
     
     private func SetUpConstraints() {
+        let nasaImageLibraryListView = NASAImageLibraryListView(frame: .zero, viewModel: container.resolve(NASAImageLibraryListViewViewModel.self))
         nasaImageLibraryListView.delegate = self
+        view.addSubview(nasaImageLibraryListView)
         NSLayoutConstraint.activate([
             nasaImageLibraryListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             nasaImageLibraryListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
@@ -36,5 +46,4 @@ extension NASAImageLibraryViewController: NASAImageLibraryListViewDelegate {
         vc.info = image.NASAImageTitle
         navigationController?.pushViewController(vc, animated: true)
     }
-    
 }

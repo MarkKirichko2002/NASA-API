@@ -6,20 +6,30 @@
 //
 
 import UIKit
+import Swinject
 
 class MarsPhotosViewController: UIViewController {
     
-    let marsPhotosListView = MarsPhotosListView()
+    private let container: Container = {
+        let container = Container()
+        // ViewModel
+        container.register(MarsPhotosListViewViewModel.self) { resolver in
+            let viewModel = MarsPhotosListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
+            return viewModel
+        }
+        return container
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        view?.addSubviews(marsPhotosListView)
-        marsPhotosListView.delegate = self
         SetUpView()
     }
     
     private func SetUpView() {
+        let marsPhotosListView = MarsPhotosListView(frame: .zero, viewModel: container.resolve(MarsPhotosListViewViewModel.self))
+        marsPhotosListView.delegate = self
+        view?.addSubviews(marsPhotosListView)
         NSLayoutConstraint.activate([
             marsPhotosListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             marsPhotosListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),

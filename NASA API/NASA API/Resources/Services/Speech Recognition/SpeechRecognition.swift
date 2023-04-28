@@ -5,7 +5,6 @@
 //  Created by Марк Киричко on 20.03.2023.
 //
 
-import Foundation
 import Speech
 
 class SpeechRecognition: SpeechRecognitionProtocol {
@@ -16,14 +15,9 @@ class SpeechRecognition: SpeechRecognitionProtocol {
     private var recognitionTask: SFSpeechRecognitionTask?
     private var text = ""
     private var speechRecognitionHandler: ((String)->Void)?
-    private var scrollHandler: ((Int)->Void)?
     
     func registerSpeechRecognitionHandler(block: @escaping(String)->Void) {
         self.speechRecognitionHandler = block
-    }
-    
-    func registerScrollHandler(block: @escaping(Int)->Void) {
-        self.scrollHandler = block
     }
     
     func startSpeechRecognition() {
@@ -50,7 +44,6 @@ class SpeechRecognition: SpeechRecognitionProtocol {
                     self.text = res.formattedString
                     print(self.text)
                     self.speechRecognitionHandler?(self.text)
-                    self.scrollHandler?(Int(self.text) ?? 0)
                 }
                 
             } else if let error = error {

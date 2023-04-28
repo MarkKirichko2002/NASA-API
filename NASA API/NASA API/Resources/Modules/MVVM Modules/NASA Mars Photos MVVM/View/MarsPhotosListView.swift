@@ -13,9 +13,8 @@ protocol MarsPhotosListViewDelegate: NSObject {
 
 class MarsPhotosListView: UIView {
     
-    let viewModel = MarsPhotosListViewViewModel()
-    
-    weak var delegate: MarsPhotosListViewDelegate?
+    public weak var delegate: MarsPhotosListViewDelegate?
+    private var viewModel: MarsPhotosListViewViewModel?
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -27,14 +26,15 @@ class MarsPhotosListView: UIView {
         return collectionView
     }()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, viewModel: MarsPhotosListViewViewModel?) {
         super.init(frame: frame)
+        self.viewModel = viewModel
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(collectionView)
-        viewModel.delegate = self
+        viewModel?.delegate = self
         SetUpConstraints()
         SetUpCollectionView()
-        viewModel.GetMarsPhoto()
+        viewModel?.GetMarsPhoto()
     }
     
     required init?(coder: NSCoder) {

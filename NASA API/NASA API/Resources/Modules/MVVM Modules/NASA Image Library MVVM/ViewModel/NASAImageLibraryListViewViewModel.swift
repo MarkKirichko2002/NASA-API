@@ -14,7 +14,9 @@ protocol NASAImageLibraryListViewViewModelDelegate: NSObject {
 
 class NASAImageLibraryListViewViewModel: NSObject {
     
-    weak var delegate: NASAImageLibraryListViewViewModelDelegate?
+    public weak var delegate: NASAImageLibraryListViewViewModelDelegate?
+    
+    private let nasaService: NASAServiceProtocol?
     
     private var cellViewModels = [NASAImageLibraryCollectionViewCellViewModel]()
     private var images = [NASAImageViewModel]() {
@@ -28,8 +30,12 @@ class NASAImageLibraryListViewViewModel: NSObject {
     
     private var imagesinfo = [NASAImageInfoViewModel]()
     
+    init(nasaService: NASAServiceProtocol?) {
+        self.nasaService = nasaService
+    }
+    
     func GetNASAImages() {
-        NASAService.shared.execute(type: NASAImageAndVideoLibrary.self, response: .nasaimages) { [weak self] result in
+        nasaService?.execute(type: NASAImageAndVideoLibrary.self, response: .nasaimages) { [weak self] result in
             switch result {
             case .success(let data):
                 let data = data.collection.items
@@ -44,7 +50,7 @@ class NASAImageLibraryListViewViewModel: NSObject {
                 print(error)
             }
         }
-        NASAService.shared.execute(type: NASAImageAndVideoLibrary.self, response: .nasaimagesinfo) { [weak self] result in
+        nasaService?.execute(type: NASAImageAndVideoLibrary.self, response: .nasaimagesinfo) { [weak self] result in
             switch result {
             case .success(let data):
                 let data = data.collection.items

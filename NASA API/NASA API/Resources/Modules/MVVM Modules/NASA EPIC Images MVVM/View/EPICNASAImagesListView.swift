@@ -15,7 +15,7 @@ class EPICNASAImagesListView: UIView {
 
     public weak var delegate: EPICNASAImagesListViewDelegate?
     
-    private let viewModel = EPICNASAImagesListViewViewModel()
+    private var viewModel: EPICNASAImagesListViewViewModel?
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -27,13 +27,14 @@ class EPICNASAImagesListView: UIView {
         return collectionView
     }()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, viewModel: EPICNASAImagesListViewViewModel?) {
         super.init(frame: frame)
+        self.viewModel = viewModel
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(collectionView)
         SetUpConstraints()
-        viewModel.delegate = self
-        viewModel.GetEPICImages()
+        viewModel?.delegate = self
+        viewModel?.GetEPICImages()
         setUpCollectionView()
     }
     

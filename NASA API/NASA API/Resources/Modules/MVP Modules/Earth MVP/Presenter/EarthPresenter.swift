@@ -17,8 +17,14 @@ class EarthPresenter {
     
     var delegate: EarthPresenterType?
     
+    private var nasaService: NASAServiceProtocol?
+    
+    init(nasaService: NASAServiceProtocol?) {
+        self.nasaService = nasaService
+    }
+    
     func GetEarthImage() {
-        NASAService.shared.execute(type: Earth.self, response: .earth) { [weak self] result in
+        nasaService?.execute(type: Earth.self, response: .earth) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.delegate?.PresentEarth(earth: data)

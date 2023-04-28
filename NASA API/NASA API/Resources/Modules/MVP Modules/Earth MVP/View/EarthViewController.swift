@@ -10,7 +10,7 @@ import SDWebImage
 
 class EarthViewController: UIViewController {
 
-    private let presenter = EarthPresenter()
+    private var presenter: EarthPresenter?
     
     private let EarthImage: UIImageView = {
         let image = UIImageView()
@@ -24,8 +24,17 @@ class EarthViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubviews(EarthImage)
         self.makeConstraints()
-        presenter.SetViewDelegate(delegate: self)
-        presenter.GetEarthImage()
+        presenter?.SetViewDelegate(delegate: self)
+        presenter?.GetEarthImage()
+    }
+    
+    init(presenter: EarthPresenter?) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     private func makeConstraints() {

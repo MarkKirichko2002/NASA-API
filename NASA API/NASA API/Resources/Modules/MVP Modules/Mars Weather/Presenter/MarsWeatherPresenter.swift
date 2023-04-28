@@ -17,6 +17,12 @@ class MarsWeatherPresenter {
     
     var delegate: MarsWeatherPresenterDelegate?
     
+    private var nasaService: NASAServiceProtocol?
+    
+    init(nasaService: NASAServiceProtocol?) {
+        self.nasaService = nasaService
+    }
+    
     func GetMarsWeather() {
         NASAService.shared.execute(type: MarsWeather.self, response: .marsweather) { [weak self] result in
             switch result {
