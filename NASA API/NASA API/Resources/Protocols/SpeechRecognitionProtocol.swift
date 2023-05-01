@@ -11,5 +11,4 @@ protocol SpeechRecognitionProtocol {
     func startSpeechRecognition()
     func cancelSpeechRecognization()
     func registerSpeechRecognitionHandler(block: @escaping(String)->Void)
-    func registerScrollHandler(block: @escaping(Int)->Void)
 }

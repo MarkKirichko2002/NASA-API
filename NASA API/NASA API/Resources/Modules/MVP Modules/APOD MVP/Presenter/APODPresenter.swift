@@ -17,8 +17,14 @@ class APODPresenter {
     
     var delegate: APODPresenterType?
     
+    private var nasaService: NASAServiceProtocol?
+    
+    init(nasaService: NASAServiceProtocol?) {
+        self.nasaService = nasaService
+    }
+    
     func GetAPOD() {
-        NASAService.shared.execute(type: Apod.self, response: .apod) { [weak self] result in
+        nasaService?.execute(type: Apod.self, response: .apod) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.delegate?.PresentAPOD(apod: data)

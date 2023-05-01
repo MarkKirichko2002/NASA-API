@@ -16,6 +16,8 @@ final class EPICNASAImagesListViewViewModel: NSObject {
     
     public weak var delegate: EPICNASAImagesListViewViewModelDelegate?
     
+    private let nasaService: NASAServiceProtocol?
+    
     private var epicimages = [EPIC]() {
         didSet {
             for epicimage in epicimages {
@@ -26,6 +28,10 @@ final class EPICNASAImagesListViewViewModel: NSObject {
     }
     
     private var cellViewModels = [NASAEPICImagesCollectionViewCellViewModel]()
+    
+    init(nasaService: NASAServiceProtocol?) {
+        self.nasaService = nasaService
+    }
     
     public func GetEPICImages() {
         NASAService.shared.execute(type: [EPIC].self, response: .epic) { [weak self] result in

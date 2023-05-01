@@ -10,7 +10,7 @@ import SDWebImage
 
 class MarsWeatherViewController: UIViewController {
     
-    private let presenter = MarsWeatherPresenter()
+    private var presenter: MarsWeatherPresenter?
     
     private let WeatherLabel: UILabel = {
         let label = UILabel()
@@ -24,8 +24,17 @@ class MarsWeatherViewController: UIViewController {
         title = "Марс Погода"
         view.addSubview(WeatherLabel)
         SetUpConstraints()
-        presenter.SetViewDelegate(delegate: self)
-        presenter.GetMarsWeather()
+        presenter?.SetViewDelegate(delegate: self)
+        presenter?.GetMarsWeather()
+    }
+    
+    init(presenter: MarsWeatherPresenter?) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     private func SetUpConstraints() {

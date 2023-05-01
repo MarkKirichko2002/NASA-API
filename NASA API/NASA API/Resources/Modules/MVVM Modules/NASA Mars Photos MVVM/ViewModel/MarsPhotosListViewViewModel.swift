@@ -13,7 +13,11 @@ protocol MarsPhotosListViewViewModelDelegate: NSObject {
 }
 
 class MarsPhotosListViewViewModel: NSObject {
-    weak var delegate: MarsPhotosListViewViewModelDelegate?
+    
+    public weak var delegate: MarsPhotosListViewViewModelDelegate?
+    
+    private let nasaService: NASAServiceProtocol?
+    
     private var marsphotos = [Photo]() {
         didSet {
             for photo in marsphotos {
@@ -24,6 +28,10 @@ class MarsPhotosListViewViewModel: NSObject {
         }
     }
     private var cellViewModels = [MarsPhotosCollectionViewCellViewModel]()
+    
+    init(nasaService: NASAServiceProtocol?) {
+        self.nasaService = nasaService
+    }
     
     func GetMarsPhoto() {
         NASAService.shared.execute(type: MarsImage.self, response: .marsphotos) { [weak self] result in

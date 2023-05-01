@@ -7,12 +7,23 @@
 
 import UIKit
 import SDWebImage
+import Swinject
 
 class NASATabBarController: UITabBarController {
     
     private let animation: AnimationClassProtocol?
     private let player: SoundClassProtocol?
     private let speechRecognition: SpeechRecognitionProtocol?
+    
+    private let container: Container = {
+        let container = Container()
+        // Mars Weather Presenter
+        container.register(MarsWeatherPresenter.self) { resolver in
+            let presenter = MarsWeatherPresenter(nasaService: resolver.resolve(NASAServiceProtocol.self))
+            return presenter
+        }
+        return container
+    }()
     
     private let button: UIButton = {
         let button = UIButton()
@@ -83,7 +94,7 @@ class NASATabBarController: UITabBarController {
         let asteroidsVC = AsteroidsViewController()
         let mediaLibrary = NASAVideosTableViewController()
         let middleButton = UIViewController()
-        let marsWeatherVC = MarsWeatherViewController()
+        let marsWeatherVC = MarsWeatherViewController(presenter: container.resolve(MarsWeatherPresenter.self))
         let settingsVC = NASASettingsViewController()
         
         imageCategoriesVC.navigationItem.largeTitleDisplayMode = .automatic
@@ -153,7 +164,7 @@ class NASATabBarController: UITabBarController {
                 }
             }
             
-            let vc = APODViewController()
+            let vc = APODViewController(presenter: container.resolve(APODPresenter.self))
             
             speechRecognition?.cancelSpeechRecognization()
             
@@ -180,17 +191,6 @@ class NASATabBarController: UITabBarController {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.present(vc, animated: true)
-                self.speechRecognition?.registerScrollHandler { index in
-                    print(index)
-                    let path = IndexPath(row: index, section: 0)
-                    vc.marsPhotosListView.collectionView.scrollToItem(at: path, at: .top, animated: true)
-                    
-                    self.speechRecognition?.cancelSpeechRecognization()
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.speechRecognition?.startSpeechRecognition()
-                    }
-                }
             }
             
         case _ where text.lowercased().contains("земл"):
@@ -208,17 +208,6 @@ class NASATabBarController: UITabBarController {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.present(vc, animated: true)
-                self.speechRecognition?.registerScrollHandler { index in
-                    print(index)
-                    let path = IndexPath(row: index, section: 0)
-                    vc.epicNasaImagesListView.collectionView.scrollToItem(at: path, at: .top, animated: true)
-                    
-                    self.speechRecognition?.cancelSpeechRecognization()
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.speechRecognition?.startSpeechRecognition()
-                    }
-                }
             }
             
         case _ where text.lowercased().contains("изображ"):
@@ -236,17 +225,6 @@ class NASATabBarController: UITabBarController {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.present(vc, animated: true)
-                self.speechRecognition?.registerScrollHandler { index in
-                    print(index)
-                    let path = IndexPath(row: index, section: 0)
-                    vc.nasaImageLibraryListView.collectionView.scrollToItem(at: path, at: .top, animated: true)
-                    
-                    self.speechRecognition?.cancelSpeechRecognization()
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.speechRecognition?.startSpeechRecognition()
-                    }
-                }
             }
             
         case _ where text.lowercased().contains("муз"):

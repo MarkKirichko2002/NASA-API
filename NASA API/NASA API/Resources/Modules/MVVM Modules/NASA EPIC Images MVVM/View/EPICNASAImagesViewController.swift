@@ -6,20 +6,30 @@
 //
 
 import UIKit
+import Swinject
 
 class EPICNASAImagesViewController: UIViewController, EPICNASAImagesListViewDelegate {
     
-    let epicNasaImagesListView = EPICNASAImagesListView()
+    private let container: Container = {
+        let container = Container()
+        // ViewModel
+        container.register(EPICNASAImagesListViewViewModel.self) { resolver in
+            let viewModel = EPICNASAImagesListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
+            return viewModel
+        }
+        return container
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        epicNasaImagesListView.delegate = self
-        view.addSubviews(epicNasaImagesListView)
         SetUpView()
     }
     
     private func SetUpView() {
+        let epicNasaImagesListView = EPICNASAImagesListView(frame: .zero, viewModel: container.resolve(EPICNASAImagesListViewViewModel.self))
+        epicNasaImagesListView.delegate = self
+        view.addSubviews(epicNasaImagesListView)
         NSLayoutConstraint.activate([
             epicNasaImagesListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             epicNasaImagesListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),

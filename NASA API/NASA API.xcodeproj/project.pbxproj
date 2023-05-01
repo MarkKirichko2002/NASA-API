@@ -698,8 +698,8 @@
 		82E56A77297FE2F700879E21 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				82E56A79297FE34800879E21 /* MarsPhotosListView.swift */,
 				82E56A7B297FE3B500879E21 /* MarsPhotosViewController.swift */,
+				82E56A79297FE34800879E21 /* MarsPhotosListView.swift */,
 				82E56A7D297FE3E700879E21 /* MarsPhotosCollectionViewCell.swift */,
 			);
 			path = View;
