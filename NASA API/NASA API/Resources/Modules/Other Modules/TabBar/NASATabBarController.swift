@@ -92,7 +92,7 @@ class NASATabBarController: UITabBarController {
         
         let imageCategoriesVC = NASAImageCategoriesListViewController()
         let asteroidsVC = AsteroidsViewController()
-        let mediaLibrary = NASAVideosTableViewController()
+        let mediaLibrary = NASAVideoLibraryViewController()
         let middleButton = UIViewController()
         let marsWeatherVC = MarsWeatherViewController(presenter: container.resolve(MarsWeatherPresenter.self))
         let settingsVC = NASASettingsViewController()

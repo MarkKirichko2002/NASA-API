@@ -1,22 +1,22 @@
 //
-//  NASAImageLibraryCollectionViewCell.swift
+//  NASAVideoLibraryCollectionViewCell.swift
 //  NASA API
 //
-//  Created by Марк Киричко on 26.01.2023.
+//  Created by Марк Киричко on 01.05.2023.
 //
 
 import UIKit
 import SDWebImage
 
-class NASAImageLibraryCollectionViewCell: UICollectionViewCell {
+class NASAVideoLibraryCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "NASAImageLibraryCollectionViewCell"
+    static let identifier = "NASAVideoLibraryCollectionViewCell"
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -62,8 +62,8 @@ class NASAImageLibraryCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func configure(with viewModel: NASAImageLibraryCollectionViewCellViewModel) {
-        imageView.sd_setImage(with: URL(string: viewModel.NASAImage))
-        titleLabel.text = viewModel.NASAImageTitle
+    func configure(with viewModel: NASAVideoLibraryCollectionViewCellViewModel) {
+        imageView.sd_setImage(with: URL(string: viewModel.NASAVideoImage))
+        titleLabel.text = viewModel.NASAVideoTitle
     }
 }

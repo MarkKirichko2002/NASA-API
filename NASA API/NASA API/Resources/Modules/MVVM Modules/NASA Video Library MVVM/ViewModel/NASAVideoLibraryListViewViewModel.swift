@@ -1,40 +1,40 @@
 //
-//  NASAImageLibraryListViewViewModel.swift
+//  NASAVideoLibraryListViewViewModel.swift
 //  NASA API
 //
-//  Created by Марк Киричко on 26.01.2023.
+//  Created by Марк Киричко on 01.05.2023.
 //
 
 import UIKit
 
-protocol NASAImageLibraryListViewViewModelDelegate: NSObject {
-    func didLoadInitialNASAImages()
-    func didSelectNASAImage(_ image: NASAImageLibraryCollectionViewCellViewModel)
+protocol NASAVideoLibraryListViewViewModelDelegate: NSObject {
+    func didLoadInitialNASAVideos()
+    func didSelectNASAVideo(_ video: NASAVideoLibraryCollectionViewCellViewModel)
 }
 
-class NASAImageLibraryListViewViewModel: NSObject {
+class NASAVideoLibraryListViewViewModel: NSObject {
     
-    public weak var delegate: NASAImageLibraryListViewViewModelDelegate?
+    public weak var delegate: NASAVideoLibraryListViewViewModelDelegate?
     
     private let nasaService: NASAServiceProtocol?
     
-    private var cellViewModels = [NASAImageLibraryCollectionViewCellViewModel]()
+    private var cellViewModels = [NASAVideoLibraryCollectionViewCellViewModel]()
     
     init(nasaService: NASAServiceProtocol?) {
         self.nasaService = nasaService
     }
     
-    func GetNASAImages() {
-        nasaService?.execute(type: NASAImageAndVideoLibrary.self, response: .nasaimages) { [weak self] result in
+    func GetNASAVideos() {
+        nasaService?.execute(type: NASAImageAndVideoLibrary.self, response: .nasavideos) { [weak self] result in
             switch result {
             case .success(let data):
                 let data = data.collection.items
                 DispatchQueue.main.async {
                     for item in data {
-                        for image in item.links {
+                        for video in item.links {
                             for info in item.data {
-                                self?.cellViewModels.append(NASAImageLibraryCollectionViewCellViewModel(NASAImage: image.href, NASAImageTitle: info.title))
-                                self?.delegate?.didLoadInitialNASAImages()
+                                self?.cellViewModels.append(NASAVideoLibraryCollectionViewCellViewModel(NASAVideoImage: video.href, NASAVideoTitle: info.title, NASAVideoJSON: item.href))
+                                self?.delegate?.didLoadInitialNASAVideos()
                             }
                         }
                     }
@@ -46,14 +46,14 @@ class NASAImageLibraryListViewViewModel: NSObject {
     }
 }
 
-extension NASAImageLibraryListViewViewModel: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension NASAVideoLibraryListViewViewModel: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NASAImageLibraryCollectionViewCell.identifier, for: indexPath) as? NASAImageLibraryCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NASAVideoLibraryCollectionViewCell.identifier, for: indexPath) as? NASAVideoLibraryCollectionViewCell else {
             fatalError("Unsupported cell")
         }
         cell.configure(with: cellViewModels[indexPath.row])
@@ -67,11 +67,11 @@ extension NASAImageLibraryListViewViewModel: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? NASAImageLibraryCollectionViewCell {
+        if let cell = collectionView.cellForItem(at: indexPath) as? NASAVideoLibraryCollectionViewCell {
             cell.didCellTapped(indexPath: indexPath)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.delegate?.didSelectNASAImage(self.cellViewModels[indexPath.row])
+            self.delegate?.didSelectNASAVideo(self.cellViewModels[indexPath.row])
         }
     }
 }

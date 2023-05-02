@@ -11,7 +11,7 @@ enum ResponseType {
     case apod
     case marsphotos
     case nasaimages
-    case nasaimagesinfo
+    case nasavideos
     case epic
     case earth
     case asteroids
@@ -34,9 +34,10 @@ class NASAService: NASAServiceProtocol {
             
         case .marsphotos:
         return "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=\(Contacts.apiKey)"
-        case .nasaimages,.nasaimagesinfo:
-        return "https://images-api.nasa.gov/search?q=apollo%2022&description=moon%20landing&media_type=image"
-            
+        case .nasaimages:
+        return "https://images-api.nasa.gov/search?q=apollo%2023&description=moon%20landing&media_type=image"
+        case .nasavideos:
+            return "https://images-api.nasa.gov/search?q=apollo%2022&description=moon%20landing&media_type=video"
         case .epic:
         return "https://epic.gsfc.nasa.gov/api/natural"
         case .asteroids:
@@ -54,7 +55,9 @@ class NASAService: NASAServiceProtocol {
             return "https://api.nasa.gov/planetary/apod?date=\(date)&api_key=\(Contacts.apiKey)"
         case .marsphotos:
             break
-        case .nasaimages,.nasaimagesinfo:
+        case .nasaimages:
+            break
+        case .nasavideos:
             break
         case .epic:
             break
