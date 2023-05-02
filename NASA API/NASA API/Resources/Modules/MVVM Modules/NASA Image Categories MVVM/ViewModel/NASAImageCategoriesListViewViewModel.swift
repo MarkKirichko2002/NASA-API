@@ -73,13 +73,15 @@ class NASAImageCategoriesListViewViewModel: NSObject {
                     var images = [NASAImageViewModel]()
                     let data = data.collection.items
                     DispatchQueue.main.async {
-                        for i in data {
-                            for i in i.links {
-                                images.append(NASAImageViewModel(image: i.href))
+                        for item in data {
+                            for image in item.links {
+                                for info in item.data {
+                                    images.append(NASAImageViewModel(image: image.href, title: info.title, description: info.description508 ?? ""))
+                                }
+                                self?.cellViewModels[2].categoryImage = images[0].image
+                                self?.cellViewModels[2].imagesCount = images.count
+                                self?.delegate?.didLoadInitialCategoryImages()
                             }
-                            self?.cellViewModels[2].categoryImage = images[0].image
-                            self?.cellViewModels[2].imagesCount = images.count
-                            self?.delegate?.didLoadInitialCategoryImages()
                         }
                     }
                     Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in

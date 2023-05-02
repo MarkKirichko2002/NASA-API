@@ -12,6 +12,10 @@ class NASAImageLibraryViewController: UIViewController {
     
     private let container: Container = {
         let container = Container()
+        // API
+        container.register(NASAServiceProtocol.self) { _ in
+            return NASAService()
+        }
         // ViewModel
         container.register(NASAImageLibraryListViewViewModel.self) { resolver in
             let viewModel = NASAImageLibraryListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
