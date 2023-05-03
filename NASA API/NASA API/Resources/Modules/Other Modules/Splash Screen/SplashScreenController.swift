@@ -6,33 +6,10 @@
 //
 
 import UIKit
-import Swinject
 
 class SplashScreenController: UIViewController {
     
     private let animation: AnimationClassProtocol?
-    
-    private let container: Container = {
-        // контейнер
-        let container = Container()
-        // анимация
-        container.register(AnimationClassProtocol.self) { _ in
-            return AnimationClass()
-        }
-        // аудио
-        container.register(SoundClassProtocol.self) { _ in
-            return SoundClass()
-        }
-        // распознавание речи
-        container.register(SpeechRecognitionProtocol.self) { _ in
-            return SpeechRecognition()
-        }
-        container.register(NASATabBarController.self) { resolver in
-            let vc = NASATabBarController(animation: resolver.resolve(AnimationClassProtocol.self), player: resolver.resolve(SoundClassProtocol.self), speechRecognition: resolver.resolve(SpeechRecognitionProtocol.self))
-            return vc
-        }
-        return container
-    }()
     
     private let Icon: UIImageView = {
         let imageView = UIImageView()
@@ -89,10 +66,18 @@ class SplashScreenController: UIViewController {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            guard let vc = self.container.resolve(NASATabBarController.self) else {return}
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .currentContext
-            self.present(vc, animated: false, completion: nil)
+            self.GoToStartScreen()
         }
+    }
+    
+    private func GoToStartScreen() {
+        let navVC = UINavigationController()
+        let coordinator = NASACoordinator()
+        coordinator.navigationController = navVC
+        
+        guard let window = self.view.window else {return}
+        window.rootViewController = navVC
+        
+        coordinator.start()
     }
 }
