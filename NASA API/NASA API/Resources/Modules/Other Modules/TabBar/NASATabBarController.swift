@@ -9,11 +9,12 @@ import UIKit
 import SDWebImage
 import Swinject
 
-class NASATabBarController: UITabBarController {
+class NASATabBarController: UITabBarController, Coordinating {
     
     private let animation: AnimationClassProtocol?
     private let player: SoundClassProtocol?
     private let speechRecognition: SpeechRecognitionProtocol?
+    var coordinator: Coordinator?
     
     private let container: Container = {
         let container = Container()
@@ -35,6 +36,7 @@ class NASATabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         UITabBar.appearance().tintColor = UIColor.black
         view.backgroundColor = .systemBackground
         SetUpTabs()
@@ -103,24 +105,14 @@ class NASATabBarController: UITabBarController {
         marsWeatherVC.navigationItem.largeTitleDisplayMode = .automatic
         settingsVC.navigationItem.largeTitleDisplayMode = .automatic
         
-        let nav1 = UINavigationController(rootViewController: imageCategoriesVC)
-        let nav2 = UINavigationController(rootViewController: asteroidsVC)
-        let nav3 = UINavigationController(rootViewController: mediaLibrary)
-        let nav4 = UINavigationController(rootViewController: marsWeatherVC)
-        let nav5 = UINavigationController(rootViewController: settingsVC)
-        
-        nav1.tabBarItem = UITabBarItem(title: "Изображения", image: UIImage(named: "images"), selectedImage: UIImage(named: "images selected"))
-        nav2.tabBarItem = UITabBarItem(title: "Астероиды", image: UIImage(named: "asteroids"), selectedImage: UIImage(named: "asteroids selected"))
-        nav3.tabBarItem = UITabBarItem(title: "NASA Видеотека", image: UIImage(named: "video player"), selectedImage: UIImage(named: "video player selected"))
-        nav4.tabBarItem = UITabBarItem(title: "Марс Погода", image: UIImage(systemName: "cloud"), selectedImage: UIImage(systemName: "cloud.fill"))
-        nav5.tabBarItem = UITabBarItem(title: "Настройки", image: UIImage(systemName: "gear"),
+        imageCategoriesVC.tabBarItem = UITabBarItem(title: "Изображения", image: UIImage(named: "images"), selectedImage: UIImage(named: "images selected"))
+        asteroidsVC.tabBarItem = UITabBarItem(title: "Астероиды", image: UIImage(named: "asteroids"), selectedImage: UIImage(named: "asteroids selected"))
+        mediaLibrary.tabBarItem = UITabBarItem(title: "NASA Видеотека", image: UIImage(named: "video player"), selectedImage: UIImage(named: "video player selected"))
+        marsWeatherVC.tabBarItem = UITabBarItem(title: "Марс Погода", image: UIImage(systemName: "cloud"), selectedImage: UIImage(systemName: "cloud.fill"))
+        settingsVC.tabBarItem = UITabBarItem(title: "Настройки", image: UIImage(systemName: "gear"),
                                        selectedImage: UIImage(systemName: "gear.fill"))
         
-        for nav in [nav1,nav2,nav3,nav4] {
-            nav.navigationBar.prefersLargeTitles = true
-        }
-        
-        setViewControllers([nav1,nav2,middleButton,nav3,nav4], animated: true)
+        setViewControllers([imageCategoriesVC,asteroidsVC,middleButton,mediaLibrary,marsWeatherVC], animated: true)
     }
     
     private func createMiddleButton() {
@@ -131,7 +123,7 @@ class NASATabBarController: UITabBarController {
         button.addTarget(self, action:  #selector(NASATabBarController.VoiceCommands(_:)), for: .touchUpInside)
     }
     
-    @objc func VoiceCommands(_ sender: UIButton) {
+    @objc private func VoiceCommands(_ sender: UIButton) {
         isStart = !isStart
         if isStart {
             button.setImage(UIImage(systemName: "mic.fill"), for: .normal)
