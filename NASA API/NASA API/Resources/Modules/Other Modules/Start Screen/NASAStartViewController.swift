@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NASAStartViewController: UIViewController, Coordinating {
+final class NASAStartViewController: UIViewController, Coordinating {
     
     var coordinator: Coordinator?
     

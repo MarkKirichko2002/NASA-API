@@ -13,7 +13,7 @@ protocol APODPresentDelegate {
 
 typealias APODPresenterType = APODPresentDelegate & UIViewController
 
-class APODPresenter {
+final class APODPresenter {
     
     var delegate: APODPresenterType?
     

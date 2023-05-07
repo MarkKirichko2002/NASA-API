@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SplashScreenController: UIViewController {
+final class SplashScreenController: UIViewController {
     
     private let animation: AnimationClassProtocol?
     

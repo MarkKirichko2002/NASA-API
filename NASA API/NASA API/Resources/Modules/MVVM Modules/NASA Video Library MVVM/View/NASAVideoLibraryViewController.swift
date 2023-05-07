@@ -6,23 +6,10 @@
 //
 
 import UIKit
-import Swinject
 
-class NASAVideoLibraryViewController: UIViewController {
+final class NASAVideoLibraryViewController: UIViewController {
     
-    private let container: Container = {
-        let container = Container()
-        // API
-        container.register(NASAServiceProtocol.self) { _ in
-            return NASAService()
-        }
-        // ViewModel
-        container.register(NASAVideoLibraryListViewViewModel.self) { resolver in
-            let viewModel = NASAVideoLibraryListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
-            return viewModel
-        }
-        return container
-    }()
+    private let factory = NASAScreenFactory()
     
     override func viewDidLoad() {
         title = "NASA Видеотека"
@@ -31,8 +18,8 @@ class NASAVideoLibraryViewController: UIViewController {
     }
     
     private func SetUpConstraints() {
-        let nasaVideoLibraryListView = NASAVideoLibraryListView(frame: .zero, viewModel: container.resolve(NASAVideoLibraryListViewViewModel.self))
-        nasaVideoLibraryListView.delegate = self
+        let nasaVideoLibraryListView = factory.createNASAVideoLibraryView(viewController: self)
+        //nasaVideoLibraryListView.delegate = self
         view.addSubview(nasaVideoLibraryListView)
         NSLayoutConstraint.activate([
             nasaVideoLibraryListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

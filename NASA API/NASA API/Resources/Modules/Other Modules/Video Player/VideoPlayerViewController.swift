@@ -8,7 +8,7 @@
 import UIKit
 import AVKit
 
-class VideoPlayerViewController: UIViewController, AVPlayerViewControllerDelegate {
+final class VideoPlayerViewController: UIViewController, AVPlayerViewControllerDelegate {
     
     private var video = ""
     var json = ""

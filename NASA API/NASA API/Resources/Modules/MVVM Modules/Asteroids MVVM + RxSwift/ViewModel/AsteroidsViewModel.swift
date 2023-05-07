@@ -9,12 +9,17 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class AsteroidsViewModel {
+final class AsteroidsViewModel {
     
     var asteroids = PublishSubject<[NearEarthObject]>()
+    private var nasaService: NASAServiceProtocol?
+    
+    init(nasaService: NASAServiceProtocol?) {
+        self.nasaService = nasaService
+    }
     
     func GetAsteroids() {
-        NASAService.shared.execute(type: Asteroid.self, response: .asteroids) { [weak self] result in
+        nasaService?.execute(type: Asteroid.self, response: .asteroids) { [weak self] result in
             switch result {
             case .success(let data):
                 guard let data = data.nearEarthObjects?["2015-09-07", default: [NearEarthObject]()] else {

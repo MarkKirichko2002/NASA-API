@@ -9,7 +9,6 @@ import SafariServices
 import SwiftUI
 import UIKit
 
-
 final class NASASettingsViewController: UIViewController {
     
     private var settingsSwiftUIController: UIHostingController<NASASettingsView>?
