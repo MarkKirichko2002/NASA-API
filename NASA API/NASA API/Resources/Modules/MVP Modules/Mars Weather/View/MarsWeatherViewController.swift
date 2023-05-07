@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import SDWebImage
 
-class MarsWeatherViewController: UIViewController {
+final class MarsWeatherViewController: UIViewController {
     
     private var presenter: MarsWeatherPresenter?
     

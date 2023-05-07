@@ -13,7 +13,7 @@ protocol MarsWeatherPresenterDelegate {
 
 typealias MarsWeatherPresenterType = MarsWeatherPresenterDelegate & UIViewController
 
-class MarsWeatherPresenter {
+final class MarsWeatherPresenter {
     
     var delegate: MarsWeatherPresenterDelegate?
     

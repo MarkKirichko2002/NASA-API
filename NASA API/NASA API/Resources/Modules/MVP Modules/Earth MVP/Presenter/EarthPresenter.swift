@@ -13,7 +13,7 @@ protocol EarthPresentDelegate {
 
 typealias EarthPresenterType = EarthPresentDelegate & UIViewController
 
-class EarthPresenter {
+final class EarthPresenter {
     
     var delegate: EarthPresenterType?
     

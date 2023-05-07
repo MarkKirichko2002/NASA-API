@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class EarthViewController: UIViewController {
+final class EarthViewController: UIViewController {
 
     private var presenter: EarthPresenter?
     

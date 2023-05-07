@@ -9,10 +9,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AsteroidsViewController: UIViewController {
+final class AsteroidsViewController: UIViewController, UITableViewDelegate {
 
-    private let viewModel = AsteroidsViewModel()
+    private var viewModel: AsteroidsViewModel?
     private let bag = DisposeBag()
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.view.frame)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -23,13 +24,22 @@ class AsteroidsViewController: UIViewController {
         super.viewDidLoad()
         title = "Астероиды"
         self.view.addSubview(tableView)
-        viewModel.GetAsteroids()
+        viewModel?.GetAsteroids()
         bindTableView()
+    }
+    
+    init(viewModel: AsteroidsViewModel?) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     func bindTableView() {
         tableView.rx.setDelegate(self).disposed(by: bag)
-        viewModel.asteroids.bind(to: tableView.rx.items(cellIdentifier: "cell")) { (row,item,cell) in
+        viewModel?.asteroids.bind(to: tableView.rx.items(cellIdentifier: "cell")) { (row,item,cell) in
             cell.textLabel?.text = "name: \(item.name)"
         }.disposed(by: bag)
     }
@@ -38,8 +48,4 @@ class AsteroidsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
-}
-
-extension AsteroidsViewController: UITableViewDelegate {
-    
 }

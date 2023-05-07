@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NASAVideoLibraryCollectionViewCellViewModel {
+final class NASAVideoLibraryCollectionViewCellViewModel {
     public var NASAVideoImage: String
     public var NASAVideoTitle: String
     public var NASAVideoJSON: String

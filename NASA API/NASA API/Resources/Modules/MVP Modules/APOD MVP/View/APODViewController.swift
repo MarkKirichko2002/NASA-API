@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class APODViewController: UIViewController {
+final class APODViewController: UIViewController {
     
     private var presenter: APODPresenter?
    

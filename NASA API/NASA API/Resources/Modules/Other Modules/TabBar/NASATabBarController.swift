@@ -7,24 +7,16 @@
 
 import UIKit
 import SDWebImage
-import Swinject
 
-class NASATabBarController: UITabBarController, Coordinating {
+final class NASATabBarController: UITabBarController, Coordinating {
     
+    // MARK: - сервисы
     private let animation: AnimationClassProtocol?
     private let player: SoundClassProtocol?
     private let speechRecognition: SpeechRecognitionProtocol?
-    var coordinator: Coordinator?
+    private let factory = NASAScreenFactory()
     
-    private let container: Container = {
-        let container = Container()
-        // Mars Weather Presenter
-        container.register(MarsWeatherPresenter.self) { resolver in
-            let presenter = MarsWeatherPresenter(nasaService: resolver.resolve(NASAServiceProtocol.self))
-            return presenter
-        }
-        return container
-    }()
+    var coordinator: Coordinator?
     
     private let button: UIButton = {
         let button = UIButton()
@@ -92,26 +84,12 @@ class NASATabBarController: UITabBarController, Coordinating {
     
     private func SetUpTabs() {
         
-        let imageCategoriesVC = NASAImageCategoriesListViewController()
-        let asteroidsVC = AsteroidsViewController()
-        let mediaLibrary = NASAVideoLibraryViewController()
+        let imageCategoriesVC = factory.createNASAScreens(screen: .imagecategories)
+        let asteroidsVC = factory.createNASAScreens(screen: .asteroids)
+        let mediaLibrary = factory.createNASAScreens(screen: .videolibrary)
         let middleButton = UIViewController()
-        let marsWeatherVC = MarsWeatherViewController(presenter: container.resolve(MarsWeatherPresenter.self))
-        let settingsVC = NASASettingsViewController()
-        
-        imageCategoriesVC.navigationItem.largeTitleDisplayMode = .automatic
-        asteroidsVC.navigationItem.largeTitleDisplayMode = .automatic
-        mediaLibrary.navigationItem.largeTitleDisplayMode = .automatic
-        marsWeatherVC.navigationItem.largeTitleDisplayMode = .automatic
-        settingsVC.navigationItem.largeTitleDisplayMode = .automatic
-        
-        imageCategoriesVC.tabBarItem = UITabBarItem(title: "Изображения", image: UIImage(named: "images"), selectedImage: UIImage(named: "images selected"))
-        asteroidsVC.tabBarItem = UITabBarItem(title: "Астероиды", image: UIImage(named: "asteroids"), selectedImage: UIImage(named: "asteroids selected"))
-        mediaLibrary.tabBarItem = UITabBarItem(title: "NASA Видеотека", image: UIImage(named: "video player"), selectedImage: UIImage(named: "video player selected"))
-        marsWeatherVC.tabBarItem = UITabBarItem(title: "Марс Погода", image: UIImage(systemName: "cloud"), selectedImage: UIImage(systemName: "cloud.fill"))
-        settingsVC.tabBarItem = UITabBarItem(title: "Настройки", image: UIImage(systemName: "gear"),
-                                       selectedImage: UIImage(systemName: "gear.fill"))
-        
+        let marsWeatherVC = factory.createNASAScreens(screen: .marsweather)
+    
         setViewControllers([imageCategoriesVC,asteroidsVC,middleButton,mediaLibrary,marsWeatherVC], animated: true)
     }
     
@@ -141,6 +119,13 @@ class NASATabBarController: UITabBarController, Coordinating {
     }
     
     private func CheckVoiceCommands(text: String) {
+        
+        // MARK: - VC
+        let apodVC = factory.createImageCategoriesScreens(screen: .apod)
+        let marsPhotosVC = factory.createImageCategoriesScreens(screen: .marsphotos)
+        let epicVC = factory.createImageCategoriesScreens(screen: .epic)
+        let nasaImagesVC = factory.createImageCategoriesScreens(screen: .nasaimages)
+        
         switch text {
             
         case _ where text.lowercased().contains("фото дня"):
@@ -156,8 +141,6 @@ class NASATabBarController: UITabBarController, Coordinating {
                 }
             }
             
-            let vc = APODViewController(presenter: container.resolve(APODPresenter.self))
-            
             speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -165,7 +148,7 @@ class NASATabBarController: UITabBarController, Coordinating {
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.present(vc, animated: true)
+                self.present(apodVC, animated: true)
             }
             
         case _ where text.lowercased().contains("марс"):
@@ -173,8 +156,6 @@ class NASATabBarController: UITabBarController, Coordinating {
             self.button.setImage(UIImage(named: "rover"), for: .normal)
             self.animation?.SpringAnimation(view: self.button)
             
-            let vc = MarsPhotosViewController(viewModel: nil)
-            
             speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -182,7 +163,7 @@ class NASATabBarController: UITabBarController, Coordinating {
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.present(vc, animated: true)
+                self.present(marsPhotosVC, animated: true)
             }
             
         case _ where text.lowercased().contains("земл"):
@@ -190,8 +171,6 @@ class NASATabBarController: UITabBarController, Coordinating {
             self.button.setImage(UIImage(named: "EPIC"), for: .normal)
             self.animation?.SpringAnimation(view: self.button)
             
-            let vc = EPICNASAImagesViewController(viewModel: nil)
-             
             speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -199,7 +178,7 @@ class NASATabBarController: UITabBarController, Coordinating {
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.present(vc, animated: true)
+                self.present(epicVC, animated: true)
             }
             
         case _ where text.lowercased().contains("изображ"):
@@ -207,8 +186,6 @@ class NASATabBarController: UITabBarController, Coordinating {
             self.button.setImage(UIImage(named: "camera"), for: .normal)
             self.animation?.SpringAnimation(view: self.button)
             
-            let vc = NASAImageLibraryViewController(viewModel: nil)
-            
             speechRecognition?.cancelSpeechRecognization()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -216,7 +193,7 @@ class NASATabBarController: UITabBarController, Coordinating {
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.present(vc, animated: true)
+                self.present(nasaImagesVC, animated: true)
             }
             
         case _ where text.lowercased().contains("муз"):

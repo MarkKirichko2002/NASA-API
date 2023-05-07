@@ -1,20 +1,20 @@
 //
-//  NASAVideoLibraryListView.swift
+//  NASAImageLibraryListView.swift
 //  NASA API
 //
-//  Created by Марк Киричко on 01.05.2023.
+//  Created by Марк Киричко on 26.01.2023.
 //
 
 import UIKit
 
-protocol NASAVideoLibraryListViewDelegate: NSObject {
-    func showNASAVideoDetail(video: NASAVideoLibraryCollectionViewCellViewModel)
+protocol NASAImageLibraryListViewDelegate: NSObject {
+    func showNASAImageDetail(image: NASAImageLibraryCollectionViewCellViewModel)
 }
 
-final class NASAVideoLibraryListView: UIView {
+final class NASAImageLibraryListView: UIView {
     
-    public weak var delegate: NASAVideoLibraryListViewDelegate?
-    private var viewModel: NASAVideoLibraryListViewViewModel?
+    public weak var delegate: NASAImageLibraryListViewDelegate?
+    private var viewModel: NASAImageLibraryListViewViewModel?
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -25,16 +25,16 @@ final class NASAVideoLibraryListView: UIView {
         return collectionView
     }()
     
-    init(frame: CGRect, viewModel: NASAVideoLibraryListViewViewModel?) {
+    init(frame: CGRect, viewModel: NASAImageLibraryListViewViewModel?) {
         super.init(frame: frame)
         self.viewModel = viewModel
         translatesAutoresizingMaskIntoConstraints = false
         addSubviews(collectionView)
         SetUpConstarints()
         SetUpCollection()
-        collectionView.register(NASAVideoLibraryCollectionViewCell.self, forCellWithReuseIdentifier: NASAVideoLibraryCollectionViewCell.identifier)
+        collectionView.register(NASAImageLibraryCollectionViewCell.self, forCellWithReuseIdentifier: NASAImageLibraryCollectionViewCell.identifier)
         viewModel?.delegate = self
-        viewModel?.GetNASAVideos()
+        viewModel?.GetNASAImages()
     }
     
     required init?(coder: NSCoder) {
@@ -54,15 +54,17 @@ final class NASAVideoLibraryListView: UIView {
         collectionView.delegate = viewModel
         collectionView.dataSource = viewModel
     }
+    
 }
 
-extension NASAVideoLibraryListView: NASAVideoLibraryListViewViewModelDelegate {
+extension NASAImageLibraryListView: NASAImageLibraryListViewViewModelDelegate {
     
-    func didLoadInitialNASAVideos() {
+    func didLoadInitialNASAImages() {
         collectionView.reloadData()
     }
     
-    func didSelectNASAVideo(_ video: NASAVideoLibraryCollectionViewCellViewModel) {
-        delegate?.showNASAVideoDetail(video: video)
+    func didSelectNASAImage(_ image: NASAImageLibraryCollectionViewCellViewModel) {
+        delegate?.showNASAImageDetail(image: image)
     }
+    
 }
