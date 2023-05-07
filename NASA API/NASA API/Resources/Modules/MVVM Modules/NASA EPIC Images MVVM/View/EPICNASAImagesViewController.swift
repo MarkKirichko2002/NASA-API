@@ -6,19 +6,11 @@
 //
 
 import UIKit
-import Swinject
 
 class EPICNASAImagesViewController: UIViewController, EPICNASAImagesListViewDelegate {
     
-    private let container: Container = {
-        let container = Container()
-        // ViewModel
-        container.register(EPICNASAImagesListViewViewModel.self) { resolver in
-            let viewModel = EPICNASAImagesListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
-            return viewModel
-        }
-        return container
-    }()
+    private let factory = NASAScreenFactory()
+    private var viewModel: EPICNASAImagesListViewViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +18,17 @@ class EPICNASAImagesViewController: UIViewController, EPICNASAImagesListViewDele
         SetUpView()
     }
     
+    init(viewModel: EPICNASAImagesListViewViewModel?) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     private func SetUpView() {
-        let epicNasaImagesListView = EPICNASAImagesListView(frame: .zero, viewModel: container.resolve(EPICNASAImagesListViewViewModel.self))
-        epicNasaImagesListView.delegate = self
+        let epicNasaImagesListView = factory.createNASAImageCategoriesViews(view: .epic, viewController: self)
         view.addSubviews(epicNasaImagesListView)
         NSLayoutConstraint.activate([
             epicNasaImagesListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -44,6 +44,5 @@ class EPICNASAImagesViewController: UIViewController, EPICNASAImagesListViewDele
         vc.info = "Title: \(epic.EPICTitle) \n \n Date: \(epic.EPICDate)"
         vc.sound = "space.wav"
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
 }

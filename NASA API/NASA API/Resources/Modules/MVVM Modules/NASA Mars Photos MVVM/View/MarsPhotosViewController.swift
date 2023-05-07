@@ -6,19 +6,11 @@
 //
 
 import UIKit
-import Swinject
 
 class MarsPhotosViewController: UIViewController {
     
-    private let container: Container = {
-        let container = Container()
-        // ViewModel
-        container.register(MarsPhotosListViewViewModel.self) { resolver in
-            let viewModel = MarsPhotosListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
-            return viewModel
-        }
-        return container
-    }()
+    private let factory = NASAScreenFactory()
+    private var viewModel: MarsPhotosListViewViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +18,17 @@ class MarsPhotosViewController: UIViewController {
         SetUpView()
     }
     
+    init(viewModel: MarsPhotosListViewViewModel?) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     private func SetUpView() {
-        let marsPhotosListView = MarsPhotosListView(frame: .zero, viewModel: container.resolve(MarsPhotosListViewViewModel.self))
-        marsPhotosListView.delegate = self
+        let marsPhotosListView = factory.createNASAImageCategoriesViews(view: .marsphotos, viewController: self)
         view?.addSubviews(marsPhotosListView)
         NSLayoutConstraint.activate([
             marsPhotosListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
