@@ -173,7 +173,7 @@ class NASATabBarController: UITabBarController, Coordinating {
             self.button.setImage(UIImage(named: "rover"), for: .normal)
             self.animation?.SpringAnimation(view: self.button)
             
-            let vc = MarsPhotosViewController()
+            let vc = MarsPhotosViewController(viewModel: nil)
             
             speechRecognition?.cancelSpeechRecognization()
             
@@ -190,7 +190,7 @@ class NASATabBarController: UITabBarController, Coordinating {
             self.button.setImage(UIImage(named: "EPIC"), for: .normal)
             self.animation?.SpringAnimation(view: self.button)
             
-            let vc = EPICNASAImagesViewController()
+            let vc = EPICNASAImagesViewController(viewModel: nil)
              
             speechRecognition?.cancelSpeechRecognization()
             
@@ -207,7 +207,7 @@ class NASATabBarController: UITabBarController, Coordinating {
             self.button.setImage(UIImage(named: "camera"), for: .normal)
             self.animation?.SpringAnimation(view: self.button)
             
-            let vc = NASAImageLibraryViewController()
+            let vc = NASAImageLibraryViewController(viewModel: nil)
             
             speechRecognition?.cancelSpeechRecognization()
             

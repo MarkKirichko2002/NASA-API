@@ -6,32 +6,28 @@
 //
 
 import UIKit
-import Swinject
 
 class NASAImageLibraryViewController: UIViewController {
     
-    private let container: Container = {
-        let container = Container()
-        // API
-        container.register(NASAServiceProtocol.self) { _ in
-            return NASAService()
-        }
-        // ViewModel
-        container.register(NASAImageLibraryListViewViewModel.self) { resolver in
-            let viewModel = NASAImageLibraryListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
-            return viewModel
-        }
-        return container
-    }()
+    private let factory = NASAScreenFactory()
+    private var viewModel: NASAImageLibraryListViewViewModel?
     
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground
         SetUpConstraints()
     }
     
+    init(viewModel: NASAImageLibraryListViewViewModel?) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     private func SetUpConstraints() {
-        let nasaImageLibraryListView = NASAImageLibraryListView(frame: .zero, viewModel: container.resolve(NASAImageLibraryListViewViewModel.self))
-        nasaImageLibraryListView.delegate = self
+        let nasaImageLibraryListView = factory.createNASAImageCategoriesViews(view: .nasaimages, viewController: self)
         view.addSubview(nasaImageLibraryListView)
         NSLayoutConstraint.activate([
             nasaImageLibraryListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
