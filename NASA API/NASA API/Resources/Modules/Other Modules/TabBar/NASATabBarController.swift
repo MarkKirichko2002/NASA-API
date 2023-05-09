@@ -14,7 +14,7 @@ final class NASATabBarController: UITabBarController, Coordinating {
     private let animation: AnimationClassProtocol?
     private let player: SoundClassProtocol?
     private let speechRecognition: SpeechRecognitionProtocol?
-    private let factory = NASAScreenFactory()
+    private let factory: NASAScreenFactoryProtocol?
     
     var coordinator: Coordinator?
     
@@ -35,10 +35,11 @@ final class NASATabBarController: UITabBarController, Coordinating {
         createMiddleButton()
     }
     
-    init(animation: AnimationClassProtocol?, player: SoundClassProtocol?, speechRecognition: SpeechRecognitionProtocol?) {
+    init(animation: AnimationClassProtocol?, player: SoundClassProtocol?, speechRecognition: SpeechRecognitionProtocol?, factory: NASAScreenFactoryProtocol?) {
         self.animation = animation
         self.player = player
         self.speechRecognition = speechRecognition
+        self.factory = factory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -84,11 +85,11 @@ final class NASATabBarController: UITabBarController, Coordinating {
     
     private func SetUpTabs() {
         
-        let imageCategoriesVC = factory.createNASAScreens(screen: .imagecategories)
-        let asteroidsVC = factory.createNASAScreens(screen: .asteroids)
-        let mediaLibrary = factory.createNASAScreens(screen: .videolibrary)
+        guard let imageCategoriesVC = factory?.createNASAScreens(screen: .imagecategories) else {return}
+        guard let asteroidsVC = factory?.createNASAScreens(screen: .asteroids) else {return}
+        guard let mediaLibrary = factory?.createNASAScreens(screen: .videolibrary) else {return}
         let middleButton = UIViewController()
-        let marsWeatherVC = factory.createNASAScreens(screen: .marsweather)
+        guard let marsWeatherVC = factory?.createNASAScreens(screen: .marsweather) else {return}
     
         setViewControllers([imageCategoriesVC,asteroidsVC,middleButton,mediaLibrary,marsWeatherVC], animated: true)
     }
@@ -121,10 +122,10 @@ final class NASATabBarController: UITabBarController, Coordinating {
     private func CheckVoiceCommands(text: String) {
         
         // MARK: - VC
-        let apodVC = factory.createImageCategoriesScreens(screen: .apod)
-        let marsPhotosVC = factory.createImageCategoriesScreens(screen: .marsphotos)
-        let epicVC = factory.createImageCategoriesScreens(screen: .epic)
-        let nasaImagesVC = factory.createImageCategoriesScreens(screen: .nasaimages)
+        guard let apodVC = factory?.createImageCategoriesScreens(screen: .apod) else {return}
+        guard let marsPhotosVC = factory?.createImageCategoriesScreens(screen: .marsphotos) else {return}
+        guard let epicVC = factory?.createImageCategoriesScreens(screen: .epic) else {return}
+        guard let nasaImagesVC = factory?.createImageCategoriesScreens(screen: .nasaimages) else {return}
         
         switch text {
             
