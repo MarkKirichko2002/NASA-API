@@ -26,6 +26,10 @@ class NASACoordinator: Coordinator {
         container.register(SpeechRecognitionProtocol.self) { _ in
             return SpeechRecognition()
         }
+        // фабрика
+        container.register(NASAScreenFactoryProtocol.self) { _ in
+            return NASAScreenFactory()
+        }
         return container
     }()
     
@@ -34,7 +38,7 @@ class NASACoordinator: Coordinator {
     func eventOccured(with type: Event) {
         switch type {
         case .startButtonWasClicked:
-            var vc: UIViewController & Coordinating = NASATabBarController(animation: container.resolve(AnimationClassProtocol.self), player: container.resolve(SoundClassProtocol.self), speechRecognition: container.resolve(SpeechRecognitionProtocol.self))
+            var vc: UIViewController & Coordinating = NASATabBarController(animation: container.resolve(AnimationClassProtocol.self), player: container.resolve(SoundClassProtocol.self), speechRecognition: container.resolve(SpeechRecognitionProtocol.self), factory: container.resolve(NASAScreenFactoryProtocol.self))
             vc.coordinator = self
             navigationController?.pushViewController(vc, animated: true)
         }

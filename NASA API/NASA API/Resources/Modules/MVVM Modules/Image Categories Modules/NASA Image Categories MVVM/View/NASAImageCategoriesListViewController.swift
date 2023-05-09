@@ -9,7 +9,16 @@ import UIKit
 
 final class NASAImageCategoriesListViewController: UIViewController, NASAImageCategoriesListViewDelegate {
     
-    private let factory = NASAScreenFactory()
+    private let factory: NASAScreenFactoryProtocol?
+    
+    init(factory: NASAScreenFactoryProtocol?) {
+        self.factory = factory
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +27,7 @@ final class NASAImageCategoriesListViewController: UIViewController, NASAImageCa
     }
     
     private func SetUpView() {
-        let nasaImageCategoriesListView = factory.createNASAImageCategoriesViews(view: .imagecategories, viewController: self)
+        guard let nasaImageCategoriesListView = factory?.createNASAImageCategoriesViews(view: .imagecategories, viewController: self) else {return}
         view.addSubview(nasaImageCategoriesListView)
         NSLayoutConstraint.activate([
             nasaImageCategoriesListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -33,23 +42,23 @@ final class NASAImageCategoriesListViewController: UIViewController, NASAImageCa
         switch category.id {
             
         case 1:
-            let vc = factory.createImageCategoriesScreens(screen: .apod)
+            guard let vc = factory?.createImageCategoriesScreens(screen: .apod) else {return}
             self.navigationController?.pushViewController(vc, animated: true)
             
         case 2:
-            let vc = factory.createImageCategoriesScreens(screen: .marsphotos)
+            guard let vc = factory?.createImageCategoriesScreens(screen: .marsphotos) else {return}
             self.navigationController?.pushViewController(vc, animated: true)
             
         case 3:
-            let vc = factory.createImageCategoriesScreens(screen: .nasaimages)
+            guard let vc = factory?.createImageCategoriesScreens(screen: .nasaimages) else {return}
             self.navigationController?.pushViewController(vc, animated: true)
             
         case 4:
-            let vc = factory.createImageCategoriesScreens(screen: .epic)
+            guard let vc = factory?.createImageCategoriesScreens(screen: .epic) else {return}
             self.navigationController?.pushViewController(vc, animated: true)
             
         case 5:
-            let vc = factory.createImageCategoriesScreens(screen: .earth)
+            guard let vc = factory?.createImageCategoriesScreens(screen: .earth) else {return}
             self.navigationController?.pushViewController(vc, animated: true)
             
         default:

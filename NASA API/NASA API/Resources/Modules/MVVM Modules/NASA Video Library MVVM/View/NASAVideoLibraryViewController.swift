@@ -9,7 +9,16 @@ import UIKit
 
 final class NASAVideoLibraryViewController: UIViewController {
     
-    private let factory = NASAScreenFactory()
+    private let factory: NASAScreenFactoryProtocol?
+    
+    init(factory: NASAScreenFactoryProtocol?) {
+        self.factory = factory
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         title = "NASA Видеотека"
@@ -18,8 +27,7 @@ final class NASAVideoLibraryViewController: UIViewController {
     }
     
     private func SetUpConstraints() {
-        let nasaVideoLibraryListView = factory.createNASAVideoLibraryView(viewController: self)
-        //nasaVideoLibraryListView.delegate = self
+        guard let nasaVideoLibraryListView = factory?.createNASAVideoLibraryView(viewController: self) else {return}
         view.addSubview(nasaVideoLibraryListView)
         NSLayoutConstraint.activate([
             nasaVideoLibraryListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

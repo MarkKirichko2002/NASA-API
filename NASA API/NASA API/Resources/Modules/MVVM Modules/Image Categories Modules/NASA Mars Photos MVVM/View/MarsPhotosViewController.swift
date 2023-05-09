@@ -9,7 +9,16 @@ import UIKit
 
 final class MarsPhotosViewController: UIViewController {
     
-    private let factory = NASAScreenFactory()
+    private let factory: NASAScreenFactoryProtocol?
+    
+    init(factory: NASAScreenFactoryProtocol?) {
+        self.factory = factory
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +27,7 @@ final class MarsPhotosViewController: UIViewController {
     }
     
     private func SetUpView() {
-        let marsPhotosListView = factory.createNASAImageCategoriesViews(view: .marsphotos, viewController: self)
+        guard let marsPhotosListView = factory?.createNASAImageCategoriesViews(view: .marsphotos, viewController: self) else {return}
         view?.addSubviews(marsPhotosListView)
         NSLayoutConstraint.activate([
             marsPhotosListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

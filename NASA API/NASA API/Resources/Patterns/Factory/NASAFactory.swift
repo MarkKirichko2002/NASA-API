@@ -16,6 +16,10 @@ final class NASAScreenFactory: NASAScreenFactoryProtocol {
         container.register(NASAServiceProtocol.self) { _ in
             return NASAService()
         }
+        // Factory
+        container.register(NASAScreenFactoryProtocol.self) { _ in
+            return NASAScreenFactory()
+        }
         // MARK: - категории изображений
         
         // APOD Presenter
@@ -99,17 +103,17 @@ final class NASAScreenFactory: NASAScreenFactoryProtocol {
             vc.navigationItem.largeTitleDisplayMode = .never
             return vc
         case .marsphotos:
-            let vc = MarsPhotosViewController()
+            let vc = MarsPhotosViewController(factory: container.resolve(NASAScreenFactoryProtocol.self))
             vc.title = "Фото Марса"
             vc.navigationItem.largeTitleDisplayMode = .never
             return vc
         case .nasaimages:
-            let vc = NASAImageLibraryViewController()
+            let vc = NASAImageLibraryViewController(factory: container.resolve(NASAScreenFactoryProtocol.self))
             vc.title = "NASA изображения"
             vc.navigationItem.largeTitleDisplayMode = .never
             return vc
         case .epic:
-            let vc = EPICNASAImagesViewController()
+            let vc = EPICNASAImagesViewController(factory: container.resolve(NASAScreenFactoryProtocol.self))
             vc.title = "EPIC"
             vc.navigationItem.largeTitleDisplayMode = .never
             return vc
@@ -124,7 +128,7 @@ final class NASAScreenFactory: NASAScreenFactoryProtocol {
     func createNASAScreens(screen: NASAScreens)-> UIViewController {
         switch screen {
         case .imagecategories:
-            let vc = NASAImageCategoriesListViewController()
+            let vc = NASAImageCategoriesListViewController(factory: container.resolve(NASAScreenFactoryProtocol.self))
             vc.navigationItem.largeTitleDisplayMode = .automatic
             vc.tabBarItem = UITabBarItem(title: "Изображения", image: UIImage(named: "images"), selectedImage: UIImage(named: "images selected"))
             return vc
@@ -134,7 +138,7 @@ final class NASAScreenFactory: NASAScreenFactoryProtocol {
             vc.tabBarItem = UITabBarItem(title: "Астероиды", image: UIImage(named: "asteroids"), selectedImage: UIImage(named: "asteroids selected"))
             return vc
         case .videolibrary:
-            let vc = NASAVideoLibraryViewController()
+            let vc = NASAVideoLibraryViewController(factory: container.resolve(NASAScreenFactoryProtocol.self))
             vc.navigationItem.largeTitleDisplayMode = .automatic
             vc.tabBarItem = UITabBarItem(title: "NASA Видеотека", image: UIImage(named: "video player"), selectedImage: UIImage(named: "video player selected"))
             return vc

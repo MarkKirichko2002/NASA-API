@@ -9,7 +9,16 @@ import UIKit
 
 final class NASAImageLibraryViewController: UIViewController {
     
-    private let factory = NASAScreenFactory()
+    private let factory: NASAScreenFactoryProtocol?
+    
+    init(factory: NASAScreenFactoryProtocol?) {
+        self.factory = factory
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground
@@ -17,7 +26,7 @@ final class NASAImageLibraryViewController: UIViewController {
     }
         
     private func SetUpConstraints() {
-        let nasaImageLibraryListView = factory.createNASAImageCategoriesViews(view: .nasaimages, viewController: self)
+        guard let nasaImageLibraryListView = factory?.createNASAImageCategoriesViews(view: .nasaimages, viewController: self) else {return}
         view.addSubview(nasaImageLibraryListView)
         NSLayoutConstraint.activate([
             nasaImageLibraryListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
