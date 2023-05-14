@@ -20,7 +20,6 @@ enum ResponseType {
 
 class NASAService: NASAServiceProtocol {
     
-    static let shared = NASAService()
     private var url = ""
     
     struct Contacts {

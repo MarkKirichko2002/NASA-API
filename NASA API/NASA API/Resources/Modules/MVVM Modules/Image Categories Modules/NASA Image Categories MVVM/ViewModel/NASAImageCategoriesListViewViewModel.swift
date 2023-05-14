@@ -159,7 +159,7 @@ extension NASAImageCategoriesListViewViewModel: UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let category = categories[indexPath.row]
-        SoundClass.shared.PlaySound(resource: category.sound)
+        AudioPlayer.shared.PlaySound(resource: category.sound)
         if let cell = collectionView.cellForItem(at: indexPath) as? NASAImageCategoriesCollectionViewCell {
             cell.didCellTapped(indexPath: indexPath)
         }

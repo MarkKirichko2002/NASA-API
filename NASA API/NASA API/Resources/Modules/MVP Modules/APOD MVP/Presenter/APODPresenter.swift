@@ -35,7 +35,7 @@ final class APODPresenter {
     }
     
     func GetAPODWithOtherDate(date: String) {
-        NASAService.shared.MakeAPICallWithOtherDate(type: Apod.self, response: .apod, date: date) { [weak self] result in
+        nasaService?.MakeAPICallWithOtherDate(type: Apod.self, response: .apod, date: date) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.delegate?.PresentAPOD(apod: data)

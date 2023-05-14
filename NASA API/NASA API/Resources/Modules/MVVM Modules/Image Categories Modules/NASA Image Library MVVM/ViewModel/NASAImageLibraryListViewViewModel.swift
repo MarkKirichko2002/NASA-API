@@ -67,6 +67,9 @@ extension NASAImageLibraryListViewViewModel: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        AudioPlayer.shared.PlaySound(resource: "camera.mp3")
+        
         if let cell = collectionView.cellForItem(at: indexPath) as? NASAImageLibraryCollectionViewCell {
             cell.didCellTapped(indexPath: indexPath)
         }

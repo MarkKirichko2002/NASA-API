@@ -34,7 +34,7 @@ final class EPICNASAImagesListViewViewModel: NSObject {
     }
     
     public func GetEPICImages() {
-        NASAService.shared.execute(type: [EPIC].self, response: .epic) { [weak self] result in
+        nasaService?.execute(type: [EPIC].self, response: .epic) { [weak self] result in
             switch result {
                 
             case .success(let data):
@@ -91,7 +91,8 @@ extension EPICNASAImagesListViewViewModel: UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        SoundClass.shared.PlaySound(resource: "space.wav")
+        
+        AudioPlayer.shared.PlaySound(resource: "space.wav")
         
         if let cell = collectionView.cellForItem(at: indexPath) as? NASAEPICImagesCollectionViewCell {
             cell.didCellTapped(indexPath: indexPath)

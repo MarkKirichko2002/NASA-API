@@ -43,6 +43,7 @@ extension NASAImageLibraryViewController: NASAImageLibraryListViewDelegate {
         let vc = NASAImageDetailViewController()
         vc.image = image.NASAImage
         vc.info = image.NASAImageTitle
+        vc.sound = "camera.mp3"
         navigationController?.pushViewController(vc, animated: true)
     }
 }
