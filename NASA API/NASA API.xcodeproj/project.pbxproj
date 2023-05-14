@@ -22,7 +22,7 @@
 		8239552128BEDCE10064A1BB /* NasaImageCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239552028BEDCE10064A1BB /* NasaImageCategory.swift */; };
 		8239552328BF039B0064A1BB /* NASAImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8239552228BF039B0064A1BB /* NASAImageDetailViewController.swift */; };
 		824658BE29F45C0E00EE7AC4 /* AnimationClassProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824658BD29F45C0E00EE7AC4 /* AnimationClassProtocol.swift */; };
-		824658C029F45EED00EE7AC4 /* SoundClassProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824658BF29F45EED00EE7AC4 /* SoundClassProtocol.swift */; };
+		824658C029F45EED00EE7AC4 /* AudioPlayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824658BF29F45EED00EE7AC4 /* AudioPlayerProtocol.swift */; };
 		824658C229F460CD00EE7AC4 /* SpeechRecognitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824658C129F460CD00EE7AC4 /* SpeechRecognitionProtocol.swift */; };
 		824658DD29F49CC300EE7AC4 /* NASAServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824658DC29F49CC300EE7AC4 /* NASAServiceProtocol.swift */; };
 		82490F582A082A9800C9A6CF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82490F562A082A9800C9A6CF /* Coordinator.swift */; };
@@ -84,7 +84,7 @@
 		82E56A49297F8AA500879E21 /* CentroidCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A48297F8AA500879E21 /* CentroidCoordinates.swift */; };
 		82E56A4B297F8AB900879E21 /* Coords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A4A297F8AB900879E21 /* Coords.swift */; };
 		82E56A4D297F8AD000879E21 /* J2000Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A4C297F8AD000879E21 /* J2000Position.swift */; };
-		82E56A50297F8C2400879E21 /* SoundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A4F297F8C2400879E21 /* SoundClass.swift */; };
+		82E56A50297F8C2400879E21 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A4F297F8C2400879E21 /* AudioPlayer.swift */; };
 		82E56A5B297FC7F100879E21 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A5A297FC7F100879E21 /* Photo.swift */; };
 		82E56A5D297FC80E00879E21 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A5C297FC80E00879E21 /* Camera.swift */; };
 		82E56A5F297FC81F00879E21 /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A5E297FC81F00879E21 /* Rover.swift */; };
@@ -132,7 +132,7 @@
 		8239552028BEDCE10064A1BB /* NasaImageCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageCategory.swift; sourceTree = "<group>"; };
 		8239552228BF039B0064A1BB /* NASAImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageDetailViewController.swift; sourceTree = "<group>"; };
 		824658BD29F45C0E00EE7AC4 /* AnimationClassProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClassProtocol.swift; sourceTree = "<group>"; };
-		824658BF29F45EED00EE7AC4 /* SoundClassProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassProtocol.swift; sourceTree = "<group>"; };
+		824658BF29F45EED00EE7AC4 /* AudioPlayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerProtocol.swift; sourceTree = "<group>"; };
 		824658C129F460CD00EE7AC4 /* SpeechRecognitionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionProtocol.swift; sourceTree = "<group>"; };
 		824658DC29F49CC300EE7AC4 /* NASAServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAServiceProtocol.swift; sourceTree = "<group>"; };
 		82490F562A082A9800C9A6CF /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 		82E56A48297F8AA500879E21 /* CentroidCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentroidCoordinates.swift; sourceTree = "<group>"; };
 		82E56A4A297F8AB900879E21 /* Coords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coords.swift; sourceTree = "<group>"; };
 		82E56A4C297F8AD000879E21 /* J2000Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = J2000Position.swift; sourceTree = "<group>"; };
-		82E56A4F297F8C2400879E21 /* SoundClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClass.swift; sourceTree = "<group>"; };
+		82E56A4F297F8C2400879E21 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		82E56A5A297FC7F100879E21 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		82E56A5C297FC80E00879E21 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		82E56A5E297FC81F00879E21 /* Rover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				824658BD29F45C0E00EE7AC4 /* AnimationClassProtocol.swift */,
-				824658BF29F45EED00EE7AC4 /* SoundClassProtocol.swift */,
+				824658BF29F45EED00EE7AC4 /* AudioPlayerProtocol.swift */,
 				824658C129F460CD00EE7AC4 /* SpeechRecognitionProtocol.swift */,
 				824658DC29F49CC300EE7AC4 /* NASAServiceProtocol.swift */,
 			);
@@ -362,6 +362,7 @@
 			children = (
 				82490F552A082A8600C9A6CF /* Coordinator */,
 				828721F82A082F64000046B1 /* Factory */,
+				82BE34C42A11089100BFA247 /* Singleton */,
 			);
 			path = Patterns;
 			sourceTree = "<group>";
@@ -456,6 +457,14 @@
 				8239552228BF039B0064A1BB /* NASAImageDetailViewController.swift */,
 			);
 			path = "Image Detail";
+			sourceTree = "<group>";
+		};
+		82BE34C42A11089100BFA247 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				82E56A4F297F8C2400879E21 /* AudioPlayer.swift */,
+			);
+			name = Singleton;
 			sourceTree = "<group>";
 		};
 		82C1471729EC7A8200B94042 /* Calendar */ = {
@@ -689,14 +698,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		82E56A4E297F8C0E00879E21 /* AudioPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				82E56A4F297F8C2400879E21 /* SoundClass.swift */,
-			);
-			path = AudioPlayer;
-			sourceTree = "<group>";
-		};
 		82E56A75297FE2DD00879E21 /* NASA Mars Photos MVVM */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,7 +818,6 @@
 				82C1471A29EC82EF00B94042 /* DateManager */,
 				8221EC6229EB31AB00D62FE2 /* Location  */,
 				827EA8BF29C8A390009570D3 /* Speech Recognition */,
-				82E56A4E297F8C0E00879E21 /* AudioPlayer */,
 				82E56A3D297F731B00879E21 /* API */,
 				82E5933528D8FF0700C05065 /* Animation */,
 			);
@@ -1071,7 +1071,7 @@
 				82E9F59D2A016A4D00F50C6D /* VideoPlayerViewController.swift in Sources */,
 				828722042A084A6E000046B1 /* NASAScreens.swift in Sources */,
 				82E56A32297F688D00879E21 /* EPIC.swift in Sources */,
-				82E56A50297F8C2400879E21 /* SoundClass.swift in Sources */,
+				82E56A50297F8C2400879E21 /* AudioPlayer.swift in Sources */,
 				82C5AC1A298268D600D26D7C /* NASAImageLibraryCollectionViewCellViewModel.swift in Sources */,
 				82E56A65297FC84C00879E21 /* Item.swift in Sources */,
 				82C5AC002981C2D900D26D7C /* APODViewController.swift in Sources */,
@@ -1129,7 +1129,7 @@
 				8255247E29BE56F70067EB68 /* NASASettingsCellViewModel.swift in Sources */,
 				82E56A18297E358B00879E21 /* SplashScreenController.swift in Sources */,
 				82E56A7C297FE3B500879E21 /* MarsPhotosViewController.swift in Sources */,
-				824658C029F45EED00EE7AC4 /* SoundClassProtocol.swift in Sources */,
+				824658C029F45EED00EE7AC4 /* AudioPlayerProtocol.swift in Sources */,
 				82F2573028B838DD00824A80 /* Asteroid.swift in Sources */,
 				8221EC6629EB324800D62FE2 /* LocationViewModel.swift in Sources */,
 				8221EC7229EB387100D62FE2 /* EarthViewController.swift in Sources */,

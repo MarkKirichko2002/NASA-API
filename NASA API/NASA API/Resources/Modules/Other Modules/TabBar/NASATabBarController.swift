@@ -11,8 +11,8 @@ import SDWebImage
 final class NASATabBarController: UITabBarController, Coordinating {
     
     // MARK: - сервисы
+    private let nasaService: NASAServiceProtocol?
     private let animation: AnimationClassProtocol?
-    private let player: SoundClassProtocol?
     private let speechRecognition: SpeechRecognitionProtocol?
     private let factory: NASAScreenFactoryProtocol?
     
@@ -35,9 +35,9 @@ final class NASATabBarController: UITabBarController, Coordinating {
         createMiddleButton()
     }
     
-    init(animation: AnimationClassProtocol?, player: SoundClassProtocol?, speechRecognition: SpeechRecognitionProtocol?, factory: NASAScreenFactoryProtocol?) {
+    init(nasaService: NASAServiceProtocol?, animation: AnimationClassProtocol?, speechRecognition: SpeechRecognitionProtocol?, factory: NASAScreenFactoryProtocol?) {
+        self.nasaService = nasaService
         self.animation = animation
-        self.player = player
         self.speechRecognition = speechRecognition
         self.factory = factory
         super.init(nibName: nil, bundle: nil)
@@ -131,7 +131,7 @@ final class NASATabBarController: UITabBarController, Coordinating {
             
         case _ where text.lowercased().contains("фото дня"):
             
-            NASAService.shared.execute(type: Apod.self, response: .apod) { result in
+            nasaService?.execute(type: Apod.self, response: .apod) { result in
                 switch result {
                 case .success(let data):
                     self.button.sd_setImage(with: URL(string: data.hdurl ?? ""), for: .normal)
@@ -201,7 +201,7 @@ final class NASATabBarController: UITabBarController, Coordinating {
             
             button.setImage(UIImage(named: "EPIC"), for: .normal)
             
-            player?.PlaySound(resource: "space music.mp3")
+            AudioPlayer.shared.PlaySound(resource: "space music.mp3")
             
             animation?.StartRotateImage(image: self.button.imageView!)
             
@@ -215,7 +215,7 @@ final class NASATabBarController: UITabBarController, Coordinating {
             
             button.setImage(UIImage(systemName: "mic.fill"), for: .normal)
             
-            player?.StopSound(resource: "space music.mp3")
+            AudioPlayer.shared.StopSound(resource: "space music.mp3")
             
             animation?.StopRotateImage(image: self.button.imageView!)
             
@@ -227,7 +227,7 @@ final class NASATabBarController: UITabBarController, Coordinating {
             
         case _ where text.lowercased().contains("стоп"):
             
-            player?.StopSound(resource: "space music.mp3")
+            AudioPlayer.shared.StopSound(resource: "space music.mp3")
             
             animation?.StopRotateImage(image: self.button.imageView!)
             

@@ -9,18 +9,19 @@ import Swinject
 import UIKit
 
 class NASACoordinator: Coordinator {
+    
     var navigationController: UINavigationController?
     
     private let container: Container = {
         // контейнер
         let container = Container()
+        // API
+        container.register(NASAServiceProtocol.self) { _ in
+            return NASAService()
+        }
         // анимация
         container.register(AnimationClassProtocol.self) { _ in
             return AnimationClass()
-        }
-        // аудио
-        container.register(SoundClassProtocol.self) { _ in
-            return SoundClass()
         }
         // распознавание речи
         container.register(SpeechRecognitionProtocol.self) { _ in
@@ -38,7 +39,12 @@ class NASACoordinator: Coordinator {
     func eventOccured(with type: Event) {
         switch type {
         case .startButtonWasClicked:
-            var vc: UIViewController & Coordinating = NASATabBarController(animation: container.resolve(AnimationClassProtocol.self), player: container.resolve(SoundClassProtocol.self), speechRecognition: container.resolve(SpeechRecognitionProtocol.self), factory: container.resolve(NASAScreenFactoryProtocol.self))
+            var vc: UIViewController & Coordinating = NASATabBarController(
+                nasaService: container.resolve(NASAServiceProtocol.self),
+                animation: container.resolve(AnimationClassProtocol.self),
+                speechRecognition: container.resolve(SpeechRecognitionProtocol.self),
+                factory: container.resolve(NASAScreenFactoryProtocol.self)
+            )
             vc.coordinator = self
             navigationController?.pushViewController(vc, animated: true)
         }

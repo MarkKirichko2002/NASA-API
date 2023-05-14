@@ -34,7 +34,7 @@ final class MarsPhotosListViewViewModel: NSObject {
     }
     
     func GetMarsPhoto() {
-        NASAService.shared.execute(type: MarsImage.self, response: .marsphotos) { [weak self] result in
+        nasaService?.execute(type: MarsImage.self, response: .marsphotos) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.marsphotos = data.photos
@@ -70,7 +70,9 @@ extension MarsPhotosListViewViewModel: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        SoundClass.shared.PlaySound(resource: "space.wav")
+        
+        AudioPlayer.shared.PlaySound(resource: "space.wav")
+        
         if let cell = collectionView.cellForItem(at: indexPath) as? MarsPhotosCollectionViewCell {
             cell.didCellTapped(indexPath: indexPath)
         }

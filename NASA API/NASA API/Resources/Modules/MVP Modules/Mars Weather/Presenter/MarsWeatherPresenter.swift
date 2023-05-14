@@ -24,7 +24,7 @@ final class MarsWeatherPresenter {
     }
     
     func GetMarsWeather() {
-        NASAService.shared.execute(type: MarsWeather.self, response: .marsweather) { [weak self] result in
+        nasaService?.execute(type: MarsWeather.self, response: .marsweather) { [weak self] result in
             switch result {
             case .success(let data):
                 guard let data = data.validityChecks else {return}
