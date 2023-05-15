@@ -51,7 +51,7 @@ extension CalendarViewController: FSCalendarDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         let string = formatter.string(from: date)
-        presenter.GetAPODWithOtherDate(date: string)
+        //presenter.GetAPODWithOtherDate(date: string)
         self.dismiss(animated: true)
     }
 }

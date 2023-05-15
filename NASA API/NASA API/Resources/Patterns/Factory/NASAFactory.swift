@@ -21,12 +21,7 @@ final class NASAScreenFactory: NASAScreenFactoryProtocol {
             return NASAScreenFactory()
         }
         // MARK: - категории изображений
-        
-        // APOD Presenter
-        container.register(APODPresenter.self) { resolver in
-            let presenter = APODPresenter(nasaService: resolver.resolve(NASAServiceProtocol.self))
-            return presenter
-        }
+                
         // ViewModel Mars Photos
         container.register(MarsPhotosListViewViewModel.self) { resolver in
             let viewModel = MarsPhotosListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
@@ -98,7 +93,7 @@ final class NASAScreenFactory: NASAScreenFactoryProtocol {
     func createImageCategoriesScreens(screen: ImageCategoriesScreen) -> UIViewController {
         switch screen {
         case .apod:
-            let vc = APODViewController(presenter: container.resolve(APODPresenter.self))
+            let vc = APODModuleBuilder.build(nasaService: container.resolve(NASAServiceProtocol.self))
             vc.title = "APOD"
             vc.navigationItem.largeTitleDisplayMode = .never
             return vc
