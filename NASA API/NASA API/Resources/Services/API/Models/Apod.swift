@@ -2,7 +2,7 @@
 //  Apod.swift
 //  NASA API
 //
-//  Created by Марк Киричко on 25.01.2023.
+//  Created by Марк Киричко on 15.05.2023.
 //
 
 import Foundation
@@ -21,3 +21,5 @@ struct Apod: Codable {
         case title, url
     }
 }
+
+

@@ -1,16 +1,20 @@
 //
 //  APODViewController.swift
-//  NASA API
+//  Super easy dev
 //
-//  Created by Марк Киричко on 25.01.2023.
+//  Created by Марк Киричко on 15.05.2023
 //
 
 import UIKit
 import SDWebImage
 
-final class APODViewController: UIViewController {
+protocol APODViewProtocol: AnyObject {
+    func displayAPOD(apod: Apod)
+}
+
+class APODViewController: UIViewController {
     
-    private var presenter: APODPresenter?
+    var presenter: APODPresenterProtocol?
    
     private let imageView: RoundedImageView = {
         let imageView = RoundedImageView()
@@ -40,20 +44,8 @@ final class APODViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubviews(imageView, DateLabel, ExplanationTextView)
         SetUpConstraints()
-        SetUpCalendarButton()
-        presenter?.SetViewDelegate(delegate: self)
-        presenter?.GetAPOD()
     }
-    
-    init(presenter: APODPresenter?) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
+ 
     private func SetUpConstraints() {
         NSLayoutConstraint.activate([
             // изображение
@@ -75,22 +67,12 @@ final class APODViewController: UIViewController {
             ExplanationTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
-    private func SetUpCalendarButton() {
-        let calendar = UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(showCalendar))
-        calendar.tintColor = .black
-        navigationItem.rightBarButtonItem = calendar
-    }
-    
-    @objc private func showCalendar() {
-//        let vc = CalendarViewController(presenter: presenter)
-//        present(vc, animated: true)
-    }
 }
 
-extension APODViewController: APODPresentDelegate {
-        
-    func PresentAPOD(apod: Apod) {
+// MARK: - APODViewProtocol
+extension APODViewController: APODViewProtocol {
+    
+    func displayAPOD(apod: Apod) {
         self.imageView.sd_setImage(with: URL(string: apod.hdurl ?? ""), placeholderImage: UIImage(named: "NASA"))
         DispatchQueue.main.async {
             self.DateLabel.text = apod.date
