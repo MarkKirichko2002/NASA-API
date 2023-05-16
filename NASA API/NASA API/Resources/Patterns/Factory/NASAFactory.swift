@@ -37,11 +37,6 @@ final class NASAScreenFactory: NASAScreenFactoryProtocol {
             let viewModel = EPICNASAImagesListViewViewModel(nasaService: resolver.resolve(NASAServiceProtocol.self))
             return viewModel
         }
-        // Earth Presenter
-        container.register(EarthPresenter.self) { resolver in
-            let presenter = EarthPresenter(nasaService: resolver.resolve(NASAServiceProtocol.self))
-            return presenter
-        }
         // MARK: - экраны NASA
         
         // ViewModel Image Categories
@@ -113,7 +108,7 @@ final class NASAScreenFactory: NASAScreenFactoryProtocol {
             vc.navigationItem.largeTitleDisplayMode = .never
             return vc
         case .earth:
-            let vc = EarthViewController(presenter: container.resolve(EarthPresenter.self))
+            let vc = EarthModuleBuilder.build(nasaService: container.resolve(NASAServiceProtocol.self))
             vc.title = "Земля"
             vc.navigationItem.largeTitleDisplayMode = .never
             return vc
