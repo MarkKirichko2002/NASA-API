@@ -1,16 +1,20 @@
 //
 //  EarthViewController.swift
-//  NASA API
+//  Super easy dev
 //
-//  Created by Марк Киричко on 15.04.2023.
+//  Created by Марк Киричко on 16.05.2023
 //
 
 import UIKit
 import SDWebImage
 
-final class EarthViewController: UIViewController {
+protocol EarthViewProtocol: AnyObject {
+    func PresentEarth(earth: Earth)
+}
 
-    private var presenter: EarthPresenter?
+class EarthViewController: UIViewController {
+    
+    var presenter: EarthPresenterProtocol?
     
     private let EarthImage: UIImageView = {
         let image = UIImageView()
@@ -24,17 +28,6 @@ final class EarthViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubviews(EarthImage)
         self.makeConstraints()
-        presenter?.SetViewDelegate(delegate: self)
-        presenter?.GetEarthImage()
-    }
-    
-    init(presenter: EarthPresenter?) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
     
     private func makeConstraints() {
@@ -47,8 +40,9 @@ final class EarthViewController: UIViewController {
     }
 }
 
-extension EarthViewController: EarthPresentDelegate {
-    func PresentEarth(earth: Earth) {
+// MARK: - EarthViewProtocol
+extension EarthViewController: EarthViewProtocol {
+    func PresentEarth(earth: Earth)  {
         EarthImage.sd_setImage(with: URL(string: earth.url ?? ""))
     }
 }
