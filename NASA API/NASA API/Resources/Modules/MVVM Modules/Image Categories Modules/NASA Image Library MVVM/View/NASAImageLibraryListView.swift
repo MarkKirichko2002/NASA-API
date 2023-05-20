@@ -25,6 +25,7 @@ final class NASAImageLibraryListView: UIView {
         return collectionView
     }()
     
+    // MARK: - Init
     init(frame: CGRect, viewModel: NASAImageLibraryListViewViewModel?) {
         super.init(frame: frame)
         self.viewModel = viewModel
@@ -57,6 +58,7 @@ final class NASAImageLibraryListView: UIView {
     
 }
 
+// MARK: - NASAImageLibraryListViewViewModelDelegate
 extension NASAImageLibraryListView: NASAImageLibraryListViewViewModelDelegate {
     
     func didLoadInitialNASAImages() {

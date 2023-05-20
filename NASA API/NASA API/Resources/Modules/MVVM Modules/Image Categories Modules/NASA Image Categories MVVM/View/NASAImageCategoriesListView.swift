@@ -26,6 +26,7 @@ final class NASAImageCategoriesListView: UIView {
         return collectionView
     }()
     
+    // MARK: - Init
     init(frame: CGRect, viewModel: NASAImageCategoriesListViewViewModel?) {
         super.init(frame: frame)
         self.viewModel = viewModel
@@ -56,6 +57,7 @@ final class NASAImageCategoriesListView: UIView {
     }
 }
 
+// MARK: - NASAImageCategoriesListViewViewModelDelegate
 extension NASAImageCategoriesListView: NASAImageCategoriesListViewViewModelDelegate {
     
     func didLoadInitialCategoryImages() {

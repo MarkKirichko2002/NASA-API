@@ -18,5 +18,4 @@ final class NASAEPICImagesCollectionViewCellViewModel {
         self.EPICTitle = EPICTitle
         self.EPICDate = EPICDate
     }
-    
 }

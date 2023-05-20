@@ -28,6 +28,7 @@ final class AsteroidsViewController: UIViewController, UITableViewDelegate {
         bindTableView()
     }
     
+    // MARK: - Init
     init(viewModel: AsteroidsViewModel?) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)

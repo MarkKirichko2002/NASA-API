@@ -29,6 +29,7 @@ final class EPICNASAImagesListViewViewModel: NSObject {
     
     private var cellViewModels = [NASAEPICImagesCollectionViewCellViewModel]()
     
+    // MARK: - Init
     init(nasaService: NASAServiceProtocol?) {
         self.nasaService = nasaService
     }

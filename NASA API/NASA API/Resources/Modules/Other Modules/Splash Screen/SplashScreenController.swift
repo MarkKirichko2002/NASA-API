@@ -34,6 +34,7 @@ final class SplashScreenController: UIViewController {
         ShowSplashScreen()
     }
     
+    // MARK: - Init
     init(animation: AnimationClassProtocol?) {
         self.animation = animation
         super.init(nibName: nil, bundle: nil)

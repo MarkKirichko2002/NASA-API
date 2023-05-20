@@ -23,6 +23,7 @@ final class NASAImageCategoriesListViewViewModel: NSObject {
     
     private let epicNASAImagesListViewViewModel: EPICNASAImagesListViewViewModel?
     
+    // MARK: - Init
     init(nasaService: NASAServiceProtocol?, epicNASAImagesListViewViewModel: EPICNASAImagesListViewViewModel?) {
         self.nasaService = nasaService
         self.epicNASAImagesListViewViewModel = epicNASAImagesListViewViewModel

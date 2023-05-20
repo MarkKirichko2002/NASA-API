@@ -29,6 +29,7 @@ final class MarsPhotosListViewViewModel: NSObject {
     }
     private var cellViewModels = [MarsPhotosCollectionViewCellViewModel]()
     
+    // MARK: - Init
     init(nasaService: NASAServiceProtocol?) {
         self.nasaService = nasaService
     }
