@@ -26,6 +26,7 @@ final class MarsPhotosListView: UIView {
         return collectionView
     }()
     
+    // MARK: - Init
     init(frame: CGRect, viewModel: MarsPhotosListViewViewModel?) {
         super.init(frame: frame)
         self.viewModel = viewModel
@@ -56,6 +57,7 @@ final class MarsPhotosListView: UIView {
     }
 }
 
+// MARK: - MarsPhotosListViewViewModelDelegate
 extension MarsPhotosListView: MarsPhotosListViewViewModelDelegate {
     
     func didLoadInitialMarsPhotos() {

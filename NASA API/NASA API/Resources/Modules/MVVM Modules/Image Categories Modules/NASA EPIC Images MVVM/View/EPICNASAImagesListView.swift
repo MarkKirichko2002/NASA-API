@@ -27,6 +27,7 @@ final class EPICNASAImagesListView: UIView {
         return collectionView
     }()
     
+    // MARK: - Init
     init(frame: CGRect, viewModel: EPICNASAImagesListViewViewModel?) {
         super.init(frame: frame)
         self.viewModel = viewModel
@@ -57,6 +58,7 @@ final class EPICNASAImagesListView: UIView {
     }
 }
 
+// MARK: - EPICNASAImagesListViewViewModelDelegate
 extension EPICNASAImagesListView: EPICNASAImagesListViewViewModelDelegate {
     
     func didLoadInitialEPICImages() {

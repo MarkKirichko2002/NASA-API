@@ -20,6 +20,7 @@ final class NASAVideoLibraryListViewViewModel: NSObject {
     
     private var cellViewModels = [NASAVideoLibraryCollectionViewCellViewModel]()
     
+    // MARK: - Init
     init(nasaService: NASAServiceProtocol?) {
         self.nasaService = nasaService
     }

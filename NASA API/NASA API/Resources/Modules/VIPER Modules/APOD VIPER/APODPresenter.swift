@@ -14,6 +14,7 @@ class APODPresenter {
     var router: APODRouterProtocol
     var interactor: APODInteractorProtocol
 
+    // MARK: - Init
     init(interactor: APODInteractorProtocol, router: APODRouterProtocol) {
         self.interactor = interactor
         self.interactor.GetAPOD()

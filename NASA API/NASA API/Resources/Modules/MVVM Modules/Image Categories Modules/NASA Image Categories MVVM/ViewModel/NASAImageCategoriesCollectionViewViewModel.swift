@@ -17,5 +17,4 @@ final class NASAImageCategoriesCollectionViewCellViewModel {
         self.categoryImage = categoryImage
         self.imagesCount = imagesCount
     }
-    
 }

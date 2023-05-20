@@ -15,15 +15,12 @@ struct NASASettingsCellViewModel: Identifiable {
     public let onTapHandler: (NASASettingsOption)-> Void
     
     //MARK: - Init
-    
     init(type: NASASettingsOption, onTapHandler: @escaping(NASASettingsOption)-> Void) {
         self.type = type
         self.onTapHandler = onTapHandler
     }
     
     // MARK: - Public
-    
-   
     public var image: UIImage? {
         return type.iconImage
     }

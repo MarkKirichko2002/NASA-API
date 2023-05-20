@@ -14,6 +14,7 @@ class EarthPresenter {
     var router: EarthRouterProtocol
     var interactor: EarthInteractorProtocol
 
+    // MARK: - Init
     init(interactor: EarthInteractorProtocol, router: EarthRouterProtocol) {
         self.interactor = interactor
         self.interactor.GetEarthImage()

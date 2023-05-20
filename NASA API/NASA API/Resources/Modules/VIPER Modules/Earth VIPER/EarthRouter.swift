@@ -6,6 +6,7 @@
 //
 
 protocol EarthRouterProtocol {
+    
 }
 
 class EarthRouter: EarthRouterProtocol {

@@ -11,6 +11,7 @@ struct NASASettingsView: View {
     
     let viewModel: NASASettingsViewViewModel
     
+    // MARK: - Init
     init(viewModel: NASASettingsViewViewModel) {
         self.viewModel = viewModel
     }

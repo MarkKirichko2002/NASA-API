@@ -15,6 +15,7 @@ class EarthInteractor: EarthInteractorProtocol {
     
     private var nasaService: NASAServiceProtocol?
     
+    // MARK: - Init
     init(nasaService: NASAServiceProtocol?) {
         self.nasaService = nasaService
     }

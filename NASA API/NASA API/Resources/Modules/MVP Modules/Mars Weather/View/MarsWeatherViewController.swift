@@ -27,6 +27,7 @@ final class MarsWeatherViewController: UIViewController {
         presenter?.GetMarsWeather()
     }
     
+    // MARK: - Init
     init(presenter: MarsWeatherPresenter?) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -46,6 +47,7 @@ final class MarsWeatherViewController: UIViewController {
     }
 }
 
+// MARK: - MarsWeatherPresenterDelegate
 extension MarsWeatherViewController: MarsWeatherPresenterDelegate {
     
     func displayMarsWeather(weather: ValidityChecks) {

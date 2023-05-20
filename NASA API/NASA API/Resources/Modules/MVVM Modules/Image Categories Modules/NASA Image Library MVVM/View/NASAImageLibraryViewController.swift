@@ -11,6 +11,7 @@ final class NASAImageLibraryViewController: UIViewController {
     
     private let factory: NASAScreenFactoryProtocol?
     
+    // MARK: - Init
     init(factory: NASAScreenFactoryProtocol?) {
         self.factory = factory
         super.init(nibName: nil, bundle: nil)
@@ -37,6 +38,7 @@ final class NASAImageLibraryViewController: UIViewController {
     }
 }
 
+// MARK: - NASAImageLibraryListViewDelegate
 extension NASAImageLibraryViewController: NASAImageLibraryListViewDelegate {
     
     func showNASAImageDetail(image: NASAImageLibraryCollectionViewCellViewModel) {

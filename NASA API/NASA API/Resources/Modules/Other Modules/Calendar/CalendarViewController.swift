@@ -10,17 +10,6 @@ import FSCalendar
 
 final class CalendarViewController: UIViewController {
     
-    var presenter: APODPresenter
-    
-    init(presenter: APODPresenter) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     private let Calendar: FSCalendar = {
         let calendar = FSCalendar()
         calendar.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +40,6 @@ extension CalendarViewController: FSCalendarDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         let string = formatter.string(from: date)
-        //presenter.GetAPODWithOtherDate(date: string)
         self.dismiss(animated: true)
     }
 }

@@ -11,6 +11,7 @@ final class MarsPhotosViewController: UIViewController {
     
     private let factory: NASAScreenFactoryProtocol?
     
+    // MARK: - Init
     init(factory: NASAScreenFactoryProtocol?) {
         self.factory = factory
         super.init(nibName: nil, bundle: nil)
@@ -38,6 +39,7 @@ final class MarsPhotosViewController: UIViewController {
     }
 }
 
+// MARK: - MarsPhotosListViewDelegate
 extension MarsPhotosViewController: MarsPhotosListViewDelegate {
     func showMarsPhotosDetail(photo: Photo) {
         let vc = NASAImageDetailViewController()

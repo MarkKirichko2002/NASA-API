@@ -11,6 +11,7 @@ final class NASAImageCategoriesListViewController: UIViewController, NASAImageCa
     
     private let factory: NASAScreenFactoryProtocol?
     
+    // MARK: - Init
     init(factory: NASAScreenFactoryProtocol?) {
         self.factory = factory
         super.init(nibName: nil, bundle: nil)

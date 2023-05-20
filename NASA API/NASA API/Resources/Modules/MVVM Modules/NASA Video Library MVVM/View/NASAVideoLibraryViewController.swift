@@ -11,6 +11,7 @@ final class NASAVideoLibraryViewController: UIViewController {
     
     private let factory: NASAScreenFactoryProtocol?
     
+    // MARK: - Init
     init(factory: NASAScreenFactoryProtocol?) {
         self.factory = factory
         super.init(nibName: nil, bundle: nil)
@@ -38,6 +39,7 @@ final class NASAVideoLibraryViewController: UIViewController {
     }
 }
 
+// MARK: - NASAVideoLibraryListViewDelegate
 extension NASAVideoLibraryViewController: NASAVideoLibraryListViewDelegate {
     
     func showNASAVideoDetail(video: NASAVideoLibraryCollectionViewCellViewModel) {
