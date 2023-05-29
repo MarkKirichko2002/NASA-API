@@ -5,34 +5,11 @@
 //  Created by Марк Киричко on 03.05.2023.
 //
 
-import Swinject
 import UIKit
 
 class NASACoordinator: Coordinator {
     
     var navigationController: UINavigationController?
-    
-    private let container: Container = {
-        // контейнер
-        let container = Container()
-        // API
-        container.register(NASAServiceProtocol.self) { _ in
-            return NASAService()
-        }
-        // анимация
-        container.register(AnimationClassProtocol.self) { _ in
-            return AnimationClass()
-        }
-        // распознавание речи
-        container.register(SpeechRecognitionProtocol.self) { _ in
-            return SpeechRecognition()
-        }
-        // фабрика
-        container.register(NASAScreenFactoryProtocol.self) { _ in
-            return NASAScreenFactory()
-        }
-        return container
-    }()
     
     var children: [Coordinator]?
     
@@ -40,10 +17,10 @@ class NASACoordinator: Coordinator {
         switch type {
         case .startButtonWasClicked:
             var vc: UIViewController & Coordinating = NASATabBarController(
-                nasaService: container.resolve(NASAServiceProtocol.self),
-                animation: container.resolve(AnimationClassProtocol.self),
-                speechRecognition: container.resolve(SpeechRecognitionProtocol.self),
-                factory: container.resolve(NASAScreenFactoryProtocol.self)
+                nasaService: Injection.shared.makeContainer().resolve(NASAServiceProtocol.self),
+                animation: Injection.shared.makeContainer().resolve(AnimationClassProtocol.self),
+                speechRecognition: Injection.shared.makeContainer().resolve(SpeechRecognitionProtocol.self),
+                factory: Injection.shared.makeContainer().resolve(NASAScreenFactoryProtocol.self)
             )
             vc.coordinator = self
             navigationController?.pushViewController(vc, animated: true)
