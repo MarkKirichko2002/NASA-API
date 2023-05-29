@@ -12,7 +12,7 @@ final class VideoPlayerViewController: UIViewController, AVPlayerViewControllerD
     
     private var video = ""
     var json = ""
-    private let nasaService = NASAService()
+    private let nasaService = Injection.shared.makeContainer().resolve(NASAServiceProtocol.self)
     
     private let playButton: UIButton = {
         let button = UIButton()
@@ -29,7 +29,7 @@ final class VideoPlayerViewController: UIViewController, AVPlayerViewControllerD
         view.addSubview(playButton)
         playButton.addTarget(self, action: #selector(PlayVideo), for: .touchUpInside)
         makeConstraints()
-        nasaService.fetchVideo(json: self.json) { video in
+        nasaService?.fetchVideo(json: self.json) { video in
             self.video = video
         }
     }
