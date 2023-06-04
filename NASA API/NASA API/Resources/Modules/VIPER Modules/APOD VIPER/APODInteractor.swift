@@ -6,6 +6,7 @@
 //
 
 protocol APODInteractorProtocol: AnyObject {
+    func recognizeText(text: String)
     func GetAPOD()
 }
 
@@ -18,6 +19,18 @@ class APODInteractor: APODInteractorProtocol {
     // MARK: - Init
     init(nasaService: NASAServiceProtocol?) {
         self.nasaService = nasaService
+    }
+    
+    func recognizeText(text: String) {
+        print(text)
+        nasaService?.MakeAPICallWithOtherDate(type: Apod.self, response: .apod, date: text) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.presenter?.interactorDidFetchedAPOD(apod: data)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func GetAPOD() {

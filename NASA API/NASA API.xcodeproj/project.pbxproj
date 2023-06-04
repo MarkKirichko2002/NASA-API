@@ -73,6 +73,7 @@
 		82C6F25028A4091100B8EA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82C6F24F28A4091100B8EA70 /* Assets.xcassets */; };
 		82C6F25328A4091100B8EA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C6F25128A4091100B8EA70 /* LaunchScreen.storyboard */; };
 		82C6F25F28A4093500B8EA70 /* MarsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6F25E28A4093500B8EA70 /* MarsImage.swift */; };
+		82CB41BE2A2D445E005C570C /* TextRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CB41BD2A2D445E005C570C /* TextRecognitionManager.swift */; };
 		82E569FD297E110000879E21 /* NASAImageCategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E569FC297E110000879E21 /* NASAImageCategoriesListView.swift */; };
 		82E569FF297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E569FE297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift */; };
 		82E56A01297E114F00879E21 /* NASAImageCategoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E56A00297E114F00879E21 /* NASAImageCategoriesListViewController.swift */; };
@@ -193,6 +194,7 @@
 		82C6F25228A4091100B8EA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82C6F25428A4091100B8EA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82C6F25E28A4093500B8EA70 /* MarsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsImage.swift; sourceTree = "<group>"; };
+		82CB41BD2A2D445E005C570C /* TextRecognitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionManager.swift; sourceTree = "<group>"; };
 		82E569FC297E110000879E21 /* NASAImageCategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesListView.swift; sourceTree = "<group>"; };
 		82E569FE297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesListViewViewModel.swift; sourceTree = "<group>"; };
 		82E56A00297E114F00879E21 /* NASAImageCategoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesListViewController.swift; sourceTree = "<group>"; };
@@ -326,8 +328,8 @@
 			isa = PBXGroup;
 			children = (
 				8236AA852A128E270033323D /* APODViewController.swift */,
-				8236AA862A128E270033323D /* APODInteractor.swift */,
 				8236AA832A128E270033323D /* APODPresenter.swift */,
+				8236AA862A128E270033323D /* APODInteractor.swift */,
 				8236AA842A128E270033323D /* APODRouter.swift */,
 				8236AA822A128E270033323D /* APODModuleBuilder.swift */,
 			);
@@ -611,6 +613,14 @@
 			path = "NASA API";
 			sourceTree = "<group>";
 		};
+		82CB41BC2A2D442D005C570C /* Text Recognition */ = {
+			isa = PBXGroup;
+			children = (
+				82CB41BD2A2D445E005C570C /* TextRecognitionManager.swift */,
+			);
+			path = "Text Recognition";
+			sourceTree = "<group>";
+		};
 		82E56A06297E2A3200879E21 /* NASA Image Categories MVVM */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +807,7 @@
 		82E9B94A29760710000845B3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				82CB41BC2A2D442D005C570C /* Text Recognition */,
 				82AEE3762A253FB1002AA2DA /* DI */,
 				82C1471A29EC82EF00B94042 /* DateManager */,
 				8221EC6229EB31AB00D62FE2 /* Location  */,
@@ -1108,6 +1119,7 @@
 				828E940A2A13BC9000CD7A0C /* EarthPresenter.swift in Sources */,
 				8221EC6429EB31BA00D62FE2 /* LocationManager.swift in Sources */,
 				8255248E29BE68310067EB68 /* EstimatedDiameter.swift in Sources */,
+				82CB41BE2A2D445E005C570C /* TextRecognitionManager.swift in Sources */,
 				8236AA8B2A128E270033323D /* APODInteractor.swift in Sources */,
 				828721FE2A082FCE000046B1 /* ImageCategoriesScreen.swift in Sources */,
 				8255248629BE67F60067EB68 /* CloseApproachDatum.swift in Sources */,

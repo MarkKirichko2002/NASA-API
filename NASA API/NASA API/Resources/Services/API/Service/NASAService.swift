@@ -26,10 +26,13 @@ class NASAService: NASAServiceProtocol {
         static var apiKey = "iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
     }
 
+    var date = ""
+    
     private func UrlForResponse(response: ResponseType) -> String {
         switch response {
         case .apod:
-            return "https://api.nasa.gov/planetary/apod?date=\(DateManager().GetCurrentDate())&api_key=\(Contacts.apiKey)"
+            date = DateManager().GetCurrentDate()
+            return "https://api.nasa.gov/planetary/apod?date=\(date)&api_key=\(Contacts.apiKey)"
             
         case .marsphotos:
         return "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=\(Contacts.apiKey)"

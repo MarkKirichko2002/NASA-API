@@ -15,6 +15,22 @@ protocol APODViewProtocol: AnyObject {
 class APODViewController: UIViewController {
     
     var presenter: APODPresenterProtocol?
+
+    @objc private func openCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
+    }
+    
+    @objc private func openPhotoLibrary() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
+    }
     
     private let imageView: RoundedImageView = {
         let imageView = RoundedImageView()
@@ -41,6 +57,20 @@ class APODViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let camera = UIAction(title: "камера", image: UIImage(systemName: "camera")) { _ in
+            DispatchQueue.main.async {
+                self.openCamera()
+            }
+        }
+        let photoLibrary = UIAction(title: "фото", image: UIImage(systemName: "photo")) { _ in
+            DispatchQueue.main.async {
+                self.openPhotoLibrary()
+            }
+        }
+        let menu = UIMenu(title: "изменить дату", children: [camera, photoLibrary])
+        let media = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), menu: menu)
+        media.tintColor = .black
+        navigationItem.rightBarButtonItem = media
         view.backgroundColor = .systemBackground
         view.addSubviews(imageView, DateLabel, ExplanationTextView)
         SetUpConstraints()
@@ -78,5 +108,19 @@ extension APODViewController: APODViewProtocol {
             self.DateLabel.text = apod.date
             self.ExplanationTextView.text = apod.explanation
         }
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension APODViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let image = info[.editedImage] as? UIImage else {
+            return
+        }
+        
+        presenter?.recognizeText(image: image)
     }
 }
