@@ -16,9 +16,20 @@ final class Injection {
     func makeContainer()-> Container {
         // Container
         let container = Container()
+        // Date
+        container.register(DateManager.self) { _ in
+            return DateManager()
+        }
+        // Location
+        container.register(LocationManager.self) { _ in
+            return LocationManager()
+        }
         // API
-        container.register(NASAServiceProtocol.self) { _ in
-            return NASAService()
+        container.register(NASAServiceProtocol.self) { resolver in
+            return NASAService(
+                dateManager:  resolver.resolve(DateManager.self),
+                locationManager: resolver.resolve(LocationManager.self)
+            )
         }
         // Factory
         container.register(NASAScreenFactoryProtocol.self) { _ in

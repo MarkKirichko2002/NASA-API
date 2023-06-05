@@ -26,11 +26,22 @@ class NASAService: NASAServiceProtocol {
         static var apiKey = "iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
     }
 
+    // MARK: - Init
+    init(dateManager: DateManager?, locationManager: LocationManager?) {
+        self.dateManager = dateManager
+        self.locationManager = locationManager
+    }
+    
+    // MARK: - сервисы
+    private var dateManager: DateManager?
+    private var locationManager: LocationManager?
+    
+    var date = ""
+    
     private func UrlForResponse(response: ResponseType) -> String {
         switch response {
         case .apod:
-            return "https://api.nasa.gov/planetary/apod?date=\(DateManager().GetCurrentDate())&api_key=\(Contacts.apiKey)"
-            
+            return "https://api.nasa.gov/planetary/apod?date=\(date)&api_key=\(Contacts.apiKey)"
         case .marsphotos:
         return "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=\(Contacts.apiKey)"
         case .nasaimages:
@@ -44,7 +55,7 @@ class NASAService: NASAServiceProtocol {
         case .marsweather:
         return "https://api.nasa.gov/insight_weather/?api_key=iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX&feedtype=json&ver=1.0"
         case .earth:
-            return "https://api.nasa.gov/planetary/earth/assets?lon=\(LocationManager().GetCurrentLocation().longitude)&lat=\(LocationManager().GetCurrentLocation().latitude)&date=2021-02-01&dim=0.15&api_key=\(Contacts.apiKey)"
+            return "https://api.nasa.gov/planetary/earth/assets?lon=\(locationManager?.GetCurrentLocation().longitude)&lat=\(locationManager?.GetCurrentLocation().latitude)&date=2021-02-01&dim=0.15&api_key=\(Contacts.apiKey)"
         }
     }
     
