@@ -8,6 +8,7 @@
 import UIKit
 import FSCalendar
 
+// MARK: - CalendarViewControllerDelegate
 protocol CalendarViewControllerDelegate: AnyObject {
     func dataWasSelected(date: String)
 }
