@@ -8,8 +8,9 @@
 import UIKit
 
 protocol APODPresenterProtocol: AnyObject {
-    func recognizeText(image: UIImage)
     func interactorDidFetchedAPOD(apod: Apod)
+    func recognizeText(image: UIImage)
+    func getAPODWithOtherDate(date: String)
 }
 
 class APODPresenter {
@@ -29,13 +30,17 @@ class APODPresenter {
 
 extension APODPresenter: APODPresenterProtocol {
     
+    func interactorDidFetchedAPOD(apod: Apod) {
+        view?.displayAPOD(apod: apod)
+    }
+    
     func recognizeText(image: UIImage) {
         textRecognitionManager.recognizeText(image: image) { text in
             self.interactor.recognizeText(text: text)
         }
     }
     
-    func interactorDidFetchedAPOD(apod: Apod) {
-        view?.displayAPOD(apod: apod)
+    func getAPODWithOtherDate(date: String) {
+        interactor.fetchAPODWithOtherDate(date: date)
     }
 }

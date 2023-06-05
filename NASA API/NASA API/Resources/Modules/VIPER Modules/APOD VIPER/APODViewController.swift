@@ -16,7 +16,7 @@ class APODViewController: UIViewController {
     
     var presenter: APODPresenterProtocol?
 
-    @objc private func openCamera() {
+    private func openCamera() {
         let vc = UIImagePickerController()
         vc.sourceType = .camera
         vc.allowsEditing = true
@@ -24,10 +24,16 @@ class APODViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    @objc private func openPhotoLibrary() {
+    private func openPhotoLibrary() {
         let vc = UIImagePickerController()
         vc.sourceType = .photoLibrary
         vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
+    }
+    
+    private func openCalendar() {
+        let vc = CalendarViewController()
         vc.delegate = self
         present(vc, animated: true)
     }
@@ -57,6 +63,13 @@ class APODViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        view.addSubviews(imageView, DateLabel, ExplanationTextView)
+        SetUpConstraints()
+        SetUpNavigation()
+    }
+ 
+    private func SetUpNavigation() {
         let camera = UIAction(title: "камера", image: UIImage(systemName: "camera")) { _ in
             DispatchQueue.main.async {
                 self.openCamera()
@@ -67,15 +80,17 @@ class APODViewController: UIViewController {
                 self.openPhotoLibrary()
             }
         }
-        let menu = UIMenu(title: "изменить дату", children: [camera, photoLibrary])
+        let calendar = UIAction(title: "календар", image: UIImage(systemName: "calendar")) { _ in
+            DispatchQueue.main.async {
+                self.openCalendar()
+            }
+        }
+        let menu = UIMenu(title: "изменить дату", children: [camera, photoLibrary, calendar])
         let media = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), menu: menu)
         media.tintColor = .black
         navigationItem.rightBarButtonItem = media
-        view.backgroundColor = .systemBackground
-        view.addSubviews(imageView, DateLabel, ExplanationTextView)
-        SetUpConstraints()
     }
- 
+    
     private func SetUpConstraints() {
         NSLayoutConstraint.activate([
             // изображение
@@ -122,5 +137,13 @@ extension APODViewController: UIImagePickerControllerDelegate, UINavigationContr
         }
         
         presenter?.recognizeText(image: image)
+    }
+}
+
+// MARK: - CalendarViewControllerDelegate
+extension APODViewController: CalendarViewControllerDelegate {
+    
+    func dataWasSelected(date: String) {
+        presenter?.getAPODWithOtherDate(date: date)
     }
 }
