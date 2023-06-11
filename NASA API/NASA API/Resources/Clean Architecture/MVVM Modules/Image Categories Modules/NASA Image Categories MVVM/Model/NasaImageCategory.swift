@@ -12,4 +12,5 @@ struct NasaImageCategory {
     let name: String
     let icon: String
     let sound: String
+    let voiceCommand: String
 }
