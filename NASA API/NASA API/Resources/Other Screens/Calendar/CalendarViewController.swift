@@ -8,14 +8,7 @@
 import UIKit
 import FSCalendar
 
-// MARK: - CalendarViewControllerDelegate
-protocol CalendarViewControllerDelegate: AnyObject {
-    func dataWasSelected(date: String)
-}
-
 final class CalendarViewController: UIViewController {
-    
-    weak var delegate: CalendarViewControllerDelegate?
     
     private let Calendar: FSCalendar = {
         let calendar = FSCalendar()
@@ -48,7 +41,7 @@ extension CalendarViewController: FSCalendarDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
         let string = formatter.string(from: date)
-        delegate?.dataWasSelected(date: string)
+        NotificationCenter.default.post(name: Notification.Name("date"), object: string)
         self.dismiss(animated: true)
     }
 }
