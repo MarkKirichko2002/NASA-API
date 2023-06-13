@@ -56,7 +56,6 @@
 		828721FE2A082FCE000046B1 /* ImageCategoriesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828721FD2A082FCE000046B1 /* ImageCategoriesScreen.swift */; };
 		828722002A08371B000046B1 /* ImageCategoriesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828721FF2A08371B000046B1 /* ImageCategoriesViews.swift */; };
 		828722042A084A6E000046B1 /* NASAScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828722032A084A6E000046B1 /* NASAScreens.swift */; };
-		828CFA2F2A35BB9100C7542D /* NASAImageCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CFA2E2A35BB9100C7542D /* NASAImageCategories.swift */; };
 		828E94092A13BC9000CD7A0C /* EarthModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E94042A13BC9000CD7A0C /* EarthModuleBuilder.swift */; };
 		828E940A2A13BC9000CD7A0C /* EarthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E94052A13BC9000CD7A0C /* EarthPresenter.swift */; };
 		828E940B2A13BC9000CD7A0C /* EarthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E94062A13BC9000CD7A0C /* EarthRouter.swift */; };
@@ -177,7 +176,6 @@
 		828721FD2A082FCE000046B1 /* ImageCategoriesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCategoriesScreen.swift; sourceTree = "<group>"; };
 		828721FF2A08371B000046B1 /* ImageCategoriesViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCategoriesViews.swift; sourceTree = "<group>"; };
 		828722032A084A6E000046B1 /* NASAScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAScreens.swift; sourceTree = "<group>"; };
-		828CFA2E2A35BB9100C7542D /* NASAImageCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategories.swift; sourceTree = "<group>"; };
 		828E94042A13BC9000CD7A0C /* EarthModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthModuleBuilder.swift; sourceTree = "<group>"; };
 		828E94052A13BC9000CD7A0C /* EarthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthPresenter.swift; sourceTree = "<group>"; };
 		828E94062A13BC9000CD7A0C /* EarthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthRouter.swift; sourceTree = "<group>"; };
@@ -668,7 +666,6 @@
 			isa = PBXGroup;
 			children = (
 				8239552028BEDCE10064A1BB /* NasaImageCategory.swift */,
-				828CFA2E2A35BB9100C7542D /* NASAImageCategories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -762,14 +759,15 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
-		82E9B94329760604000845B3 /* Clean Architecture */ = {
+		82E9B94329760604000845B3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				82E9B94429760609000845B3 /* MVVM Modules */,
 				82E9B94529760610000845B3 /* MVP Modules */,
 				8236AA812A128E040033323D /* VIPER Modules */,
+				82E9B94629760641000845B3 /* Other Modules */,
 			);
-			path = "Clean Architecture";
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		82E9B94429760609000845B3 /* MVVM Modules */ = {
@@ -791,7 +789,7 @@
 			path = "MVP Modules";
 			sourceTree = "<group>";
 		};
-		82E9B94629760641000845B3 /* Other Screens */ = {
+		82E9B94629760641000845B3 /* Other Modules */ = {
 			isa = PBXGroup;
 			children = (
 				82CB41BF2A2DCCB0005C570C /* Calendar */,
@@ -801,7 +799,7 @@
 				82E9F59B2A016A2800F50C6D /* Video Player */,
 				828722022A08490A000046B1 /* Image Detail */,
 			);
-			path = "Other Screens";
+			path = "Other Modules";
 			sourceTree = "<group>";
 		};
 		82E9B94929760703000845B3 /* Resources */ = {
@@ -813,8 +811,7 @@
 				82E56A0C297E31E800879E21 /* Extensions */,
 				82E9B93F29760588000845B3 /* Custom Views */,
 				82E9B94A29760710000845B3 /* Services */,
-				82E9B94329760604000845B3 /* Clean Architecture */,
-				82E9B94629760641000845B3 /* Other Screens */,
+				82E9B94329760604000845B3 /* Modules */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1137,7 +1134,6 @@
 				828E940B2A13BC9000CD7A0C /* EarthRouter.swift in Sources */,
 				8221EC6629EB324800D62FE2 /* LocationViewModel.swift in Sources */,
 				8236AA882A128E270033323D /* APODPresenter.swift in Sources */,
-				828CFA2F2A35BB9100C7542D /* NASAImageCategories.swift in Sources */,
 				828E940D2A13BC9000CD7A0C /* EarthInteractor.swift in Sources */,
 				82490F582A082A9800C9A6CF /* Coordinator.swift in Sources */,
 				828E940A2A13BC9000CD7A0C /* EarthPresenter.swift in Sources */,
