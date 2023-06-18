@@ -66,7 +66,11 @@ class APODViewController: UIViewController {
         view.addSubviews(imageView, DateLabel, ExplanationTextView)
         SetUpConstraints()
         SetUpNavigation()
-        ObserveChangedData()
+        NotificationCenter.default.addObserver(forName: Notification.Name("DateWasSelected"), object: nil, queue: .main) { notification in
+            if let date = notification.object as? String {
+                self.presenter?.getAPODWithOtherDate(date: date)
+            }
+        }
     }
  
     private func SetUpNavigation() {
@@ -80,7 +84,7 @@ class APODViewController: UIViewController {
                 self.openPhotoLibrary()
             }
         }
-        let calendar = UIAction(title: "календар", image: UIImage(systemName: "calendar")) { _ in
+        let calendar = UIAction(title: "календарь", image: UIImage(systemName: "calendar")) { _ in
             DispatchQueue.main.async {
                 self.openCalendar()
             }
@@ -111,15 +115,6 @@ class APODViewController: UIViewController {
             ExplanationTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
             ExplanationTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-    }
-    
-    private func ObserveChangedData() {
-        NotificationCenter.default.addObserver(forName: Notification.Name("date"), object: nil, queue: .main) { notification in
-            if let date = notification.object as? String {
-                print(date)
-                self.presenter?.getAPODWithOtherDate(date: date)
-            }
-        }
     }
 }
 

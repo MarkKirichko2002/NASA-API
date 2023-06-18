@@ -18,6 +18,7 @@
 		8221EC6629EB324800D62FE2 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8221EC6529EB324800D62FE2 /* LocationViewModel.swift */; };
 		8221EC6C29EB337C00D62FE2 /* Earth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8221EC6B29EB337C00D62FE2 /* Earth.swift */; };
 		8221EC6E29EB339100D62FE2 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8221EC6D29EB339100D62FE2 /* Resource.swift */; };
+		822BD0972A3F67A800E2988C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822BD0962A3F67A800E2988C /* CalendarViewController.swift */; };
 		8236AA872A128E270033323D /* APODModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8236AA822A128E270033323D /* APODModuleBuilder.swift */; };
 		8236AA882A128E270033323D /* APODPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8236AA832A128E270033323D /* APODPresenter.swift */; };
 		8236AA892A128E270033323D /* APODRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8236AA842A128E270033323D /* APODRouter.swift */; };
@@ -56,8 +57,6 @@
 		828721FE2A082FCE000046B1 /* ImageCategoriesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828721FD2A082FCE000046B1 /* ImageCategoriesScreen.swift */; };
 		828722002A08371B000046B1 /* ImageCategoriesViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828721FF2A08371B000046B1 /* ImageCategoriesViews.swift */; };
 		828722042A084A6E000046B1 /* NASAScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828722032A084A6E000046B1 /* NASAScreens.swift */; };
-		828CFA2F2A35BB9100C7542D /* NASAImageCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CFA2E2A35BB9100C7542D /* NASAImageCategories.swift */; };
-		828CFA3A2A367E2B00C7542D /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CFA392A367E2B00C7542D /* String + Extensions.swift */; };
 		828E94092A13BC9000CD7A0C /* EarthModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E94042A13BC9000CD7A0C /* EarthModuleBuilder.swift */; };
 		828E940A2A13BC9000CD7A0C /* EarthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E94052A13BC9000CD7A0C /* EarthPresenter.swift */; };
 		828E940B2A13BC9000CD7A0C /* EarthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E94062A13BC9000CD7A0C /* EarthRouter.swift */; };
@@ -76,7 +75,6 @@
 		82C6F25328A4091100B8EA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C6F25128A4091100B8EA70 /* LaunchScreen.storyboard */; };
 		82C6F25F28A4093500B8EA70 /* MarsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6F25E28A4093500B8EA70 /* MarsImage.swift */; };
 		82CB41BE2A2D445E005C570C /* TextRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CB41BD2A2D445E005C570C /* TextRecognitionManager.swift */; };
-		82CB41C12A2DCEA0005C570C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CB41C02A2DCEA0005C570C /* CalendarViewController.swift */; };
 		82CB41C42A2DCEBF005C570C /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 82CB41C32A2DCEBF005C570C /* FSCalendar */; };
 		82E569FD297E110000879E21 /* NASAImageCategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E569FC297E110000879E21 /* NASAImageCategoriesListView.swift */; };
 		82E569FF297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E569FE297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift */; };
@@ -140,6 +138,7 @@
 		8221EC6529EB324800D62FE2 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		8221EC6B29EB337C00D62FE2 /* Earth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earth.swift; sourceTree = "<group>"; };
 		8221EC6D29EB339100D62FE2 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		822BD0962A3F67A800E2988C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		8236AA822A128E270033323D /* APODModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODModuleBuilder.swift; sourceTree = "<group>"; };
 		8236AA832A128E270033323D /* APODPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODPresenter.swift; sourceTree = "<group>"; };
 		8236AA842A128E270033323D /* APODRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODRouter.swift; sourceTree = "<group>"; };
@@ -178,8 +177,6 @@
 		828721FD2A082FCE000046B1 /* ImageCategoriesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCategoriesScreen.swift; sourceTree = "<group>"; };
 		828721FF2A08371B000046B1 /* ImageCategoriesViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCategoriesViews.swift; sourceTree = "<group>"; };
 		828722032A084A6E000046B1 /* NASAScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAScreens.swift; sourceTree = "<group>"; };
-		828CFA2E2A35BB9100C7542D /* NASAImageCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategories.swift; sourceTree = "<group>"; };
-		828CFA392A367E2B00C7542D /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		828E94042A13BC9000CD7A0C /* EarthModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthModuleBuilder.swift; sourceTree = "<group>"; };
 		828E94052A13BC9000CD7A0C /* EarthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthPresenter.swift; sourceTree = "<group>"; };
 		828E94062A13BC9000CD7A0C /* EarthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthRouter.swift; sourceTree = "<group>"; };
@@ -201,7 +198,6 @@
 		82C6F25428A4091100B8EA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82C6F25E28A4093500B8EA70 /* MarsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsImage.swift; sourceTree = "<group>"; };
 		82CB41BD2A2D445E005C570C /* TextRecognitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognitionManager.swift; sourceTree = "<group>"; };
-		82CB41C02A2DCEA0005C570C /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = "NASA API/Resources/Other Screens/Calendar/CalendarViewController.swift"; sourceTree = SOURCE_ROOT; };
 		82E569FC297E110000879E21 /* NASAImageCategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesListView.swift; sourceTree = "<group>"; };
 		82E569FE297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesListViewViewModel.swift; sourceTree = "<group>"; };
 		82E56A00297E114F00879E21 /* NASAImageCategoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAImageCategoriesListViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +325,14 @@
 				8221EC6329EB31BA00D62FE2 /* LocationManager.swift */,
 			);
 			path = "Location ";
+			sourceTree = "<group>";
+		};
+		822BD0952A3F66F400E2988C /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				822BD0962A3F67A800E2988C /* CalendarViewController.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		8236AA812A128E040033323D /* VIPER Modules */ = {
@@ -512,14 +516,6 @@
 			path = "Image Detail";
 			sourceTree = "<group>";
 		};
-		828CFA382A36749200C7542D /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				82CB41C02A2DCEA0005C570C /* CalendarViewController.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
 		828E94032A13BC7700CD7A0C /* Earth VIPER */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,7 +666,6 @@
 			isa = PBXGroup;
 			children = (
 				8239552028BEDCE10064A1BB /* NasaImageCategory.swift */,
-				828CFA2E2A35BB9100C7542D /* NASAImageCategories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -679,7 +674,6 @@
 			isa = PBXGroup;
 			children = (
 				82E56A0D297E31F800879E21 /* UIView + Extensions.swift */,
-				828CFA392A367E2B00C7542D /* String + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -797,7 +791,7 @@
 		82E9B94629760641000845B3 /* Other Screens */ = {
 			isa = PBXGroup;
 			children = (
-				828CFA382A36749200C7542D /* Calendar */,
+				822BD0952A3F66F400E2988C /* Calendar */,
 				827619CB2A02EE280051D680 /* Start Screen */,
 				82148B88298E5F2D005FA95D /* Splash Screen */,
 				82148B89298E5F39005FA95D /* TabBar */,
@@ -810,11 +804,11 @@
 		82E9B94929760703000845B3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				82E9B93F29760588000845B3 /* Custom Views */,
 				82490F532A082A6800C9A6CF /* Patterns */,
-				824658BC29F45BFB00EE7AC4 /* Protocols */,
 				82C5AC0829822F4000D26D7C /* ViewModels */,
 				82E56A0C297E31E800879E21 /* Extensions */,
-				82E9B93F29760588000845B3 /* Custom Views */,
+				824658BC29F45BFB00EE7AC4 /* Protocols */,
 				82E9B94A29760710000845B3 /* Services */,
 				82E9B94329760604000845B3 /* Clean Architecture */,
 				82E9B94629760641000845B3 /* Other Screens */,
@@ -1052,6 +1046,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				822BD0972A3F67A800E2988C /* CalendarViewController.swift in Sources */,
 				82E56A3F297F732800879E21 /* NASAService.swift in Sources */,
 				82E56A4B297F8AB900879E21 /* Coords.swift in Sources */,
 				82C5AC122982620000D26D7C /* NASAImageLibraryListView.swift in Sources */,
@@ -1077,7 +1072,6 @@
 				82E56A32297F688D00879E21 /* EPIC.swift in Sources */,
 				82E56A50297F8C2400879E21 /* AudioPlayer.swift in Sources */,
 				82C5AC1A298268D600D26D7C /* NASAImageLibraryCollectionViewCellViewModel.swift in Sources */,
-				82CB41C12A2DCEA0005C570C /* CalendarViewController.swift in Sources */,
 				82E56A65297FC84C00879E21 /* Item.swift in Sources */,
 				82E569FD297E110000879E21 /* NASAImageCategoriesListView.swift in Sources */,
 				824658DD29F49CC300EE7AC4 /* NASAServiceProtocol.swift in Sources */,
@@ -1116,7 +1110,6 @@
 				82E56A67297FC86600879E21 /* LibraryData.swift in Sources */,
 				82E56A69297FC87A00879E21 /* Link.swift in Sources */,
 				82E56A49297F8AA500879E21 /* CentroidCoordinates.swift in Sources */,
-				828CFA3A2A367E2B00C7542D /* String + Extensions.swift in Sources */,
 				82E569FF297E112300879E21 /* NASAImageCategoriesListViewViewModel.swift in Sources */,
 				82E9F5942A004DD300F50C6D /* NASAVideoLibraryCollectionViewCellViewModel.swift in Sources */,
 				82C6F24728A4090E00B8EA70 /* AppDelegate.swift in Sources */,
@@ -1141,7 +1134,6 @@
 				828E940B2A13BC9000CD7A0C /* EarthRouter.swift in Sources */,
 				8221EC6629EB324800D62FE2 /* LocationViewModel.swift in Sources */,
 				8236AA882A128E270033323D /* APODPresenter.swift in Sources */,
-				828CFA2F2A35BB9100C7542D /* NASAImageCategories.swift in Sources */,
 				828E940D2A13BC9000CD7A0C /* EarthInteractor.swift in Sources */,
 				82490F582A082A9800C9A6CF /* Coordinator.swift in Sources */,
 				828E940A2A13BC9000CD7A0C /* EarthPresenter.swift in Sources */,
