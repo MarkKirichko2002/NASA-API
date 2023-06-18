@@ -34,7 +34,6 @@ class APODViewController: UIViewController {
     
     private func openCalendar() {
         let vc = CalendarViewController()
-        vc.delegate = self
         present(vc, animated: true)
     }
     
@@ -67,6 +66,11 @@ class APODViewController: UIViewController {
         view.addSubviews(imageView, DateLabel, ExplanationTextView)
         SetUpConstraints()
         SetUpNavigation()
+        NotificationCenter.default.addObserver(forName: Notification.Name("DateWasSelected"), object: nil, queue: .main) { notification in
+            if let date = notification.object as? String {
+                self.presenter?.getAPODWithOtherDate(date: date)
+            }
+        }
     }
  
     private func SetUpNavigation() {
@@ -80,7 +84,7 @@ class APODViewController: UIViewController {
                 self.openPhotoLibrary()
             }
         }
-        let calendar = UIAction(title: "календар", image: UIImage(systemName: "calendar")) { _ in
+        let calendar = UIAction(title: "календарь", image: UIImage(systemName: "calendar")) { _ in
             DispatchQueue.main.async {
                 self.openCalendar()
             }
@@ -137,13 +141,5 @@ extension APODViewController: UIImagePickerControllerDelegate, UINavigationContr
         }
         
         presenter?.recognizeText(image: image)
-    }
-}
-
-// MARK: - CalendarViewControllerDelegate
-extension APODViewController: CalendarViewControllerDelegate {
-    
-    func dataWasSelected(date: String) {
-        presenter?.getAPODWithOtherDate(date: date)
     }
 }
