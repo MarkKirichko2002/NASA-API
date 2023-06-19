@@ -8,10 +8,12 @@
 import Foundation
 
 final class NASAVideoLibraryCollectionViewCellViewModel {
+    
     public var NASAVideoImage: String
     public var NASAVideoTitle: String
     public var NASAVideoJSON: String
     
+    // MARK: - Init
     init(NASAVideoImage: String, NASAVideoTitle: String, NASAVideoJSON: String) {
         self.NASAVideoImage = NASAVideoImage
         self.NASAVideoTitle = NASAVideoTitle

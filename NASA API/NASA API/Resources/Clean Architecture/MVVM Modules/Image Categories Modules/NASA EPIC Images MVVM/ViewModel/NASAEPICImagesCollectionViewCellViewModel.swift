@@ -13,6 +13,7 @@ final class NASAEPICImagesCollectionViewCellViewModel {
     public var EPICTitle: String
     public var EPICDate: String
     
+    // MARK: - Init
     init(EPICIMage: String, EPICTitle: String, EPICDate: String) {
         self.EPICIMage = EPICIMage
         self.EPICTitle = EPICTitle
