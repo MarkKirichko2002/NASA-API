@@ -32,7 +32,7 @@ class RoundedImageView: UIImageView {
         imageSaver.writeToPhotoAlbum(image: inputImage)
     }
     
-    @IBAction func tapFunction(sender: UITapGestureRecognizer) {
+    @objc private func tapFunction(sender: UITapGestureRecognizer) {
         
         AudioPlayer.shared.PlaySound(resource: sound)
         
