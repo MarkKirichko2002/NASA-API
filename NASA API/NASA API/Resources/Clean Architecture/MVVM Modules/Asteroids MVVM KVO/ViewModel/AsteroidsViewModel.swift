@@ -6,17 +6,22 @@
 //
 
 import Foundation
-import RxCocoa
-import RxSwift
 
-final class AsteroidsViewModel {
+final class AsteroidsViewModel: NSObject {
     
-    var asteroids = PublishSubject<[NearEarthObject]>()
+    @objc dynamic var asteroids: [NearEarthObject] = []
+    
+    var observation: NSKeyValueObservation?
+    
     private var nasaService: NASAServiceProtocol?
     
     // MARK: - Init
     init(nasaService: NASAServiceProtocol?) {
         self.nasaService = nasaService
+    }
+    
+    func asteroidsCount()-> Int {
+        return asteroids.count
     }
     
     func GetAsteroids() {
@@ -26,7 +31,9 @@ final class AsteroidsViewModel {
                 guard let data = data.nearEarthObjects?["2015-09-07", default: [NearEarthObject]()] else {
                     return
                 }
-                self?.asteroids.onNext(data)
+                DispatchQueue.main.async {
+                    self?.asteroids = data
+                }
             case .failure(let error):
                 print(error)
             }

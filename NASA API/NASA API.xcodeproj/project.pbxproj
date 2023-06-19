@@ -773,7 +773,7 @@
 			isa = PBXGroup;
 			children = (
 				828722012A084687000046B1 /* Image Categories Modules */,
-				82F2572B28B837E000824A80 /* Asteroids MVVM + RxSwift */,
+				82F2572B28B837E000824A80 /* Asteroids MVVM KVO */,
 				82E9F5872A004CD400F50C6D /* NASA Video Library MVVM */,
 				8255247329BE54750067EB68 /* Settings MVVM */,
 			);
@@ -890,13 +890,13 @@
 			path = "Video Player";
 			sourceTree = "<group>";
 		};
-		82F2572B28B837E000824A80 /* Asteroids MVVM + RxSwift */ = {
+		82F2572B28B837E000824A80 /* Asteroids MVVM KVO */ = {
 			isa = PBXGroup;
 			children = (
 				82F2572D28B837EB00824A80 /* View */,
 				82F2572C28B837E700824A80 /* ViewModel */,
 			);
-			path = "Asteroids MVVM + RxSwift";
+			path = "Asteroids MVVM KVO";
 			sourceTree = "<group>";
 		};
 		82F2572C28B837E700824A80 /* ViewModel */ = {
