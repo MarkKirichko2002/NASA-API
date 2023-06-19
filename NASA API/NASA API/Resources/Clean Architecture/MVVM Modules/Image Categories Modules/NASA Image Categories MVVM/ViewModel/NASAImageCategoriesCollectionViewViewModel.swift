@@ -8,10 +8,12 @@
 import Foundation
 
 final class NASAImageCategoriesCollectionViewCellViewModel {
+    
     public var categoryName: String
     public var categoryImage: String
     public var imagesCount: Int
     
+    // MARK: - Init
     init(categoryName: String, categoryImage: String, imagesCount: Int) {
         self.categoryName = categoryName
         self.categoryImage = categoryImage

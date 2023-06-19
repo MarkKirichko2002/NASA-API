@@ -13,6 +13,7 @@ final class MarsPhotosCollectionViewCellViewModel {
     public var RoverName: String
     public var PhotoDate: String
     
+    // MARK: - Init
     init(MarsPhoto: String, RoverName: String, PhotoDate: String) {
         self.MarsPhoto = MarsPhoto
         self.RoverName = RoverName

@@ -64,7 +64,6 @@ final class NASATabBarController: UITabBarController, Coordinating {
     func tabChangedTo(selectedIndex: Int) {
         UserDefaults.standard.set(selectedIndex, forKey: "index")
         switch selectedIndex {
-            
         case 0:
             break
         case 1:
