@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageSaver: NSObject {
+class ImageSaver: ImageSaverProtocol {
     
     func writeToPhotoAlbum(image: UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)

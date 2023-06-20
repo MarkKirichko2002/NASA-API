@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DateManager {
+class DateManager: DateManagerProtocol {
     
     func GetCurrentDate()->String {
         let date = Date()

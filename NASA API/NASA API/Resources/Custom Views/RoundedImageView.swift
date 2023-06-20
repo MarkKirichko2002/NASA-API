@@ -6,12 +6,10 @@
 //
 
 import UIKit
-import AVFoundation
 
 class RoundedImageView: UIImageView {
     
     var sound = ""
-    private let audioPlayer = AVAudioPlayer()
     
     override func layoutSubviews() {
         let interaction = UIContextMenuInteraction(delegate: self)
@@ -27,7 +25,6 @@ class RoundedImageView: UIImageView {
     
     func SaveImage() {
         guard let inputImage = self.image else { return }
-        
         let imageSaver = ImageSaver()
         imageSaver.writeToPhotoAlbum(image: inputImage)
     }
