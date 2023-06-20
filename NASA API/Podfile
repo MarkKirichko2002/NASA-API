@@ -8,8 +8,6 @@ target 'NASA API' do
   # Pods for NASA API
   pod 'Alamofire'
   pod 'SDWebImage'
-  pod 'RxSwift'
-  pod 'RxCocoa'
   pod 'Swinject'
   pod 'FSCalendar'
 

@@ -22,21 +22,21 @@ class NASAService: NASAServiceProtocol {
     
     private var url = ""
     
+    var date = ""
+    
     struct Contacts {
         static var apiKey = "iN4Lu3Ku0270mo9YWlhXAgJAuwbEQ8aobiGZo6tX"
     }
 
+    // MARK: - сервисы
+    private var dateManager: DateManagerProtocol?
+    private var locationManager: LocationManagerProtocol?
+    
     // MARK: - Init
-    init(dateManager: DateManager?, locationManager: LocationManager?) {
+    init(dateManager: DateManagerProtocol?, locationManager: LocationManagerProtocol?) {
         self.dateManager = dateManager
         self.locationManager = locationManager
     }
-    
-    // MARK: - сервисы
-    private var dateManager: DateManager?
-    private var locationManager: LocationManager?
-    
-    var date = ""
     
     private func UrlForResponse(response: ResponseType) -> String {
         switch response {

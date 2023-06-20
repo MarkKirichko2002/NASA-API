@@ -7,7 +7,7 @@
 
 import CoreLocation
 
-class LocationManager {
+class LocationManager: LocationManagerProtocol {
     
     private let locationManager = CLLocationManager()
     private var currentLoc: CLLocation?

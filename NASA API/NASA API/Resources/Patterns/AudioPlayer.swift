@@ -12,6 +12,7 @@ class AudioPlayer: AudioPlayerProtocol {
     static let shared = AudioPlayer()
     private var player: AVAudioPlayer?
     
+    // MARK: - Init
     private init() {}
     
     func PlaySound(resource: String) {
