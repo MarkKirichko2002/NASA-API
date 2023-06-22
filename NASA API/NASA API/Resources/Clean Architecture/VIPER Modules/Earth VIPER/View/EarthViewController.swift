@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 protocol EarthViewProtocol: AnyObject {
     func PresentEarth(earth: Earth)
@@ -16,7 +15,7 @@ class EarthViewController: UIViewController {
     
     var presenter: EarthPresenterProtocol?
     
-    private let EarthImage: UIImageView = {
+    let EarthImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -37,12 +36,5 @@ class EarthViewController: UIViewController {
             EarthImage.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             EarthImage.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
-    }
-}
-
-// MARK: - EarthViewProtocol
-extension EarthViewController: EarthViewProtocol {
-    func PresentEarth(earth: Earth)  {
-        EarthImage.sd_setImage(with: URL(string: earth.url ?? ""))
     }
 }

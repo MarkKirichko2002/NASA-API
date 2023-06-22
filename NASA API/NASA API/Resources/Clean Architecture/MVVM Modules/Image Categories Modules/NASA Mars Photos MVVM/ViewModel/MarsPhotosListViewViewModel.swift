@@ -18,7 +18,7 @@ final class MarsPhotosListViewViewModel: NSObject {
     
     private let nasaService: NASAServiceProtocol?
     
-    private var marsphotos = [Photo]() {
+    var marsphotos = [Photo]() {
         didSet {
             for photo in marsphotos {
                 let viewModel = MarsPhotosCollectionViewCellViewModel(MarsPhoto: photo.imgSrc, RoverName: photo.rover.name, PhotoDate: photo.earthDate)
@@ -27,7 +27,7 @@ final class MarsPhotosListViewViewModel: NSObject {
             }
         }
     }
-    private var cellViewModels = [MarsPhotosCollectionViewCellViewModel]()
+    var cellViewModels = [MarsPhotosCollectionViewCellViewModel]()
     
     // MARK: - Init
     init(nasaService: NASAServiceProtocol?) {
@@ -46,39 +46,6 @@ final class MarsPhotosListViewViewModel: NSObject {
             case .failure(let error):
                 print(error)
             }
-        }
-    }
-}
-
-extension MarsPhotosListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cellViewModels.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MarsPhotosCollectionViewCell.identifier, for: indexPath) as? MarsPhotosCollectionViewCell else {
-            fatalError("Unsupported cell")
-        }
-        cell.configure(with: cellViewModels[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath)-> CGSize {
-        let bounds = UIScreen.main.bounds
-        let width = (bounds.width - 30) / 2
-        return CGSize(width: width, height: width * 1.5)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        AudioPlayer.shared.PlaySound(resource: "space.wav")
-        
-        if let cell = collectionView.cellForItem(at: indexPath) as? MarsPhotosCollectionViewCell {
-            cell.didCellTapped(indexPath: indexPath)
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.delegate?.didMarsPhotoSelected(photo: self.marsphotos[indexPath.row])
         }
     }
 }

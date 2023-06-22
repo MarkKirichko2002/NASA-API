@@ -10,6 +10,7 @@ protocol EarthPresenterProtocol: AnyObject {
 }
 
 class EarthPresenter {
+    
     weak var view: EarthViewProtocol?
     var router: EarthRouterProtocol
     var interactor: EarthInteractorProtocol
@@ -19,11 +20,5 @@ class EarthPresenter {
         self.interactor = interactor
         self.interactor.GetEarthImage()
         self.router = router
-    }
-}
-
-extension EarthPresenter: EarthPresenterProtocol {
-    func interactorDidFetchedEarth(earth: Earth) {
-        view?.PresentEarth(earth: earth)
     }
 }

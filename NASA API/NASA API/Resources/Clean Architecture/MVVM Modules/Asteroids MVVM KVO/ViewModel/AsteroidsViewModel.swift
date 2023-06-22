@@ -24,6 +24,10 @@ final class AsteroidsViewModel: NSObject {
         return asteroids.count
     }
     
+    func asteroid(index: Int)-> NearEarthObject {
+        return asteroids[index]
+    }
+    
     func GetAsteroids() {
         nasaService?.execute(type: Asteroid.self, response: .asteroids) { [weak self] result in
             switch result {

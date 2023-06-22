@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import AVKit
 
-final class VideoPlayerViewController: UIViewController, AVPlayerViewControllerDelegate {
+final class VideoPlayerViewController: UIViewController {
     
-    private var video = ""
+    var video = ""
     var json = ""
     private let nasaService = Injection.shared.makeContainer().resolve(NASAServiceProtocol.self)
     
@@ -39,18 +38,5 @@ final class VideoPlayerViewController: UIViewController, AVPlayerViewControllerD
             playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             playButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
-    }
-    
-    @objc private func PlayVideo() {
-        var playerController = AVPlayerViewController()
-        if let url = URL(string: self.video) {
-            let player = AVPlayer(url: url)
-            playerController = AVPlayerViewController()
-            playerController.player = player
-            playerController.allowsPictureInPicturePlayback = true
-            playerController.delegate = self
-            playerController.player?.play()
-            self.present(playerController, animated: true, completion: nil)
-        } else {}
     }
 }

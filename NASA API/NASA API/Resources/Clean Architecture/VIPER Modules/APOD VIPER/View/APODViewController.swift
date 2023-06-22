@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 protocol APODViewProtocol: AnyObject {
     func displayAPOD(apod: Apod)
@@ -37,7 +36,7 @@ class APODViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    private let imageView: RoundedImageView = {
+    let imageView: RoundedImageView = {
         let imageView = RoundedImageView()
         imageView.sound = "space.wav"
         imageView.contentMode = .scaleAspectFill
@@ -45,14 +44,14 @@ class APODViewController: UIViewController {
         return imageView
     }()
     
-    private let DateLabel: UILabel = {
+    let DateLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let ExplanationTextView: UITextView = {
+    let ExplanationTextView: UITextView = {
         let textView = UITextView()
         textView.font = .systemFont(ofSize: 14, weight: .bold)
         textView.isEditable = false
@@ -115,31 +114,5 @@ class APODViewController: UIViewController {
             ExplanationTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
             ExplanationTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-    }
-}
-
-// MARK: - APODViewProtocol
-extension APODViewController: APODViewProtocol {
-    
-    func displayAPOD(apod: Apod) {
-        self.imageView.sd_setImage(with: URL(string: apod.hdurl ?? ""), placeholderImage: UIImage(named: "NASA"))
-        DispatchQueue.main.async {
-            self.DateLabel.text = apod.date
-            self.ExplanationTextView.text = apod.explanation
-        }
-    }
-}
-
-// MARK: - UIImagePickerControllerDelegate
-extension APODViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true)
-        
-        guard let image = info[.editedImage] as? UIImage else {
-            return
-        }
-        
-        presenter?.recognizeText(image: image)
     }
 }

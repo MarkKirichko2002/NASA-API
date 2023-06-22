@@ -18,7 +18,7 @@ final class NASAVideoLibraryListViewViewModel: NSObject {
     
     private let nasaService: NASAServiceProtocol?
     
-    private var cellViewModels = [NASAVideoLibraryCollectionViewCellViewModel]()
+    var cellViewModels = [NASAVideoLibraryCollectionViewCellViewModel]()
     
     // MARK: - Init
     init(nasaService: NASAServiceProtocol?) {
@@ -43,36 +43,6 @@ final class NASAVideoLibraryListViewViewModel: NSObject {
             case .failure(let error):
                 print(error)
             }
-        }
-    }
-}
-
-extension NASAVideoLibraryListViewViewModel: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cellViewModels.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NASAVideoLibraryCollectionViewCell.identifier, for: indexPath) as? NASAVideoLibraryCollectionViewCell else {
-            fatalError("Unsupported cell")
-        }
-        cell.configure(with: cellViewModels[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath)-> CGSize {
-        let bounds = UIScreen.main.bounds
-        let width = (bounds.width - 30) / 2
-        return CGSize(width: width, height: width * 1.5)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? NASAVideoLibraryCollectionViewCell {
-            cell.didCellTapped(indexPath: indexPath)
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.delegate?.didSelectNASAVideo(self.cellViewModels[indexPath.row])
         }
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 final class AsteroidsViewController: UIViewController {
 
-    @objc private var viewModel: AsteroidsViewModel?
+    @objc var viewModel: AsteroidsViewModel?
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.view.frame)
@@ -38,7 +38,6 @@ final class AsteroidsViewController: UIViewController {
     private func SetUpTable() {
         self.view.addSubview(tableView)
         tableView.frame = view.bounds
-        tableView.delegate = self
         tableView.dataSource = self
     }
     
@@ -46,19 +45,5 @@ final class AsteroidsViewController: UIViewController {
         viewModel?.observation = observe(\.viewModel?.asteroids) { object, _ in
             self.tableView.reloadData()
         }
-    }
-}
-
-// MARK: - Init
-extension AsteroidsViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.asteroidsCount() ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "название: \(viewModel?.asteroids[indexPath.row].name ?? "")"
-        return cell
     }
 }
