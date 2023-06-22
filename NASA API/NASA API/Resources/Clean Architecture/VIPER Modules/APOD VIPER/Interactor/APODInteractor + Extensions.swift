@@ -1,26 +1,14 @@
 //
-//  APODInteractor.swift
-//  Super easy dev
+//  APODInteractor + Extensions.swift
+//  NASA API
 //
-//  Created by Марк Киричко on 15.05.2023
+//  Created by Марк Киричко on 22.06.2023.
 //
 
-protocol APODInteractorProtocol: AnyObject {
-    func GetAPOD()
-    func recognizeText(text: String)
-    func fetchAPODWithOtherDate(date: String)
-}
+import Foundation
 
-class APODInteractor: APODInteractorProtocol {
-    
-    weak var presenter: APODPresenterProtocol?
-    
-    private var nasaService: NASAServiceProtocol?
-    
-    // MARK: - Init
-    init(nasaService: NASAServiceProtocol?) {
-        self.nasaService = nasaService
-    }
+// MARK: - APODInteractorProtocol
+extension APODInteractor: APODInteractorProtocol {
     
     func GetAPOD() {
         nasaService?.execute(type: Apod.self, response: .apod) { [weak self] result in

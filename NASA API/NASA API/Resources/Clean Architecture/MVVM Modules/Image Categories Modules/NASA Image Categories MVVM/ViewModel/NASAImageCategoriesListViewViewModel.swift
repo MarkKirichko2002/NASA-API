@@ -18,8 +18,8 @@ final class NASAImageCategoriesListViewViewModel: NSObject {
     
     private let nasaService: NASAServiceProtocol?
     
-    private let cellViewModels = [NASAImageCategoriesCollectionViewCellViewModel(categoryName: "APOD", categoryImage: "camera", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Фото Марса", categoryImage: "rover", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "NASA Изображения", categoryImage: "NASA", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "EPIC", categoryImage: "EPIC", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Земля", categoryImage: "", imagesCount: 0)]
-    private let categories = [NasaImageCategory(id: 1, name: "APOD", icon: "camera", sound: "space.wav"), NasaImageCategory(id: 2, name: "Фото Марса", icon: "rover", sound: "space.wav"), NasaImageCategory(id: 3, name: "NASA Изображения", icon: "NASA", sound: "camera.mp3"), NasaImageCategory(id: 4, name: "EPIC", icon: "EPIC", sound: "space.wav"), NasaImageCategory(id: 5, name: "Земля", icon: "", sound: "space.wav")]
+    let cellViewModels = [NASAImageCategoriesCollectionViewCellViewModel(categoryName: "APOD", categoryImage: "camera", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Фото Марса", categoryImage: "rover", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "NASA Изображения", categoryImage: "NASA", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "EPIC", categoryImage: "EPIC", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Земля", categoryImage: "", imagesCount: 0)]
+    let categories = [NasaImageCategory(id: 1, name: "APOD", icon: "camera", sound: "space.wav"), NasaImageCategory(id: 2, name: "Фото Марса", icon: "rover", sound: "space.wav"), NasaImageCategory(id: 3, name: "NASA Изображения", icon: "NASA", sound: "camera.mp3"), NasaImageCategory(id: 4, name: "EPIC", icon: "EPIC", sound: "space.wav"), NasaImageCategory(id: 5, name: "Земля", icon: "", sound: "space.wav")]
     
     private let epicNASAImagesListViewViewModel: EPICNASAImagesListViewViewModel?
     
@@ -130,42 +130,6 @@ final class NASAImageCategoriesListViewViewModel: NSObject {
                     print(error)
                 }
             }
-        }
-    }
-}
-
-extension NASAImageCategoriesListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int)-> Int {
-        return cellViewModels.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NASAImageCategoriesCollectionViewCell.identifier, for: indexPath) as? NASAImageCategoriesCollectionViewCell else {
-            fatalError("Unsupported cell")
-        }
-        if let cell = collectionView.cellForItem(at: indexPath) as? NASAImageCategoriesCollectionViewCell {
-            cell.didCellTapped(indexPath: indexPath)
-        }
-        cell.configure(with: cellViewModels[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath)-> CGSize {
-        let bounds = UIScreen.main.bounds
-        let width = (bounds.width - 30) / 2
-        return CGSize(width: width, height: width * 1.5)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        let category = categories[indexPath.row]
-        AudioPlayer.shared.PlaySound(resource: category.sound)
-        if let cell = collectionView.cellForItem(at: indexPath) as? NASAImageCategoriesCollectionViewCell {
-            cell.didCellTapped(indexPath: indexPath)
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.delegate?.didSelectCategory(category)
         }
     }
 }

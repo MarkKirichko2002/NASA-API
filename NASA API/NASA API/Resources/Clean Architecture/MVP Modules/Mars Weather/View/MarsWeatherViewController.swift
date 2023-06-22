@@ -11,7 +11,7 @@ final class MarsWeatherViewController: UIViewController {
     
     private var presenter: MarsWeatherPresenter?
     
-    private let WeatherLabel: UILabel = {
+    let WeatherLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -44,13 +44,5 @@ final class MarsWeatherViewController: UIViewController {
             WeatherLabel.widthAnchor.constraint(equalToConstant: 200),
             WeatherLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
-    }
-}
-
-// MARK: - MarsWeatherPresenterDelegate
-extension MarsWeatherViewController: MarsWeatherPresenterDelegate {
-    
-    func displayMarsWeather(weather: ValidityChecks) {
-        WeatherLabel.text = "Sol Hours Required: \(weather.solHoursRequired)"
     }
 }

@@ -18,7 +18,7 @@ final class NASAImageLibraryListViewViewModel: NSObject {
     
     private let nasaService: NASAServiceProtocol?
     
-    private var cellViewModels = [NASAImageLibraryCollectionViewCellViewModel]()
+    var cellViewModels = [NASAImageLibraryCollectionViewCellViewModel]()
     
     // MARK: - Init
     init(nasaService: NASAServiceProtocol?) {
@@ -43,39 +43,6 @@ final class NASAImageLibraryListViewViewModel: NSObject {
             case .failure(let error):
                 print(error)
             }
-        }
-    }
-}
-
-extension NASAImageLibraryListViewViewModel: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cellViewModels.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NASAImageLibraryCollectionViewCell.identifier, for: indexPath) as? NASAImageLibraryCollectionViewCell else {
-            fatalError("Unsupported cell")
-        }
-        cell.configure(with: cellViewModels[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath)-> CGSize {
-        let bounds = UIScreen.main.bounds
-        let width = (bounds.width - 30) / 2
-        return CGSize(width: width, height: width * 1.5)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        AudioPlayer.shared.PlaySound(resource: "camera.mp3")
-        
-        if let cell = collectionView.cellForItem(at: indexPath) as? NASAImageLibraryCollectionViewCell {
-            cell.didCellTapped(indexPath: indexPath)
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.delegate?.didSelectNASAImage(self.cellViewModels[indexPath.row])
         }
     }
 }
