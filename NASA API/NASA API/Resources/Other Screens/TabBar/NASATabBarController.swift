@@ -77,12 +77,6 @@ final class NASATabBarController: UITabBarController, Coordinating {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        button.frame = CGRect.init(x: self.tabBar.center.x - 32, y: self.view.bounds.height - 100, width: 64, height: 64)
-        button.layer.cornerRadius = 32
-    }
-    
     private func SetUpTabs() {
         
         guard let imageCategoriesVC = factory?.createNASAScreens(screen: .imagecategories) else {return}
@@ -95,11 +89,16 @@ final class NASATabBarController: UITabBarController, Coordinating {
     }
     
     private func createMiddleButton() {
-        button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-        button.layer.borderWidth = 2
         button.setImage(UIImage(named: "NASA"), for: .normal)
-        self.view.insertSubview(button, aboveSubview: self.tabBar)
-        button.addTarget(self, action:  #selector(NASATabBarController.VoiceCommands(_:)), for: .touchUpInside)
+        button.layer.borderWidth = 2
+        button.layer.cornerRadius = 32
+        button.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
+        // Устанавливаем положение кнопки по середине TabBar
+        button.center = CGPoint(x: tabBar.frame.width / 2, y: tabBar.frame.height / 2 - 10)
+        // Назначаем действие для кнопки
+        button.addTarget(self, action: #selector(VoiceCommands), for: .touchUpInside)
+        // Добавляем кнопку на TabBar
+        tabBar.addSubview(button)
     }
     
     @objc private func VoiceCommands(_ sender: UIButton) {

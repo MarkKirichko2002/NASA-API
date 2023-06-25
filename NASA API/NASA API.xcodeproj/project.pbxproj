@@ -66,6 +66,9 @@
 		828E940B2A13BC9000CD7A0C /* EarthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E94062A13BC9000CD7A0C /* EarthRouter.swift */; };
 		828E940C2A13BC9000CD7A0C /* EarthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E94072A13BC9000CD7A0C /* EarthViewController.swift */; };
 		828E940D2A13BC9000CD7A0C /* EarthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E94082A13BC9000CD7A0C /* EarthInteractor.swift */; };
+		829C49B72A4876320007976B /* SpaceWallpapersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829C49B62A4876320007976B /* SpaceWallpapersViewController.swift */; };
+		829C49B92A487A9F0007976B /* SpaceWallpapersViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829C49B82A487A9F0007976B /* SpaceWallpapersViewController + Extensions.swift */; };
+		829C49C02A487BE60007976B /* WallpaperCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829C49BF2A487BE60007976B /* WallpaperCollectionViewCell.swift */; };
 		82AEE3782A253FC6002AA2DA /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AEE3772A253FC6002AA2DA /* Injection.swift */; };
 		82BFF9002A44645A003352E7 /* MarsWeatherViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF8FF2A44645A003352E7 /* MarsWeatherViewController + Extensions.swift */; };
 		82BFF9032A4464DE003352E7 /* NASAImageCategoriesListViewViewModel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF9022A4464DE003352E7 /* NASAImageCategoriesListViewViewModel + Extensions.swift */; };
@@ -205,6 +208,9 @@
 		828E94062A13BC9000CD7A0C /* EarthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthRouter.swift; sourceTree = "<group>"; };
 		828E94072A13BC9000CD7A0C /* EarthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthViewController.swift; sourceTree = "<group>"; };
 		828E94082A13BC9000CD7A0C /* EarthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthInteractor.swift; sourceTree = "<group>"; };
+		829C49B62A4876320007976B /* SpaceWallpapersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceWallpapersViewController.swift; sourceTree = "<group>"; };
+		829C49B82A487A9F0007976B /* SpaceWallpapersViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpaceWallpapersViewController + Extensions.swift"; sourceTree = "<group>"; };
+		829C49BF2A487BE60007976B /* WallpaperCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperCollectionViewCell.swift; sourceTree = "<group>"; };
 		82A2E745B9C3FF7B18738670 /* Pods-NASA API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA API.release.xcconfig"; path = "Target Support Files/Pods-NASA API/Pods-NASA API.release.xcconfig"; sourceTree = "<group>"; };
 		82AEE3772A253FC6002AA2DA /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		82BFF8FF2A44645A003352E7 /* MarsWeatherViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MarsWeatherViewController + Extensions.swift"; sourceTree = "<group>"; };
@@ -636,6 +642,48 @@
 			path = "Earth VIPER";
 			sourceTree = "<group>";
 		};
+		829C49B52A4876180007976B /* Wallpapers */ = {
+			isa = PBXGroup;
+			children = (
+				829C49BA2A487B890007976B /* View */,
+			);
+			path = Wallpapers;
+			sourceTree = "<group>";
+		};
+		829C49BA2A487B890007976B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				829C49BC2A487BA60007976B /* ViewController */,
+				829C49BD2A487BB00007976B /* Cell */,
+				829C49BB2A487B8E0007976B /* Extensions */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		829C49BB2A487B8E0007976B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				829C49B82A487A9F0007976B /* SpaceWallpapersViewController + Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		829C49BC2A487BA60007976B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				829C49B62A4876320007976B /* SpaceWallpapersViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		829C49BD2A487BB00007976B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				829C49BF2A487BE60007976B /* WallpaperCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		82AEE3762A253FB1002AA2DA /* DI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1045,6 +1093,7 @@
 		82E9B94629760641000845B3 /* Other Screens */ = {
 			isa = PBXGroup;
 			children = (
+				829C49B52A4876180007976B /* Wallpapers */,
 				822BD0952A3F66F400E2988C /* Calendar */,
 				827619CB2A02EE280051D680 /* Start Screen */,
 				82148B88298E5F2D005FA95D /* Splash Screen */,
@@ -1369,6 +1418,7 @@
 				82E9F5922A004DC200F50C6D /* NASAVideoLibraryListViewViewModel.swift in Sources */,
 				824658BE29F45C0E00EE7AC4 /* AnimationClassProtocol.swift in Sources */,
 				82E56A3A297F694D00879E21 /* EPICNASAImagesListViewViewModel.swift in Sources */,
+				829C49B72A4876320007976B /* SpaceWallpapersViewController.swift in Sources */,
 				82E56A5F297FC81F00879E21 /* Rover.swift in Sources */,
 				8221EC6C29EB337C00D62FE2 /* Earth.swift in Sources */,
 				82BFF9192A446BED003352E7 /* APODViewController + Extensions.swift in Sources */,
@@ -1402,6 +1452,7 @@
 				824658C029F45EED00EE7AC4 /* AudioPlayerProtocol.swift in Sources */,
 				82BFF9122A446AC0003352E7 /* NASAVideoLibraryListViewViewModel + Extensions.swift in Sources */,
 				82F2573028B838DD00824A80 /* Asteroid.swift in Sources */,
+				829C49C02A487BE60007976B /* WallpaperCollectionViewCell.swift in Sources */,
 				828E940B2A13BC9000CD7A0C /* EarthRouter.swift in Sources */,
 				8221EC6629EB324800D62FE2 /* LocationViewModel.swift in Sources */,
 				8236AA882A128E270033323D /* APODPresenter.swift in Sources */,
@@ -1426,6 +1477,7 @@
 				82C5AC18298266F200D26D7C /* NASAImageLibraryCollectionViewCell.swift in Sources */,
 				8255248429BE67E30067EB68 /* NearEarthObject.swift in Sources */,
 				82E56A38297F692100879E21 /* NASAEPICImagesCollectionViewCell.swift in Sources */,
+				829C49B92A487A9F0007976B /* SpaceWallpapersViewController + Extensions.swift in Sources */,
 				8255247829BE55510067EB68 /* NASASettingsOption.swift in Sources */,
 				82148B87298E58A5005FA95D /* MarsWeatherViewController.swift in Sources */,
 				82BFF91D2A446D71003352E7 /* APODPresenter + Extensions.swift in Sources */,

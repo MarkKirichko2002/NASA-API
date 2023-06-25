@@ -62,6 +62,11 @@ final class NASAImageCategoriesListViewController: UIViewController, NASAImageCa
             guard let vc = factory?.createImageCategoriesScreens(screen: .earth) else {return}
             self.navigationController?.pushViewController(vc, animated: true)
             
+        case 6:
+            let vc = SpaceWallpapersViewController()
+            vc.view.backgroundColor = .systemBackground
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         default:
             break
         }

@@ -8,7 +8,9 @@
 import UIKit
 
 protocol APODPresenterProtocol: AnyObject {
+    func getAPOD()
     func interactorDidFetchedAPOD(apod: Apod)
+    func openCalendar()
     func recognizeText(image: UIImage)
     func getAPODWithOtherDate(date: String)
 }
@@ -24,7 +26,14 @@ class APODPresenter {
     // MARK: - Init
     init(interactor: APODInteractorProtocol, router: APODRouterProtocol) {
         self.interactor = interactor
-        self.interactor.GetAPOD()
         self.router = router
+    }
+    
+    func getAPOD() {
+        interactor.GetAPOD()
+    }
+    
+    func openCalendar() {
+        router.openCalendar()
     }
 }
