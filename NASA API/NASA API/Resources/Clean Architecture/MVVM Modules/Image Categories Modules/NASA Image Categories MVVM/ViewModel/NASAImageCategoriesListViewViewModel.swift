@@ -18,8 +18,21 @@ final class NASAImageCategoriesListViewViewModel: NSObject {
     
     private let nasaService: NASAServiceProtocol?
     
-    let cellViewModels = [NASAImageCategoriesCollectionViewCellViewModel(categoryName: "APOD", categoryImage: "camera", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Фото Марса", categoryImage: "rover", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "NASA Изображения", categoryImage: "NASA", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "EPIC", categoryImage: "EPIC", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Земля", categoryImage: "", imagesCount: 0)]
-    let categories = [NasaImageCategory(id: 1, name: "APOD", icon: "camera", sound: "space.wav"), NasaImageCategory(id: 2, name: "Фото Марса", icon: "rover", sound: "space.wav"), NasaImageCategory(id: 3, name: "NASA Изображения", icon: "NASA", sound: "camera.mp3"), NasaImageCategory(id: 4, name: "EPIC", icon: "EPIC", sound: "space.wav"), NasaImageCategory(id: 5, name: "Земля", icon: "", sound: "space.wav")]
+    let cellViewModels = [
+        NASAImageCategoriesCollectionViewCellViewModel(categoryName: "APOD", categoryImage: "camera", imagesCount: 0),
+        NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Фото Марса", categoryImage: "rover", imagesCount: 0),
+        NASAImageCategoriesCollectionViewCellViewModel(categoryName: "NASA Изображения", categoryImage: "NASA", imagesCount: 0),
+        NASAImageCategoriesCollectionViewCellViewModel(categoryName: "EPIC", categoryImage: "EPIC", imagesCount: 0), NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Земля", categoryImage: "", imagesCount: 0),
+        NASAImageCategoriesCollectionViewCellViewModel(categoryName: "Космос Обои", categoryImage: "https://i.pinimg.com/564x/9f/ab/a2/9faba280e0caf0454563955b6207967c.jpg", imagesCount: 4)
+    ]
+    let categories = [
+        NasaImageCategory(id: 1, name: "APOD", icon: "camera", sound: ""),
+        NasaImageCategory(id: 2, name: "Фото Марса", icon: "rover", sound: ""),
+        NasaImageCategory(id: 3, name: "NASA Изображения", icon: "NASA", sound: "camera.mp3"),
+        NasaImageCategory(id: 4, name: "EPIC", icon: "", sound: ""),
+        NasaImageCategory(id: 5, name: "Земля", icon: "", sound: ""),
+        NasaImageCategory(id: 6, name: "Обои", icon: "", sound: "")
+    ]
     
     private let epicNASAImagesListViewViewModel: EPICNASAImagesListViewViewModel?
     

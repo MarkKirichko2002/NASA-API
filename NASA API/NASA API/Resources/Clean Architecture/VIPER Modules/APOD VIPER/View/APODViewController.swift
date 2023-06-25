@@ -31,11 +31,6 @@ class APODViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    private func openCalendar() {
-        let vc = CalendarViewController()
-        present(vc, animated: true)
-    }
-    
     let imageView: RoundedImageView = {
         let imageView = RoundedImageView()
         imageView.sound = "space.wav"
@@ -61,6 +56,7 @@ class APODViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.getAPOD()
         view.backgroundColor = .systemBackground
         view.addSubviews(imageView, DateLabel, ExplanationTextView)
         SetUpConstraints()
@@ -85,7 +81,7 @@ class APODViewController: UIViewController {
         }
         let calendar = UIAction(title: "календарь", image: UIImage(systemName: "calendar")) { _ in
             DispatchQueue.main.async {
-                self.openCalendar()
+                self.presenter?.openCalendar()
             }
         }
         let menu = UIMenu(title: "изменить дату", children: [camera, photoLibrary, calendar])

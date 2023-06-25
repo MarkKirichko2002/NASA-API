@@ -6,9 +6,15 @@
 //
 
 protocol APODRouterProtocol {
-    
+    func openCalendar()
 }
 
 class APODRouter: APODRouterProtocol {
+   
     weak var viewController: APODViewController?
+    
+    func openCalendar() {
+        let vc = CalendarViewController()
+        viewController?.present(vc, animated: true)
+    }
 }
