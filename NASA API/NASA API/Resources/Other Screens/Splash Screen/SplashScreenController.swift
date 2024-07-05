@@ -21,7 +21,8 @@ final class SplashScreenController: UIViewController {
     
     private var TitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 30, weight: .black)
+        label.font = .systemFont(ofSize: 20, weight: .black)
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -46,14 +47,17 @@ final class SplashScreenController: UIViewController {
     
     private func SetUpConstraints() {
         NSLayoutConstraint.activate([
+            // иконка
             Icon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            Icon.heightAnchor.constraint(equalToConstant: 250),
-            Icon.widthAnchor.constraint(equalToConstant: 250),
-            
+            Icon.widthAnchor.constraint(equalToConstant: 180),
+            Icon.heightAnchor.constraint(equalToConstant: 180),
+            // название
             TitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             TitleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            TitleLabel.heightAnchor.constraint(equalToConstant: 30),
-            TitleLabel.topAnchor.constraint(equalTo: Icon.bottomAnchor, constant: 15)
+            TitleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
+            TitleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
+            TitleLabel.heightAnchor.constraint(equalToConstant: 100),
+            TitleLabel.topAnchor.constraint(equalTo: Icon.bottomAnchor, constant: 50)
         ])
     }
     

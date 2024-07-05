@@ -41,6 +41,7 @@ class APODViewController: UIViewController {
     
     let DateLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .label
         label.font = .systemFont(ofSize: 16, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -86,7 +87,7 @@ class APODViewController: UIViewController {
         }
         let menu = UIMenu(title: "изменить дату", children: [camera, photoLibrary, calendar])
         let media = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), menu: menu)
-        media.tintColor = .black
+        media.tintColor = .label
         navigationItem.rightBarButtonItem = media
     }
     

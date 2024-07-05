@@ -31,7 +31,7 @@ final class NASAStartViewController: UIViewController, Coordinating {
     private let StartButton: UIButton = {
         let button = UIButton()
         button.setTitle("Начать", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(UIColor.label, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

@@ -85,6 +85,7 @@ final class NASATabBarController: UITabBarController, Coordinating {
         let middleButton = UIViewController()
         guard let marsWeatherVC = factory?.createNASAScreens(screen: .marsweather) else {return}
     
+        self.tabBar.tintColor = .label
         setViewControllers([imageCategoriesVC,asteroidsVC,middleButton,mediaLibrary,marsWeatherVC], animated: true)
     }
     
